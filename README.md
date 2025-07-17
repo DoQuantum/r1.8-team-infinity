@@ -1,4 +1,4 @@
-# Enhancing Financial Fraud Detection Through Hybrid Quantum-Classical Machine Learning Models
+#Enhancing Financial Risk Modeling Through Quantum-Accelerated Value at Risk and Conditional Value at Risk Estimation
 
 # 🧑‍🔬 Research Team GitHub Guide - Reccomendations
 
