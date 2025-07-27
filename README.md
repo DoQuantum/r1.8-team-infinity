@@ -1,6 +1,6 @@
 #Enhancing Financial Risk Modeling Through Quantum-Accelerated Value at Risk and Conditional Value at Risk Estimation
 
-# 🧑‍🔬 Research Team GitHub Guide - Reccomendations
+# 🧑‍🔬 Research Team GitHub Guide - Recomendations
 
 Welcome to your research repository! This guide will help you work together using Git and GitHub — no prior experience needed. Feel free to modify this, it's only for your introduction to your team's repo.
 
