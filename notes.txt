@@ -1,0 +1,1 @@
+-Intially chose reddit b/c it is mainly text data, however, I am realizing that a lot of the posts (on r/wallstreetbros) have images. 
