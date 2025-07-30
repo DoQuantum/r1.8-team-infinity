@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 driver = webdriver.Chrome()
 
 driver.get('https://www.reddit.com/r/wallstreetbets/?feedViewType=compactView')
-assert 'Selenium' in driver.title
+assert 'Reddit' in driver.title
 
 elem = driver.find_element(By.ID, 'absolute inset-0')
 elem.click()
