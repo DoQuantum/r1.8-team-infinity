@@ -58,10 +58,12 @@ def getArticleContent():
        df = pd.read_csv("articles.csv")
        for url in df['url']:
               print()
+              
               # Set a random user agent
               config = Config()
               ua = UserAgent()
               config.browser_user_agent = ua.random
+
               # Set proxies
               # proxy = random.choice(proxies) # to use random proxy
               proxy = "38.147.98.190:8080"
