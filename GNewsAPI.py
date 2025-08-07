@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 import os
 
 from newspaper import Article
+from newspaper import Config
+import time
 
 # Call API and write results to CSV
 def getArticles():
@@ -31,12 +33,18 @@ def getArticles():
 
 # Get content from articles.csv
 def getArticleContent():
+       # Set user agent
+       config = Config()
+       config.browser_user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+
+
        # Get dataframe from articles.csv
        df = pd.read_csv("articles.csv")
        for url in df['url']:
               # Print URL and article content
               print("URL:", url)
-              article = Article(url)
+              article = Article(url, config=config)
+              time.sleep(2) # Pause to avoid triggering rate limits
               article.download()
               article.parse()
               print("Content:", article.text)
