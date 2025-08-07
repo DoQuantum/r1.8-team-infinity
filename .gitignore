@@ -1,2 +1,5 @@
 .env
+<<<<<<< HEAD
 .venv
+=======
+>>>>>>> 78c42fc (moved gitignore file to prevent data breach)
