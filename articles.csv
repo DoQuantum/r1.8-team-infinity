@@ -1,11 +1,61 @@
-title,url
-Google kills ad fee implemented in response to digital services tax,https://www.thestar.com/news/canada/google-kills-ad-fee-implemented-in-response-to-digital-services-tax/article_84fa0f38-5f7e-55f8-b332-1e07a9f7ebe8.html
-Google kills ad fee implemented in response to digital services tax,https://www.guelphtoday.com/national-news/google-kills-ad-fee-implemented-in-response-to-digital-services-tax-10964914
-Google kills ad fee implemented in response to digital services tax,https://www.bradfordtoday.ca/national-news/google-kills-ad-fee-implemented-in-response-to-digital-services-tax-10964914
-Google kills ad fee implemented in response to digital services tax,https://www.baytoday.ca/national-news/google-kills-ad-fee-implemented-in-response-to-digital-services-tax-10964914
-Google kills ad fee implemented in response to digital services tax,https://www.elliotlaketoday.com/national-news/google-kills-ad-fee-implemented-in-response-to-digital-services-tax-10964914
-Google kills ad fee implemented in response to digital services tax,https://www.sootoday.com/national-news/google-kills-ad-fee-implemented-in-response-to-digital-services-tax-10964914
-Google kills ad fee implemented in response to digital services tax,https://www.vancouverisawesome.com/national-news/google-kills-ad-fee-implemented-in-response-to-digital-services-tax-10964920
-Google Phone for Wear OS getting M3 Expressive,https://9to5google.com/2025/07/18/google-phone-wear-os-m3-expressive/
-Google stops charging Canadian advertisers extra fee after digital services tax dropped,https://www.theglobeandmail.com/business/article-google-stops-charging-canadian-advertisers-extra-fee-digital-services/
-Should you wait for the Google Pixel 10 Pro Fold?,https://www.androidcentral.com/phones/google-pixel/should-you-wait-for-the-google-pixel-10-pro-fold
+title,url,content
+"Google brings Gemini to classrooms for all ages, sparking debate about AI’s place in student learning and development",https://www.techradar.com/pro/google-rolls-out-gemini-for-schools-and-students-under-19-amidst-concerns-for-the-future-of-education-globally,
+"Acer gives $240 worth of free Google AI Pro tools to Chromebook Plus buyers, includes 2TB storage and Gemini",https://www.techradar.com/pro/acer-is-giving-away-usd240-worth-of-google-goodies-for-free-with-its-new-chromebooks-just-remember-to-cancel-the-usd20-monthly-subs-afterwards,
+"Why breaking up Google could backfire for media, publishers, and the open web",https://www.techradar.com/pro/a-huge-blow-to-publishers-and-media-former-google-exec-warns-about-dangers-of-breaking-google-in-explosive-new-book,
+"I talked to 5 AIs about my cat, Mr. Giggles - and it says a lot about the state of chatbots",https://www.zdnet.com/article/i-talked-to-5-ais-about-my-cat-mr-giggles-and-it-says-a-lot-about-the-state-of-chatbots/,
+Don't fall for this fake BC Hydro Google ad,https://www.vancouverisawesome.com/highlights/dont-fall-for-this-fake-bc-hydro-google-ad-10877199,
+"As AI Drains Traffic, Google Debuts Offerwall To Help Publishers Earn Through Ads, Surveys, And Micropayments",https://wccftech.com/as-ai-drains-traffic-google-debuts-offerwall-to-help-publishers-earn-through-ads-surveys-and-micropayments-giving-more-control-to-audience-in-accessing-content/,
+Why Google Gemini AI's Latest Move May Be a Privacy Red Flag,https://www.androidheadlines.com/2025/06/google-gemini-ai-data-access-privacy-issues.html,"Without a shadow of a doubt, artificial intelligence is taking the world by storm. AI-powered chatbots or assistants, like Gemini, are among the most prominent examples of this technology. These types of services learn more and more about us, especially in the case of Gemini, which can access our data from Google’s services. Given this scenario, discussions about the potential privacy risks of an AI platform like Gemini are inevitable. Furthermore, certain movements fueled speculation about these LLMs crossing certain lines.
+
+Gemini AI’s Latest Changes Raise Privacy Concerns
+
+A recent notification from Google has certainly grabbed the attention of Android users. Starting July 7, 2025, Google’s Gemini AI assistant will gain a deeper level of integration. The change will allow it to assist within core communication apps like Phone, Messages, and WhatsApp regardless of whether a user’s “Gemini Apps Activity” setting is on or off.
+
+Gemini is getting more control on July 7 pic.twitter.com/RLkfd84MCV — CID (@theonecid) June 24, 2025
+
+Google frames this as a significant step forward for user convenience. However, the immediate reaction from many has been one of heightened concern over data privacy and potential security implications, sparking a conversation about the evolving relationship between powerful AI (like Gemini) and personal privacy.
+
+The Initial Confusion: Google’s Vague Announcement
+
+The first wave of anxiety stemmed directly from Google’s initial email announcement. Many people found the message to be unsettlingly vague. Initially, it just informed users that Gemini would soon be able to “help you use” these critical apps, but it fell short on crucial specifics. Users were left wondering what “help you use” truly entailed—would Gemini be reading their private chats? Summarizing their calls?
+
+The email also stated that users could turn the new features off in the “Apps settings page” if they wished. Yet, it conspicuously omitted clear, step-by-step instructions on how to locate and disable these new functionalities. Even more concerning was the ambiguity around whether Gemini would still access data from Phone, Messages, and WhatsApp even if a user explicitly opted out of other Gemini features. This lack of transparency right out of the gate quickly fueled widespread apprehension across the community.
+
+Google’s Clarification: An Attempt to Reassure
+
+In response to the swift and vocal wave of privacy concerns, Google issued a subsequent clarification. The company was looking to calm the waters before everything escalated into a minor “PR crisis.” The tech giant explained that the core intent of this update is to be “good for users.” Its main goal, according to the firm, is to achieve a more seamless and integrated experience.
+
+Google’s clarification stated that individuals would be able to leverage Gemini for common tasks—such as drafting a text message, initiating a phone call, or setting a reminder based on communication context—even when their “Gemini Apps Activity” is off. Google specifically emphasized that when this activity setting is disabled, conversations with Gemini are not reviewed by humans and are not used to improve their AI models. They also directed users to a dedicated Gemini Apps Privacy Hub. This page provides a central point for managing these new connections.
+
+Understanding “Gemini Apps Activity” and Data Handling
+
+To fully grasp the implications, it’s crucial to understand the nuances of the “Gemini Apps Activity” setting. When this option is enabled, your interactions with Gemini—encompassing both your prompts and Gemini’s responses—are saved to your Google account. Google then utilizes this stored data to enhance its various products, services, and, importantly, its AI models through training.
+
+However, if a user chooses to disable “Gemini Apps Activity,” Google asserts that they will not use their conversations with the chatbot to train its AI. Still, there’s a subtle but significant detail here that you should know. Even when this setting is off, Google states that these conversations will be saved with your account for a period of “up to 72 hours.” This temporary retention, according to Google, serves specific purposes like “providing the service, maintaining its safety and security, and processing any feedback you choose to provide.” Then, these chats should disappear permanently.
+
+Essentially, Gemini can still interact with your communication apps to perform direct actions. However, the logging and utilization of that interaction data for AI model improvement is conditional on your “Gemini Apps Activity” setting.
+
+The Balancing Act: Convenience Versus Trust
+
+Google’s stated motivation behind this expanded Gemini access is clear: to enhance the AI’s capabilities and offer users a more fluid, integrated experience. Imagine simply asking Gemini to “Text Sarah ‘I’ll be there in 10‘” or “Summarize my last call with John” without needing to manually copy-paste information or switch between apps. This promises a new level of efficiency, weaving AI more deeply into the fabric of daily smartphone use.
+
+But this deeper integration inevitably brings legitimate concerns to the forefront for many users. The prospect of an AI having access, even if temporary, to highly personal data within call logs, private messages, and WhatsApp chats immediately raises red flags regarding individual privacy and overall data security. Despite Google’s reassurances about how data is handled when “Gemini Apps Activity” is off—particularly the promise that conversations aren’t used for AI training and are deleted after 72 hours—some users feel they are asked to place a significant amount of trust in Google’s internal practices.
+
+Plus, we live in an era where data breaches are a persistent threat. So, relying solely on a company’s word, even one as reputable as Google, can be a tough ask for those prioritizing absolute privacy.
+
+Either way, the change will take effect soon
+
+The unfolding of this change on July 7, 2025, will certainly be a critical moment. After all, millions of users grapple with the evolving balance between the undeniable utility of AI and the paramount importance of their personal data. It highlights an ongoing industry-wide challenge: how to integrate powerful AI tools seamlessly without eroding user trust or compromising privacy. The latter, in addition to copyright, are among the great challenges in the AI ​​era."
+I tried Google’s new Gemini-powered clothing app - here’s how you can use AI to find the perfect outfit,https://www.techradar.com/computing/artificial-intelligence/i-tried-googles-new-gemini-powered-clothing-app-heres-how-you-can-use-ai-to-find-the-perfect-outfit,
+Google Photos won't downgrade your edited HDR pictures to SDR anymore,https://www.androidauthority.com/google-photos-hdr-improvements-3571977/,
+Google Photos just got an update that changes how HDR photos are edited,https://www.phonearena.com/news/google-photos-just-got-an-update-that-changes-how-hdr-photos-are-edited_id171777,
+"Google brings Gemini to classrooms for all ages, sparking debate about AI’s place in student learning and development",https://www.techradar.com/pro/google-rolls-out-gemini-for-schools-and-students-under-19-amidst-concerns-for-the-future-of-education-globally,
+"Acer gives $240 worth of free Google AI Pro tools to Chromebook Plus buyers, includes 2TB storage and Gemini",https://www.techradar.com/pro/acer-is-giving-away-usd240-worth-of-google-goodies-for-free-with-its-new-chromebooks-just-remember-to-cancel-the-usd20-monthly-subs-afterwards,
+"Why breaking up Google could backfire for media, publishers, and the open web",https://www.techradar.com/pro/a-huge-blow-to-publishers-and-media-former-google-exec-warns-about-dangers-of-breaking-google-in-explosive-new-book,
+"I talked to 5 AIs about my cat, Mr. Giggles - and it says a lot about the state of chatbots",https://www.zdnet.com/article/i-talked-to-5-ais-about-my-cat-mr-giggles-and-it-says-a-lot-about-the-state-of-chatbots/,
+Don't fall for this fake BC Hydro Google ad,https://www.vancouverisawesome.com/highlights/dont-fall-for-this-fake-bc-hydro-google-ad-10877199,
+"As AI Drains Traffic, Google Debuts Offerwall To Help Publishers Earn Through Ads, Surveys, And Micropayments",https://wccftech.com/as-ai-drains-traffic-google-debuts-offerwall-to-help-publishers-earn-through-ads-surveys-and-micropayments-giving-more-control-to-audience-in-accessing-content/,
+Why Google Gemini AI's Latest Move May Be a Privacy Red Flag,https://www.androidheadlines.com/2025/06/google-gemini-ai-data-access-privacy-issues.html,
+I tried Google’s new Gemini-powered clothing app - here’s how you can use AI to find the perfect outfit,https://www.techradar.com/computing/artificial-intelligence/i-tried-googles-new-gemini-powered-clothing-app-heres-how-you-can-use-ai-to-find-the-perfect-outfit,
+Google Photos won't downgrade your edited HDR pictures to SDR anymore,https://www.androidauthority.com/google-photos-hdr-improvements-3571977/,
+Google Photos just got an update that changes how HDR photos are edited,https://www.phonearena.com/news/google-photos-just-got-an-update-that-changes-how-hdr-photos-are-edited_id171777,
