@@ -2,9 +2,7 @@ import praw
 import os
 from dotenv import load_dotenv
 
-
 load_dotenv()
-
 
 Client_ID = os.getenv('CLIENT_ID')
 Client_Secret = os.getenv('CLIENT_SECRET')
@@ -15,5 +13,9 @@ reddit = praw.Reddit(
     user_agent=User_Agent,
 )
 
-for submission in reddit.subreddit("wallstreetbets").hot(limit=10):
-    print(submission.body)
+for submission in reddit.subreddit("wallstreetbets").hot(limit=50):
+    title = print(submission.title)
+    id = print(submission.id)
+    body = print(submission.selftext)
+
+
