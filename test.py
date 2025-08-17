@@ -1,0 +1,105 @@
+import json
+import pandas as pd
+import urllib.request
+from dotenv import load_dotenv
+import os
+import requests
+from newspaper import Article
+from fake_useragent import UserAgent
+import time
+import random
+from lxml.html import fromstring
+
+# Output CSV
+target_csv = 'readingArticles.csv'
+
+# Always start fresh
+df_target = pd.DataFrame(columns=['title', 'url', 'content'])
+df_target.to_csv(target_csv, index=False)
+
+# Get working proxies
+def get_proxies():
+    url = 'https://free-proxy-list.net/'
+    response = requests.get(url)
+    parser = fromstring(response.text)
+    proxies = []
+    for i in parser.xpath('//tbody/tr')[:100]:
+        if i.xpath('.//td[7][contains(text(),"yes")]'):
+            proxy = ":".join([i.xpath('.//td[1]/text()')[0],
+                              i.xpath('.//td[2]/text()')[0]])
+            proxies.append(proxy)
+
+    print(f"Scraped {len(proxies)} proxies, now testing them...")
+    alive_proxies = []
+    test_url = "https://httpbin.org/ip"
+    for proxy in proxies:
+        try:
+            r = requests.get(test_url,
+                             proxies={"http": f"http://{proxy}", "https": f"http://{proxy}"},
+                             timeout=5)
+            if r.status_code == 200:
+                alive_proxies.append(proxy)
+        except:
+            continue
+    print(f"Final working proxies: {len(alive_proxies)}")
+    return alive_proxies
+
+# Fetch articles from GNews API
+def getArticles():
+    load_dotenv()
+    API_KEY = os.getenv("API_KEY")
+    url = f"https://gnews.io/api/v4/search?q=Google&lang=en&max=10&from=2022-06-28T21:32:58.500Z&to=2025-06-28T21:32:58.500Z&apikey={API_KEY}"
+
+    df_articles = pd.DataFrame(columns=['title', 'url', 'content'])
+    with urllib.request.urlopen(url) as response:
+        data = json.loads(response.read().decode("utf-8"))
+        for art in data.get("articles", []):
+            df_articles.loc[len(df_articles)] = {'title': art["title"], 'url': art["url"], 'content': None}
+
+    # Save fresh CSV
+    df_articles.to_csv(target_csv, index=False)
+    return df_articles
+
+# Helper: fetch HTML using random proxy
+def fetch_with_proxies(url, headers, proxies_list, max_retries=3):
+    for _ in range(max_retries):
+        proxy = random.choice(proxies_list) if proxies_list else None
+        PROXIES = {"http": f"http://{proxy}", "https": f"http://{proxy}"} if proxy else None
+        try:
+            resp = requests.get(url, headers=headers, proxies=PROXIES, timeout=15, verify=False)
+            if resp.status_code == 200:
+                return resp.text
+        except:
+            continue
+    return None
+
+# Fetch content for the articles and save directly
+def getArticleContent(df_articles):
+    ua = UserAgent()
+    proxies = get_proxies()
+    contents = []
+
+    for url in df_articles['url']:
+        print("\nURL:", url)
+        headers = {"User-Agent": ua.random}
+        html = fetch_with_proxies(url, headers, proxies)
+        if html:
+            try:
+                article = Article(url)
+                article.set_html(html)
+                article.parse()
+                contents.append(article.text)
+                print("Content length:", len(article.text))
+            except:
+                contents.append(None)
+        else:
+            contents.append(None)
+        time.sleep(random.uniform(2, 5))
+
+    df_articles['content'] = contents
+    df_articles.to_csv(target_csv, index=False)
+
+# Run workflow
+articles_df = getArticles()
+getArticleContent(articles_df)
+print(f"Saved {len(articles_df)} articles to {target_csv}")
