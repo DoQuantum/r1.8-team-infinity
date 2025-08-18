@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+import csv
 import urllib.request
 from dotenv import load_dotenv
 import os
@@ -88,7 +89,7 @@ def getArticleContent(df_articles):
                 article = Article(url)
                 article.set_html(html)
                 article.parse()
-                contents.append(article.text)
+                contents.append(article.text.replace('\n',''))
                 print("Content length:", len(article.text))
             except:
                 contents.append(None)
@@ -97,7 +98,7 @@ def getArticleContent(df_articles):
         time.sleep(random.uniform(2, 5))
 
     df_articles['content'] = contents
-    df_articles.to_csv(target_csv, index=False)
+    df_articles.to_csv(target_csv, index=False, quoting=csv.QUOTE_ALL)
 
 # Run workflow
 articles_df = getArticles()
