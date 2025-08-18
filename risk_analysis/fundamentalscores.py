@@ -5,9 +5,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 class FundamentalScoresCalculator:
-    """
-    Simplified class to calculate only fundamental scores
-    """
+ 
     
     def __init__(self, symbols):
         self.symbols = symbols if isinstance(symbols, list) else [symbols]
@@ -15,9 +13,7 @@ class FundamentalScoresCalculator:
         self.scores = {}
         
     def fetch_essential_data(self):
-        """
-        Fetch only essential data needed for scoring
-        """
+    
         for symbol in self.symbols:
             try:
                 ticker = yf.Ticker(symbol)
@@ -34,7 +30,7 @@ class FundamentalScoresCalculator:
     
     def extract_key_metrics(self, symbol):
         """
-        Extract only the metrics needed for scoring
+        Extracting only the metrics needed for scoring
         """
         info = self.stock_data[symbol]['info']
         balance_sheet = self.stock_data[symbol]['balance_sheet']
@@ -203,9 +199,7 @@ class FundamentalScoresCalculator:
         return self.scores
     
     def get_scores_summary(self):
-        """
-        Return a clean summary of scores
-        """
+     
         if not self.scores:
             self.calculate_scores()
         
@@ -225,9 +219,7 @@ class FundamentalScoresCalculator:
         return summary
     
     def print_scores(self):
-        """
-        Print scores in a clean format
-        """
+   
         summary = self.get_scores_summary()
         
         for symbol, scores in summary.items():
@@ -239,13 +231,8 @@ class FundamentalScoresCalculator:
 # Simple usage function
 def get_fundamental_scores(symbols):
     """
-    Simple function to get fundamental scores for given symbols
-    
-    Args:
-        symbols: Single symbol (str) or list of symbols
-    
-    Returns:
-        Dictionary with scores for each symbol
+     function to get fundamental scores for given symbols
+ 
     """
     calculator = FundamentalScoresCalculator(symbols)
     return calculator.get_scores_summary()
