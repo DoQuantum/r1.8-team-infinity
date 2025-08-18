@@ -41,7 +41,7 @@ def getArticles():
        load_dotenv()
        API_KEY = os.getenv("API_KEY")
        # Query parameters are adjusted in this url
-       url = f"https://gnews.io/api/v4/search?q=Google&lang=en&max=10&from=2022-06-28T21:32:58.500Z&to=2025-06-28T21:32:58.500Z&apikey={API_KEY}"
+       url = f"https://gnews.io/api/v4/search?q=Google&lang=en&max=10&from=2022-06-27T21:32:58.500Z&to=2025-06-27T21:32:58.500Z&apikey={API_KEY}"
        # Header row
        new_df = pd.DataFrame({'title': [], 'url': []})
 

@@ -78,7 +78,7 @@ def fetch_with_proxies(url, headers, proxies_list, max_retries=3):
 def getArticleContent(df_articles):
     ua = UserAgent()
     proxies = get_proxies()
-    contents = []
+    authors, dates, contents, keywords, summaries = [], [], [], [], []
 
     for url in df_articles['url']:
         print("\nURL:", url)
@@ -89,16 +89,37 @@ def getArticleContent(df_articles):
                 article = Article(url)
                 article.set_html(html)
                 article.parse()
+                try:
+                    article.nlp()  # enable summary and keywords
+                except:
+                    pass
+                authors.append(article.authors)
+                dates.append(article.publish_date)
                 contents.append(article.text.replace('\n',''))
+                keywords.append(article.keywords)
+                summaries.append(article.summary)
                 print("Content length:", len(article.text))
             except:
+                authors.append(None)
+                dates.append(None)
                 contents.append(None)
+                keywords.append(None)
+                summaries.append(None)
         else:
+            authors.append(None)
+            dates.append(None)
             contents.append(None)
+            keywords.append(None)
+            summaries.append(None)
         time.sleep(random.uniform(2, 5))
 
+    df_articles['authors'] = authors
+    df_articles['publish_date'] = dates
     df_articles['content'] = contents
+    df_articles['keywords'] = keywords
+    df_articles['summary'] = summaries
     df_articles.to_csv(target_csv, index=False, quoting=csv.QUOTE_ALL)
+
 
 # Run workflow
 articles_df = getArticles()
