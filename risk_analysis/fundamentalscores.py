@@ -228,7 +228,7 @@ class FundamentalScoresCalculator:
             for score_name, score_value in scores.items():
                 print(f"{score_name}: {score_value}")
 
-# Simple usage function
+ 
 def get_fundamental_scores(symbols):
     """
      function to get fundamental scores for given symbols
