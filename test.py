@@ -10,6 +10,8 @@ from fake_useragent import UserAgent
 import time
 import random
 from lxml.html import fromstring
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Output CSV
 target_csv = 'readingArticles.csv'
@@ -49,13 +51,17 @@ def get_proxies():
 def getArticles():
     load_dotenv()
     API_KEY = os.getenv("API_KEY")
-    url = f"https://gnews.io/api/v4/search?q=Google&lang=en&max=10&from=2022-06-28T21:32:58.500Z&to=2025-06-28T21:32:58.500Z&apikey={API_KEY}"
+    url = f"https://gnews.io/api/v4/search?q=Stock&lang=en&max=10&apikey={API_KEY}"
 
     df_articles = pd.DataFrame(columns=['title', 'url', 'content'])
     with urllib.request.urlopen(url) as response:
         data = json.loads(response.read().decode("utf-8"))
-        for art in data.get("articles", []):
-            df_articles.loc[len(df_articles)] = {'title': art["title"], 'url': art["url"], 'content': None}
+        articles = data["articles"]
+        print(len(articles))
+        for i in range(len(articles)):
+            df_articles.loc[len(df_articles)] = {'title': articles[i]['title'], 'url': articles[i]['url'], 'content': None}
+        # for art in data.get("articles", []):
+        #     df_articles.loc[len(df_articles)] = {'title': art["title"], 'url': art["url"], 'content': None}
 
     # Save fresh CSV
     df_articles.to_csv(target_csv, index=False)
