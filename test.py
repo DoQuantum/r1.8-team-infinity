@@ -20,7 +20,7 @@ import torch
 # Output CSV
 target_csv = 'readingArticles.csv'
 
-# Always start fresh (commented to work on sentiment scores, uncomment later)
+# Always start fresh
 df_target = pd.DataFrame(columns=['title', 'url', 'content'])
 df_target.to_csv(target_csv, index=False)
 
@@ -139,9 +139,9 @@ def getSentiments(df_articles):
     outputs = model(**inputs)
     probabilities = torch.softmax(outputs.logits, dim=1)
 
-    sentiment_labels = ["negative", "neutral", "positive"]
+    sentiment_labels = [-1, 0, 1]
     predicted_indices = torch.argmax(probabilities, dim=1)
-
+    print(predicted_indices)
     for i, idx in enumerate(predicted_indices):
         print(f"Article {i+1}: {sentiment_labels[idx]}  ->  {txt[i][:80]}...")
 
