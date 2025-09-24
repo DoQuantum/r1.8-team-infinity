@@ -13,12 +13,16 @@ from lxml.html import fromstring
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+import praw
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import torch
+
 # Output CSV
 target_csv = 'readingArticles.csv'
 
-# Always start fresh
-df_target = pd.DataFrame(columns=['title', 'url', 'content'])
-df_target.to_csv(target_csv, index=False)
+# Always start fresh (commented to work on sentiment scores, uncomment later)
+# df_target = pd.DataFrame(columns=['title', 'url', 'content'])
+# df_target.to_csv(target_csv, index=False)
 
 # Get working proxies
 def get_proxies():
@@ -57,7 +61,6 @@ def getArticles():
     with urllib.request.urlopen(url) as response:
         data = json.loads(response.read().decode("utf-8"))
         articles = data["articles"]
-        print(len(articles))
         for i in range(len(articles)):
             df_articles.loc[len(df_articles)] = {'title': articles[i]['title'], 'url': articles[i]['url'], 'content': None}
         # for art in data.get("articles", []):
@@ -126,8 +129,29 @@ def getArticleContent(df_articles):
     df_articles['summary'] = summaries
     df_articles.to_csv(target_csv, index=False, quoting=csv.QUOTE_ALL)
 
+def getSentiments(df_articles):
+    tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
+    model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
+    txt = []
+    for i in range(df_articles.shape[0]):
+        txt.append(df_articles.loc[i, 'title'] + " " + df_articles.loc[i,'content'])
+    inputs = tokenizer(txt, padding=True, truncation=True, return_tensors="pt")
+    outputs = model(**inputs)
+    probabilities = torch.softmax(outputs.logits, dim=1)
+
+    sentiment_labels = ["negative", "neutral", "positive"]
+    predicted_indices = torch.argmax(probabilities, dim=1)
+
+    for i, idx in enumerate(predicted_indices):
+        print(f"Article {i+1}: {sentiment_labels[idx]}  ->  {txt[i][:80]}...")
 
 # Run workflow
-articles_df = getArticles()
-getArticleContent(articles_df)
-print(f"Saved {len(articles_df)} articles to {target_csv}")
+# v uncomment later
+# articles_df = getArticles()
+# getArticleContent(articles_df)
+# print(f"Saved {len(articles_df)} articles to {target_csv}")
+
+# temp for getSentiments
+articles_df = pd.read_csv('readingArticles.csv')
+getSentiments(articles_df)
+
