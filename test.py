@@ -140,11 +140,14 @@ def getSentiments(df_articles):
     probabilities = torch.softmax(outputs.logits, dim=1)
 
     sentiment_labels = [-1, 0, 1]
+    sentiment = []
     predicted_indices = torch.argmax(probabilities, dim=1)
     print(predicted_indices)
     for i, idx in enumerate(predicted_indices):
+        sentiment.append(sentiment_labels[idx])
         print(f"Article {i+1}: {sentiment_labels[idx]}  ->  {txt[i][:80]}...")
-
+    df_articles['sentiment'] = sentiment
+    df_articles.to_csv(target_csv, index=False, quoting=csv.QUOTE_ALL)
 # Run workflow
 articles_df = getArticles()
 getArticleContent(articles_df)
