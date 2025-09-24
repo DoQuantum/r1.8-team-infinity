@@ -21,8 +21,8 @@ import torch
 target_csv = 'readingArticles.csv'
 
 # Always start fresh (commented to work on sentiment scores, uncomment later)
-# df_target = pd.DataFrame(columns=['title', 'url', 'content'])
-# df_target.to_csv(target_csv, index=False)
+df_target = pd.DataFrame(columns=['title', 'url', 'content'])
+df_target.to_csv(target_csv, index=False)
 
 # Get working proxies
 def get_proxies():
@@ -146,12 +146,12 @@ def getSentiments(df_articles):
         print(f"Article {i+1}: {sentiment_labels[idx]}  ->  {txt[i][:80]}...")
 
 # Run workflow
-# v uncomment later
-# articles_df = getArticles()
-# getArticleContent(articles_df)
-# print(f"Saved {len(articles_df)} articles to {target_csv}")
+articles_df = getArticles()
+getArticleContent(articles_df)
+print(f"Saved {len(articles_df)} articles to {target_csv}")
 
 # temp for getSentiments
-articles_df = pd.read_csv('readingArticles.csv')
+# articles_df = pd.read_csv('readingArticles.csv')
+
 getSentiments(articles_df)
 
