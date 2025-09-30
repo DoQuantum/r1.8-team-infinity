@@ -102,4 +102,11 @@ def getArticleContent(df_articles):
 # Run workflow
 articles_df = getArticles()
 getArticleContent(articles_df)
-print(f"Saved {len(articles_df)} articles to {target_csv}")
+print(f"Saved {len(articles_df)} articles to {target_csv}"
+)
+
+#Accuracy notes:
+# Find a labeled dataset of financial news data (preferrably one that uses finbert)
+# from sklearn.metrics import accuracy_score, precision_score
+# add a column for numbers 
+# refer to socials branch for code 
