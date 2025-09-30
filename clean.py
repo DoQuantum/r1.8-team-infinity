@@ -6,8 +6,8 @@ import csv
 target_csv = 'Sentences_AllAgree.csv'
 filename = 'Sentences_AllAgree.txt'
 
+# Opens dataset file and organizes sentences/sentiments into a csv
 with open(filename, "r", encoding="cp1252") as f:
-    sentence, sentiment = np.loadtxt(f,delimiter='@',dtype=str,unpack=True)
-    data = np.array(sentence, sentiment)
-    df = pd.DataFrame(data)
+    data = np.loadtxt(f,delimiter='@',dtype=str)
+    df = pd.DataFrame(data, columns=["sentence","sentiment"])
     df.to_csv(target_csv, index=False)
