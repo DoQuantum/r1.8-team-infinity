@@ -1,6 +1,5 @@
 import json
 import pandas as pd
-import csv
 import urllib.request
 from dotenv import load_dotenv
 import os
@@ -10,12 +9,6 @@ from fake_useragent import UserAgent
 import time
 import random
 from lxml.html import fromstring
-import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-import praw
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
-import torch
 
 # Output CSV
 target_csv = 'readingArticles.csv'
@@ -55,16 +48,13 @@ def get_proxies():
 def getArticles():
     load_dotenv()
     API_KEY = os.getenv("API_KEY")
-    url = f"https://gnews.io/api/v4/search?q=Stock&lang=en&max=10&apikey={API_KEY}"
+    url = f"https://gnews.io/api/v4/search?q=Google&lang=en&max=10&from=2022-06-28T21:32:58.500Z&to=2025-06-28T21:32:58.500Z&apikey={API_KEY}"
 
     df_articles = pd.DataFrame(columns=['title', 'url', 'content'])
     with urllib.request.urlopen(url) as response:
         data = json.loads(response.read().decode("utf-8"))
-        articles = data["articles"]
-        for i in range(len(articles)):
-            df_articles.loc[len(df_articles)] = {'title': articles[i]['title'], 'url': articles[i]['url'], 'content': None}
-        # for art in data.get("articles", []):
-        #     df_articles.loc[len(df_articles)] = {'title': art["title"], 'url': art["url"], 'content': None}
+        for art in data.get("articles", []):
+            df_articles.loc[len(df_articles)] = {'title': art["title"], 'url': art["url"], 'content': None}
 
     # Save fresh CSV
     df_articles.to_csv(target_csv, index=False)
@@ -87,7 +77,7 @@ def fetch_with_proxies(url, headers, proxies_list, max_retries=3):
 def getArticleContent(df_articles):
     ua = UserAgent()
     proxies = get_proxies()
-    authors, dates, contents, keywords, summaries = [], [], [], [], []
+    contents = []
 
     for url in df_articles['url']:
         print("\nURL:", url)
@@ -98,60 +88,20 @@ def getArticleContent(df_articles):
                 article = Article(url)
                 article.set_html(html)
                 article.parse()
-                try:
-                    article.nlp()  # enable summary and keywords
-                except:
-                    pass
-                authors.append(article.authors)
-                dates.append(article.publish_date)
-                contents.append(article.text.replace('\n',''))
-                keywords.append(article.keywords)
-                summaries.append(article.summary)
+                contents.append(article.text)
                 print("Content length:", len(article.text))
             except:
-                authors.append(None)
-                dates.append(None)
                 contents.append(None)
-                keywords.append(None)
-                summaries.append(None)
         else:
-            authors.append(None)
-            dates.append(None)
             contents.append(None)
-            keywords.append(None)
-            summaries.append(None)
         time.sleep(random.uniform(2, 5))
 
-    df_articles['authors'] = authors
-    df_articles['publish_date'] = dates
     df_articles['content'] = contents
-    df_articles['keywords'] = keywords
-    df_articles['summary'] = summaries
-    df_articles.to_csv(target_csv, index=False, quoting=csv.QUOTE_ALL)
+    df_articles.to_csv(target_csv, index=False)
 
-def getSentiments(df_articles):
-    tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
-    model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
-    txt = []
-    for i in range(df_articles.shape[0]):
-        txt.append(df_articles.loc[i, 'title'] + " " + df_articles.loc[i,'content'])
-    inputs = tokenizer(txt, padding=True, truncation=True, return_tensors="pt")
-    outputs = model(**inputs)
-    probabilities = torch.softmax(outputs.logits, dim=1)
-
-    sentiment_labels = [-1, 0, 1]
-    sentiment = []
-    predicted_indices = torch.argmax(probabilities, dim=1)
-    print(predicted_indices)
-    for i, idx in enumerate(predicted_indices):
-        sentiment.append(sentiment_labels[idx])
-        print(f"Article {i+1}: {sentiment_labels[idx]}  ->  {txt[i][:80]}...")
-    df_articles['sentiment'] = sentiment
-    df_articles.to_csv(target_csv, index=False, quoting=csv.QUOTE_ALL)
 # Run workflow
 articles_df = getArticles()
 getArticleContent(articles_df)
-<<<<<<< HEAD
 print(f"Saved {len(articles_df)} articles to {target_csv}"
 )
 
@@ -160,12 +110,3 @@ print(f"Saved {len(articles_df)} articles to {target_csv}"
 # from sklearn.metrics import accuracy_score, precision_score
 # add a column for numbers 
 # refer to socials branch for code 
-=======
-print(f"Saved {len(articles_df)} articles to {target_csv}")
-
-# temp for getSentiments
-# articles_df = pd.read_csv('readingArticles.csv')
-
-getSentiments(articles_df)
-
->>>>>>> b5178223c05be37b216d1c10d30b4d1c86a5fe05
