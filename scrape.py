@@ -5,7 +5,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 import pandas as pd
 from sklearn.metrics import accuracy_score, precision_score
-import time 
+import time
 import re
 
 def clean_text(text):
@@ -14,6 +14,24 @@ def clean_text(text):
     text = re.sub(r"\s+", " ", text)
     text = text.strip()
     return text
+
+def get_probs(texts, tokenizer, model):
+    inputs = tokenizer(texts, padding=True, truncation=True, max_length=128, return_tensors="pt")
+    with torch.no_grad():
+        outputs = model(**inputs)
+    return torch.softmax(outputs.logits, dim=1)
+
+def ensemble_predict(texts, models, tokenizers, weights=None):
+    probs_list = []
+    for tok, mod in zip(tokenizers, models):
+        probs_list.append(get_probs(texts, tok, mod))
+    probs = torch.stack(probs_list)  # shape: (num_models, batch_size, num_classes)
+    if weights:
+        weights = torch.tensor(weights).view(-1, 1, 1)
+        probs = (probs * weights).sum(dim=0) / weights.sum()
+    else:
+        probs = probs.mean(dim=0)
+    return torch.argmax(probs, dim=1), probs
 
 def main():
     start_total = time.time()
@@ -29,6 +47,7 @@ def main():
     )
 
     # ---- Reddit posts ----
+    #Change the tags to something more relevant
     start_reddit = time.time()
     results = []
     for submission in reddit.subreddit("wallstreetbets").hot(limit=10):
@@ -36,19 +55,23 @@ def main():
 
     txt = [clean_text(item["title"] + " " + item["body"]) for item in results]
 
-    tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
-    model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
+    # Load FinBERT
+    fin_tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
+    fin_model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
 
-    inputs = tokenizer(txt, padding=True, truncation=True, max_length=128, return_tensors="pt")
-    with torch.no_grad():
-        outputs = model(**inputs)
-    probabilities = torch.softmax(outputs.logits, dim=1)
+    # Load Twitter-RoBERTa sentiment
+    tw_tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/twitter-roberta-base-sentiment-latest")
+    tw_model = AutoModelForSequenceClassification.from_pretrained("cardiffnlp/twitter-roberta-base-sentiment-latest")
+
+    models = [fin_model, tw_model]
+    tokenizers = [fin_tokenizer, tw_tokenizer]
 
     sentiment_labels = ["negative", "neutral", "positive"]
     sentiment_map = {"negative": -1, "neutral": 0, "positive": 1}
-    predicted_indices = torch.argmax(probabilities, dim=1)
 
-    for i, idx in enumerate(predicted_indices):
+    # Ensemble prediction
+    pred_indices, _ = ensemble_predict(txt, models, tokenizers)
+    for i, idx in enumerate(pred_indices):
         label = sentiment_labels[idx]
         num_value = sentiment_map[label]
         print(f"Post {i+1}: {label} ({num_value}) -> {txt[i][:80]}...")
@@ -63,16 +86,14 @@ def main():
     kaggle_texts = [clean_text(body) for body in kaggle_df['body'].astype(str).tolist()]
     ground_truth = kaggle_df['numeric_sentiment'].tolist()
 
-    batch_size = 5
+    #Five final
+    #Randomization component
+    batch_size = 4000
     kaggle_pred_numeric = []
 
     for i in range(0, len(kaggle_texts), batch_size):
         batch_texts = kaggle_texts[i:i+batch_size]
-        inputs = tokenizer(batch_texts, padding=True, truncation=True, max_length=128, return_tensors="pt")
-        with torch.no_grad():
-            outputs = model(**inputs)
-        probs = torch.softmax(outputs.logits, dim=1)
-        batch_indices = torch.argmax(probs, dim=1)
+        batch_indices, _ = ensemble_predict(batch_texts, models, tokenizers)
         batch_preds = [sentiment_map[sentiment_labels[idx]] for idx in batch_indices]
         kaggle_pred_numeric.extend(batch_preds)
 
