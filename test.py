@@ -150,15 +150,56 @@ def getSentiments(df_articles):
         print(f"Article {i+1}: {sentiment_labels[idx]}  ->  {txt[i][:80]}...")
     df_articles['sentiment'] = sentiment
     df_articles.to_csv(target_csv, index=False, quoting=csv.QUOTE_ALL)
+
+def evaluate_accuracy():
+    print("\nEvaluating accuracy using sentences_allagree.csv")
+    df = pd.read_csv("sentences_allagree.csv")
+
+    tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
+    model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
+
+    texts = df["sentence"].astype(str).tolist()
+    inputs = tokenizer(texts, padding=True, truncation=True, max_length=128, return_tensors="pt")
+    with torch.no_grad():
+        outputs = model(**inputs)
+
+    probs = torch.softmax(outputs.logits, dim=1)
+    predicted_indices = torch.argmax(probs, dim=1)
+
+    sentiment_labels = [-1, 0, 1]
+    predictions = [sentiment_labels[idx] for idx in predicted_indices]
+
+    ground_truth = df["numerical_sentiment"].tolist()
+
+    acc = accuracy_score(ground_truth, predictions)
+    prec = precision_score(ground_truth, predictions, average="macro", zero_division=0)
+
+    print(f"Accuracy: {acc:.3f}")
+    print(f"Precision (macro): {prec:.3f}")
+
 # Run workflow
+start_total = time.time()
+start_article_get = time.time()
 articles_df = getArticles()
 getArticleContent(articles_df)
 print(f"Saved {len(articles_df)} articles to {target_csv}")
+articles_df = articles_df.fillna("")
+
+end_article_get = time.time()
 
 # temp for getSentiments
 # articles_df = pd.read_csv('readingArticles.csv')
 
 getSentiments(articles_df)
 
-#Accuracy notes:
-# refer to socials branch for code 
+# Evaluate accuracy upon labeled dataset
+start_acc_eval = time.time()
+evaluate_accuracy()
+
+print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
+
+end_acc_eval = time.time()
+print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
+
+end_total = time.time()
+print(f"\nTotal program runtime: {end_total - start_total:.2f} seconds")
