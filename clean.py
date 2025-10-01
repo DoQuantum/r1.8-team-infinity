@@ -10,4 +10,13 @@ filename = 'Sentences_AllAgree.txt'
 with open(filename, "r", encoding="cp1252") as f:
     data = np.loadtxt(f,delimiter='@',dtype=str)
     df = pd.DataFrame(data, columns=["sentence","sentiment"])
+    for index, value in df['sentiment'].items():
+        # change sentiment labels to numbers
+        if value == 'positive':
+            df.iloc[index, 1] = '1'
+        if value == 'neutral':
+            df.iloc[index, 1] = '0'
+        if value == 'negative':
+            df.iloc[index, 1] = '-1'
+    # write to csv
     df.to_csv(target_csv, index=False)
