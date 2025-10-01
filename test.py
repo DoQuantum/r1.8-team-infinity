@@ -17,6 +17,8 @@ import praw
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 
+from sklearn.metrics import accuracy_score, precision_score
+
 # Output CSV
 target_csv = 'readingArticles.csv'
 
@@ -159,7 +161,4 @@ print(f"Saved {len(articles_df)} articles to {target_csv}")
 getSentiments(articles_df)
 
 #Accuracy notes:
-# Find a labeled dataset of financial news data (preferrably one that uses finbert)
-# from sklearn.metrics import accuracy_score, precision_score
-# add a column for numbers 
 # refer to socials branch for code 
