@@ -21,6 +21,9 @@ from sklearn.metrics import accuracy_score, precision_score
 
 # Output CSV
 target_csv = 'readingArticles.csv'
+target_stock = 'google'
+target_from = '2025-01-01'
+target_to = '2025-01-08'
 
 # Always start fresh
 df_target = pd.DataFrame(columns=['title', 'url', 'content'])
@@ -57,7 +60,7 @@ def get_proxies():
 def getArticles():
     load_dotenv()
     API_KEY = os.getenv("API_KEY")
-    url = f"https://gnews.io/api/v4/search?q=Stock&lang=en&max=10&apikey={API_KEY}"
+    url = f"https://gnews.io/api/v4/search?q={target_stock} stock&from={target_from}T21:32:58.500Z&to={target_to}T21:32:58.500Z&lang=en&max=10&apikey={API_KEY}"
 
     df_articles = pd.DataFrame(columns=['title', 'url', 'content'])
     with urllib.request.urlopen(url) as response:
@@ -193,13 +196,13 @@ end_article_get = time.time()
 getSentiments(articles_df)
 
 # Evaluate accuracy upon labeled dataset
-start_acc_eval = time.time()
-evaluate_accuracy()
+# start_acc_eval = time.time()
+# evaluate_accuracy()
 
 print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
 
-end_acc_eval = time.time()
-print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
+# end_acc_eval = time.time()
+# print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
 
 end_total = time.time()
 print(f"\nTotal program runtime: {end_total - start_total:.2f} seconds")
