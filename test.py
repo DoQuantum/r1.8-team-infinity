@@ -11,6 +11,7 @@ import time
 import random
 from lxml.html import fromstring
 import urllib3
+from urllib.parse import quote
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 import praw
@@ -20,10 +21,12 @@ import torch
 from sklearn.metrics import accuracy_score, precision_score
 
 # Output CSV
-target_csv = 'readingArticles.csv'
-target_stock = 'google'
+
+# ['AAPL', 'MSFT', 'GOOG', 'AMZN', 'JPM'] Target stocks to test code with
+target_stock = "JPM" # Manually change, for now
+target_csv = f'readingArticles_{target_stock}.csv'
 target_from = '2025-01-01'
-target_to = '2025-01-08'
+target_to = '2025-02-01'
 
 # Always start fresh
 df_target = pd.DataFrame(columns=['title', 'url', 'content'])
@@ -60,7 +63,9 @@ def get_proxies():
 def getArticles():
     load_dotenv()
     API_KEY = os.getenv("API_KEY")
-    url = f"https://gnews.io/api/v4/search?q={target_stock} stock&from={target_from}T21:32:58.500Z&to={target_to}T21:32:58.500Z&lang=en&max=10&apikey={API_KEY}"
+    #query = quote(f"{target_stock} stock")
+    url = f"https://gnews.io/api/v4/search?q={target_stock}&lang=en&max=10&apikey={API_KEY}"
+    #url = f"https://gnews.io/api/v4/search?q=AAPL&from={target_from}T21:32:58.500Z&to={target_to}T21:32:58.500Z&lang=en&max=10&apikey={API_KEY}"
 
     df_articles = pd.DataFrame(columns=['title', 'url', 'content'])
     with urllib.request.urlopen(url) as response:
@@ -132,7 +137,8 @@ def getArticleContent(df_articles):
     df_articles['content'] = contents
     df_articles['keywords'] = keywords
     df_articles['summary'] = summaries
-    df_articles.to_csv(target_csv, index=False, quoting=csv.QUOTE_ALL)
+
+    return df_articles
 
 def getSentiments(df_articles):
     tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
@@ -144,7 +150,8 @@ def getSentiments(df_articles):
     outputs = model(**inputs)
     probabilities = torch.softmax(outputs.logits, dim=1)
 
-    sentiment_labels = [-1, 0, 1]
+    print(model.config.id2label)
+    sentiment_labels = [1, -1, 0]
     sentiment = []
     predicted_indices = torch.argmax(probabilities, dim=1)
     print(predicted_indices)
@@ -169,7 +176,7 @@ def evaluate_accuracy():
     probs = torch.softmax(outputs.logits, dim=1)
     predicted_indices = torch.argmax(probs, dim=1)
 
-    sentiment_labels = [-1, 0, 1]
+    sentiment_labels = [1, -1, 0]
     predictions = [sentiment_labels[idx] for idx in predicted_indices]
 
     ground_truth = df["numerical_sentiment"].tolist()
@@ -184,7 +191,8 @@ def evaluate_accuracy():
 start_total = time.time()
 start_article_get = time.time()
 articles_df = getArticles()
-getArticleContent(articles_df)
+article_content_df = getArticleContent(articles_df)
+article_content_df.to_csv(target_csv, index=False, quoting=csv.QUOTE_ALL)
 print(f"Saved {len(articles_df)} articles to {target_csv}")
 articles_df = articles_df.fillna("")
 
@@ -196,13 +204,13 @@ end_article_get = time.time()
 getSentiments(articles_df)
 
 # Evaluate accuracy upon labeled dataset
-# start_acc_eval = time.time()
-# evaluate_accuracy()
+#start_acc_eval = time.time()
+#evaluate_accuracy()
 
 print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
 
-# end_acc_eval = time.time()
-# print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
+#end_acc_eval = time.time()
+#print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
 
 end_total = time.time()
 print(f"\nTotal program runtime: {end_total - start_total:.2f} seconds")
