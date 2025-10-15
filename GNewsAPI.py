@@ -1,26 +1,38 @@
 import json
-import csv
 import pandas as pd
-# https://docs.python.org/3/library/urllib.request.html#module-urllib.request
-# This library will be used to fetch the API.
+import csv
 import urllib.request
 from dotenv import load_dotenv
 import os
-
 import requests
 from newspaper import Article
-from newspaper import Config
 from fake_useragent import UserAgent
 import time
 import random
-
-old_df = pd.read_csv('articles.csv')
-
-# Manually change this to decide between overwriting the file or appending. True for append, and False for overwrite
-append = True
-
-# Get list of proxies to rotate while scraping articles
 from lxml.html import fromstring
+import urllib3
+from urllib.parse import quote
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+import praw
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import torch
+
+from sklearn.metrics import accuracy_score, precision_score
+
+# Output CSV
+
+# ['AAPL', 'MSFT', 'GOOG', 'AMZN', 'JPM'] Target stocks to test code with
+target_stock = "JPM" # Manually change, for now
+target_csv = f'readingArticles_{target_stock}.csv'
+target_from = '2025-01-01'
+target_to = '2025-02-01'
+
+# Always start fresh
+df_target = pd.DataFrame(columns=['title', 'url', 'content'])
+df_target.to_csv(target_csv, index=False)
+
+# Get working proxies
 def get_proxies():
     url = 'https://free-proxy-list.net/'
     response = requests.get(url)
@@ -28,95 +40,177 @@ def get_proxies():
     proxies = []
     for i in parser.xpath('//tbody/tr')[:100]:
         if i.xpath('.//td[7][contains(text(),"yes")]'):
-            #Grabbing IP and corresponding PORT
             proxy = ":".join([i.xpath('.//td[1]/text()')[0],
-            i.xpath('.//td[2]/text()')[0]])              
-            #print(proxy)
+                              i.xpath('.//td[2]/text()')[0]])
             proxies.append(proxy)
-    return proxies
-proxies = get_proxies()
 
-# Call API and write results to CSV
+    print(f"Scraped {len(proxies)} proxies, now testing them...")
+    alive_proxies = []
+    test_url = "https://httpbin.org/ip"
+    for proxy in proxies:
+        try:
+            r = requests.get(test_url,
+                             proxies={"http": f"http://{proxy}", "https": f"http://{proxy}"},
+                             timeout=5)
+            if r.status_code == 200:
+                alive_proxies.append(proxy)
+        except:
+            continue
+    print(f"Final working proxies: {len(alive_proxies)}")
+    return alive_proxies
+
+# Fetch articles from GNews API
 def getArticles():
-       load_dotenv()
-       API_KEY = os.getenv("API_KEY")
-       # Query parameters are adjusted in this url
-       url = f"https://gnews.io/api/v4/search?q=Google&lang=en&max=10&from=2022-06-27T21:32:58.500Z&to=2025-06-27T21:32:58.500Z&apikey={API_KEY}"
-       # Header row
-       new_df = pd.DataFrame({'title': [], 'url': []})
+    load_dotenv()
+    API_KEY = os.getenv("API_KEY")
+    #query = quote(f"{target_stock} stock")
+    url = f"https://gnews.io/api/v4/search?q={target_stock}&lang=en&max=10&apikey={API_KEY}"
+    #url = f"https://gnews.io/api/v4/search?q=AAPL&from={target_from}T21:32:58.500Z&to={target_to}T21:32:58.500Z&lang=en&max=10&apikey={API_KEY}"
 
-       with urllib.request.urlopen(url) as response:
-              data = json.loads(response.read().decode("utf-8"))
-              articles = data["articles"]
-              for i in range(len(articles)):
-                      # Get new row data
-                     newRow = {'title': articles[i]["title"],
-                      'url': articles[i]["url"]}
-                     new_df.loc[len(new_df)] = newRow
-       # Write titles and URLS to csv
-       if append:
-              combined_df = pd.concat([old_df, new_df], ignore_index=True)
-              combined_df.to_csv('articles.csv', index=False)
-       else:
-              new_df.to_csv('articles.csv', index=False)
+    df_articles = pd.DataFrame(columns=['title', 'url', 'content'])
+    with urllib.request.urlopen(url) as response:
+        data = json.loads(response.read().decode("utf-8"))
+        articles = data["articles"]
+        for i in range(len(articles)):
+            df_articles.loc[len(df_articles)] = {'title': articles[i]['title'], 'url': articles[i]['url'], 'content': None}
+        # for art in data.get("articles", []):
+        #     df_articles.loc[len(df_articles)] = {'title': art["title"], 'url': art["url"], 'content': None}
 
+    # Save fresh CSV
+    df_articles.to_csv(target_csv, index=False)
+    return df_articles
 
-# Get content from articles.csv
-def getArticleContent():
-       contents = []
+# Helper: fetch HTML using random proxy
+def fetch_with_proxies(url, headers, proxies_list, max_retries=3):
+    for _ in range(max_retries):
+        proxy = random.choice(proxies_list) if proxies_list else None
+        PROXIES = {"http": f"http://{proxy}", "https": f"http://{proxy}"} if proxy else None
+        try:
+            resp = requests.get(url, headers=headers, proxies=PROXIES, timeout=15, verify=False)
+            if resp.status_code == 200:
+                return resp.text
+        except:
+            continue
+    return None
 
-       # Get dataframe from articles.csv
-       df_tail = pd.read_csv("articles.csv")
+# Fetch content for the articles and save directly
+def getArticleContent(df_articles):
+    ua = UserAgent()
+    proxies = get_proxies()
+    authors, dates, contents, keywords, summaries = [], [], [], [], []
 
-       # Only fetch content for the newest 10 articles (useful when doing append mode)
-       df_tail = df_tail.tail(10).reset_index(drop=True)
+    for url in df_articles['url']:
+        print("\nURL:", url)
+        headers = {"User-Agent": ua.random}
+        html = fetch_with_proxies(url, headers, proxies)
+        if html:
+            try:
+                article = Article(url)
+                article.set_html(html)
+                article.parse()
+                try:
+                    article.nlp()  # enable summary and keywords
+                except:
+                    pass
+                authors.append(article.authors)
+                dates.append(article.publish_date)
+                contents.append(article.text.replace('\n',''))
+                keywords.append(article.keywords)
+                summaries.append(article.summary)
+                print("Content length:", len(article.text))
+            except:
+                authors.append(None)
+                dates.append(None)
+                contents.append(None)
+                keywords.append(None)
+                summaries.append(None)
+        else:
+            authors.append(None)
+            dates.append(None)
+            contents.append(None)
+            keywords.append(None)
+            summaries.append(None)
+        time.sleep(random.uniform(2, 5))
 
-       for url in df_tail['url']:
-              print()
-              
-              # Set a random user agent
-              config = Config()
-              ua = UserAgent()
-              config.browser_user_agent = ua.random
+    df_articles['authors'] = authors
+    df_articles['publish_date'] = dates
+    df_articles['content'] = contents
+    df_articles['keywords'] = keywords
+    df_articles['summary'] = summaries
 
-              # Set proxies
-              # proxy = random.choice(proxies) # to use random proxy
-              proxy = "38.147.98.190:8080"
-              PROXIES = {
-                     'http': f"http://{proxy}",
-                     'https': f"http://{proxy}"
-              }
-              print("Using proxy: ", proxy)
-              config.proxies = PROXIES
-              # Set timeout
-              config.request_timeout = 10
+    return df_articles
 
-              # Print URL and article content
-              print("URL:", url)
-              article = Article(url, config=config, verify=False)
-              time.sleep(2) # Pause to avoid triggering rate limits
-              article.download()
+def getSentiments(df_articles):
+    tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
+    model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
+    txt = []
+    for i in range(df_articles.shape[0]):
+        txt.append(df_articles.loc[i, 'title'] + " " + df_articles.loc[i,'content'])
+    inputs = tokenizer(txt, padding=True, truncation=True, return_tensors="pt")
+    outputs = model(**inputs)
+    probabilities = torch.softmax(outputs.logits, dim=1)
 
-              # IMPORTANT!!! Need to figure out why we encounter errors with connection (Example of error below)
-              '''newspaper.article.ArticleException: Article `download()` failed with HTTPSConnectionPool(host='www.androidheadlines.com', port=443): 
-              Max retries exceeded with url: /2025/06/google-photos-editor-is-getting-a-major-redesign-soon-heres-the-first-look.html 
-              (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in 
-              certificate chain (_ssl.c:1000)'))) on URL https://www.androidheadlines.com/2025/06/google-photos-editor-is-getting-a-major-redesign-soon-heres-the-first-look.html
-              '''
-              try:
-                     article.parse()
-                     contents.append(article.text)
-              except:
-                    print("Article download() failed")
-                    contents.append(None)
-              print("Content:", article.text)
+    print(model.config.id2label)
+    sentiment_labels = [1, -1, 0]
+    sentiment = []
+    predicted_indices = torch.argmax(probabilities, dim=1)
+    print(predicted_indices)
+    for i, idx in enumerate(predicted_indices):
+        sentiment.append(sentiment_labels[idx])
+        print(f"Article {i+1}: {sentiment_labels[idx]}  ->  {txt[i][:80]}...")
+    df_articles['sentiment'] = sentiment
+    df_articles.to_csv(target_csv, index=False, quoting=csv.QUOTE_ALL)
 
-       df_tail['content'] = contents
+def evaluate_accuracy():
+    print("\nEvaluating accuracy using sentences_allagree.csv")
+    df = pd.read_csv("sentences_allagree.csv")
 
-       # Append or update the CSV
-       df = pd.read_csv("articles.csv")
-       df.loc[df.tail(10).index, 'content'] = df_tail['content']
-       df.to_csv('articles.csv', index=False)
+    tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
+    model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
 
-getArticles()
-getArticleContent()
+    texts = df["sentence"].astype(str).tolist()
+    inputs = tokenizer(texts, padding=True, truncation=True, max_length=128, return_tensors="pt")
+    with torch.no_grad():
+        outputs = model(**inputs)
+
+    probs = torch.softmax(outputs.logits, dim=1)
+    predicted_indices = torch.argmax(probs, dim=1)
+
+    sentiment_labels = [1, -1, 0]
+    predictions = [sentiment_labels[idx] for idx in predicted_indices]
+
+    ground_truth = df["numerical_sentiment"].tolist()
+
+    acc = accuracy_score(ground_truth, predictions)
+    prec = precision_score(ground_truth, predictions, average="macro", zero_division=0)
+
+    print(f"Accuracy: {acc:.3f}")
+    print(f"Precision (macro): {prec:.3f}")
+
+# Run workflow
+start_total = time.time()
+start_article_get = time.time()
+articles_df = getArticles()
+article_content_df = getArticleContent(articles_df)
+article_content_df.to_csv(target_csv, index=False, quoting=csv.QUOTE_ALL)
+print(f"Saved {len(articles_df)} articles to {target_csv}")
+articles_df = articles_df.fillna("")
+
+end_article_get = time.time()
+
+# temp for getSentiments
+# articles_df = pd.read_csv('readingArticles.csv')
+
+getSentiments(articles_df)
+
+# Evaluate accuracy upon labeled dataset
+#start_acc_eval = time.time()
+#evaluate_accuracy()
+
+print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
+
+#end_acc_eval = time.time()
+#print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
+
+end_total = time.time()
+print(f"\nTotal program runtime: {end_total - start_total:.2f} seconds")
