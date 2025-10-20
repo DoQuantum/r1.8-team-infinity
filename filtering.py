@@ -55,7 +55,7 @@ def main():
     results = fetch_reddit_posts("wallstreetbets", years_back=5, max_posts=2000)
     txt = [clean_text(item["title"] + " " + item["body"]) for item in results]
 
-    # 👇 Confirm date range of fetched posts
+    # Confirm date range of fetched posts
     if results:
         oldest = min(results, key=lambda x: x["created_utc"])
         newest = max(results, key=lambda x: x["created_utc"])
