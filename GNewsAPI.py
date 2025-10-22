@@ -23,10 +23,12 @@ from sklearn.metrics import accuracy_score, precision_score
 # Output CSV
 
 # ['AAPL', 'MSFT', 'GOOG', 'AMZN', 'JPM'] Target stocks to test code with
-target_stock = "JPM" # Manually change, for now
+target_stock = "GOOG" # Manually change, for now
 target_csv = f'readingArticles_{target_stock}.csv'
 target_from = '2025-01-01'
 target_to = '2025-02-01'
+target_sources = ['businessinsider','seekingalpha','cnbc','benzinga']
+
 
 # Always start fresh
 df_target = pd.DataFrame(columns=['title', 'url', 'content'])
@@ -72,7 +74,9 @@ def getArticles():
         data = json.loads(response.read().decode("utf-8"))
         articles = data["articles"]
         for i in range(len(articles)):
-            df_articles.loc[len(df_articles)] = {'title': articles[i]['title'], 'url': articles[i]['url'], 'content': None}
+            for j in range(len(target_sources)):
+                if target_sources[j] in articles[i]['url']: # Add article if from target source
+                    df_articles.loc[len(df_articles)] = {'title': articles[i]['title'], 'url': articles[i]['url'], 'content': None}
         # for art in data.get("articles", []):
         #     df_articles.loc[len(df_articles)] = {'title': art["title"], 'url': art["url"], 'content': None}
 
@@ -97,8 +101,8 @@ def fetch_with_proxies(url, headers, proxies_list, max_retries=3):
 def getArticleContent(df_articles):
     ua = UserAgent()
     proxies = get_proxies()
-    authors, dates, contents, keywords, summaries = [], [], [], [], []
-
+    authors, dates, contents, keywords, summaries, to_keep = [], [], [], [], [], []
+    index = 0
     for url in df_articles['url']:
         print("\nURL:", url)
         headers = {"User-Agent": ua.random}
@@ -118,6 +122,8 @@ def getArticleContent(df_articles):
                 keywords.append(article.keywords)
                 summaries.append(article.summary)
                 print("Content length:", len(article.text))
+                if not 'Please disable your ad-blocker' in article.text:    # Keep article if there are no errors
+                    to_keep.append(index)
             except:
                 authors.append(None)
                 dates.append(None)
@@ -131,21 +137,22 @@ def getArticleContent(df_articles):
             keywords.append(None)
             summaries.append(None)
         time.sleep(random.uniform(2, 5))
+        index += 1
 
     df_articles['authors'] = authors
     df_articles['publish_date'] = dates
     df_articles['content'] = contents
     df_articles['keywords'] = keywords
     df_articles['summary'] = summaries
-
+    df_articles = df_articles.iloc[to_keep]     # Drop all rows with no content
     return df_articles
 
 def getSentiments(df_articles):
     tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
     model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
     txt = []
-    for i in range(df_articles.shape[0]):
-        txt.append(df_articles.loc[i, 'title'] + " " + df_articles.loc[i,'content'])
+    for index, row in df_articles.iterrows():
+        txt.append(row['title'] + " " + row['content'])
     inputs = tokenizer(txt, padding=True, truncation=True, return_tensors="pt")
     outputs = model(**inputs)
     probabilities = torch.softmax(outputs.logits, dim=1)
@@ -193,7 +200,7 @@ start_article_get = time.time()
 articles_df = getArticles()
 article_content_df = getArticleContent(articles_df)
 article_content_df.to_csv(target_csv, index=False, quoting=csv.QUOTE_ALL)
-print(f"Saved {len(articles_df)} articles to {target_csv}")
+print(f"Saved {len(article_content_df)} articles to {target_csv}")
 articles_df = articles_df.fillna("")
 
 end_article_get = time.time()
@@ -201,7 +208,7 @@ end_article_get = time.time()
 # temp for getSentiments
 # articles_df = pd.read_csv('readingArticles.csv')
 
-getSentiments(articles_df)
+getSentiments(article_content_df)
 
 # Evaluate accuracy upon labeled dataset
 #start_acc_eval = time.time()
