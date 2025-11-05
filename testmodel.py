@@ -3,7 +3,8 @@ import datetime as dt
 import time
 import torch
 from transformers import BertTokenizer, BertForSequenceClassification
-import pandas as pd
+import numpy as np
+import pandas as pd  
 
 # --- Load finetuned model ---
 model_name_or_path = "./finbert_finetuned"
@@ -14,11 +15,7 @@ model.to(device)
 model.eval()
 
 # --- Sentiment mapping back to original labels ---
-reverse_map = {0: -1, 1: 0, 2: 1}  # negative, neutral, positive
-
-# --- Clean text ---
-def clean_text(text):
-    return " ".join(text.split())  # removes newlines and extra spaces
+reverse_map = {0: -1, 1: 0, 2: 1}
 
 # --- Reddit fetching function ---
 def fetch_old_posts(company, subreddit, year=2020, max_posts=500):
@@ -45,9 +42,9 @@ def fetch_old_posts(company, subreddit, year=2020, max_posts=500):
             break
 
         for post in data:
-            title = clean_text(post.get("title", ""))
-            body = clean_text(post.get("selftext", ""))
-            if not title and not body:
+            title = post.get("title", "").strip()
+            body = post.get("selftext", "").strip()
+            if not title or not body:
                 continue
             if title.lower() in ("[deleted]", "[removed]") or body.lower() in ("[deleted]", "[removed]"):
                 continue
@@ -65,8 +62,8 @@ def fetch_old_posts(company, subreddit, year=2020, max_posts=500):
 
     return all_posts
 
-# --- Sentiment prediction ---
 def predict_sentiment(posts):
+    predictions = []
     for post in posts:
         text = post["title"] + " " + post["body"]
         inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True).to(device)
@@ -74,25 +71,33 @@ def predict_sentiment(posts):
             outputs = model(**inputs)
             pred_label = torch.argmax(outputs.logits, dim=1).item()
         post["sentiment"] = reverse_map[pred_label]
-        post["created_date"] = dt.datetime.fromtimestamp(post["created_utc"]).strftime("%Y-%m-%d %H:%M:%S")
-    # Filter out posts that somehow ended up empty
-    return [p for p in posts if p["title"] or p["body"]]
+        predictions.append(post)
+    return predictions
 
-# --- Main ---
+
+
 if __name__ == "__main__":
-    company = "Amazon"
-    subreddit = "wallstreetbets"
-    posts = fetch_old_posts(company, subreddit, year=2020, max_posts=500)
-    scored_posts = predict_sentiment(posts)
+    company_name="Amazon"
+    posts_2020 = fetch_old_posts(company_name, "wallstreetbets", year=2020, max_posts=500)
+    scored_posts = predict_sentiment(posts_2020)
 
+    # Convert Unix timestamps to readable dates
+    for post in scored_posts:
+        post["created_date"] = dt.datetime.fromtimestamp(post["created_utc"]).strftime("%Y-%m-%d %H:%M:%S")
+
+    # Save results to CSV
     df = pd.DataFrame(scored_posts)
-    df = df[["created_date", "title", "body", "sentiment", "url"]]
-    df.to_csv("reddit_sentiments.csv", index=False, encoding="utf-8")
-    print(f"\n✅ Saved {len(df)} posts cleanly to reddit_sentiments.csv")
+    df = df[["created_date", "title", "body", "sentiment", "url"]]  # optional: select relevant columns
+    output_path = f"{company_name}""_sentiments.csv"
+    df.to_csv(output_path, index=False, encoding="utf-8")
+    print(f"\nSaved all {len(df)} posts with sentiment scores to {output_path}")
+    print(df.columns)
+    print(df.head())
 
     # Print sample output
     for i, post in enumerate(scored_posts[:5], 1):
         print(f"\n[{i}] {post['created_date']}")
         print(f"Title: {post['title']}")
-        print(f"Sentiment: {post['sentiment']} (-1=neg, 0=neutral, 1=pos)")
+        print(f"Sentiment: {post['sentiment']} (0=neutral, 1=positive, -1=negative)")
         print(f"URL: {post['url']}")
+
