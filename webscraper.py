@@ -105,7 +105,7 @@ def scrape_google_news(keyword, start=target_from, end=target_to):
 def getArticleContent(df_articles):
     ua = UserAgent()
     proxies = get_proxies()
-    authors, contents, keywords, summaries, to_keep = [], [], [], [], []
+    authors, contents, to_keep = [], [], []
     index = 0
     for url in df_articles['url']:
         print("\nURL:", url)
@@ -121,38 +121,31 @@ def getArticleContent(df_articles):
                 except:
                     pass
                 authors.append(article.authors)
+                for text in contents:               # Check if duplicate
+                    if not article.text in text:
+                        to_keep.append(index)
+                        break
                 contents.append(article.text.replace('\n',''))
-                keywords.append(article.keywords)
-                summaries.append(article.summary)
                 print("Content length:", len(article.text))
-                if not 'Please disable your ad-blocker' in article.text:    # Keep article if there are no errors
-                    to_keep.append(index)
+                
             except:
                 authors.append(None)
                 contents.append(None)
-                keywords.append(None)
-                summaries.append(None)
         else:
             authors.append(None)
             contents.append(None)
-            keywords.append(None)
-            summaries.append(None)
         time.sleep(random.uniform(2, 5))
         index += 1
 
     df_articles['authors'] = authors
     df_articles['content'] = contents
-    df_articles['keywords'] = keywords
-    df_articles['summary'] = summaries
     df_articles = df_articles.iloc[to_keep]     # Drop all rows with no content
     return df_articles
-
 
 def export_to_csv(articles, filename=target_csv):
     df = pd.DataFrame(articles)
     df.to_csv(filename, index=False, encoding="utf-8")
     print(f"Exported {len(df)} articles to {filename}")
-
 
 if __name__ == "__main__":
     topic = target_stock
