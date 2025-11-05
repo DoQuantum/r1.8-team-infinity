@@ -3,9 +3,6 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from newspaper import Article
 from datetime import datetime as time
-
-import base64
-import urllib.request
 from dotenv import load_dotenv
 import os
 import requests
@@ -19,6 +16,7 @@ from urllib.parse import quote
 import re
 from urllib.parse import unquote
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+from googlenewsdecoder import gnewsdecoder
 
 target_stock = "AMZN" # Manually change, for now
 target_csv = f'readingArticles_{target_stock}.csv'
@@ -63,53 +61,19 @@ def fetch_with_proxies(url, headers, proxies_list, max_retries=3):
             continue
     return None
 
-# def resolve_google_news_url(google_news_url):
-#     try:
-#         # Follow redirects; Google News usually returns a 302 redirect to the real article
-#         headers = {"User-Agent": "Mozilla/5.0"}
-#         response = requests.get(google_news_url, headers=headers, allow_redirects=True, timeout=10)
-#         print(response.url)
-#         return response.url  # The final destination URL (real source)
-#     except Exception as e:
-#         print(f"Error resolving {google_news_url}: {e}")
-#         return None
-
-def extract_real_url(google_news_url):
-    """
-    Extract the real article URL from a Google News RSS redirect page.
-    """
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/126.0 Safari/537.36"
-        )
-    }
-
+def resolve_google_news_url(google_news_url):
+    interval_time = 1  # interval is optional, default is None
     try:
-        # 1️⃣ Fetch the redirect page (Google’s stub)
-        resp = requests.get(google_news_url, headers=headers, timeout=10, verify=False)
-        if resp.status_code != 200:
+        decoded_url = gnewsdecoder(google_news_url, interval=interval_time)
+
+        if decoded_url.get("status"):
+            print("Decoded URL:", decoded_url["decoded_url"])
+            return decoded_url["decoded_url"]
+        else:
+            print("Error:", decoded_url["message"])
             return google_news_url
-
-        html = resp.text
-
-        # 2️⃣ Look for meta-refresh redirect
-        match = re.search(r'URL=(https?://[^"]+)', html)
-        if match:
-            real_url = unquote(match.group(1))
-            return real_url
-
-        # 3️⃣ Fallback: try any href redirect links
-        soup = BeautifulSoup(html, "html.parser")
-        possible_link = soup.find("a", href=True)
-        if possible_link:
-            return possible_link["href"]
-
-        return google_news_url
-
     except Exception as e:
-        print(f"Failed to extract from {google_news_url}: {e}")
+        print(f"Error occurred: {e}")
         return google_news_url
 
 
@@ -129,7 +93,7 @@ def scrape_google_news(keyword, start=target_from, end=target_to):
         link = item.link.text
         pub_date = item.pubDate.text
         # Always resolve to full article URL
-        real_url = extract_real_url(link)
+        real_url = resolve_google_news_url(link)
 
         articles.loc[len(articles)] = {
             "title": title,
@@ -191,7 +155,7 @@ def export_to_csv(articles, filename=target_csv):
 
 
 if __name__ == "__main__":
-    topic = input("Enter a topic to search for: ")
+    topic = target_stock
     print(f"Searching for '{topic}' articles from 2020–2024...")
     results = scrape_google_news(topic)
     results_with_text = getArticleContent(results)
