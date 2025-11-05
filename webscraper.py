@@ -74,7 +74,48 @@ def fetch_with_proxies(url, headers, proxies_list, max_retries=3):
 #         print(f"Error resolving {google_news_url}: {e}")
 #         return None
 
+def extract_real_url(google_news_url):
+    """
+    Extract the real article URL from a Google News RSS redirect page.
+    """
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/126.0 Safari/537.36"
+        )
+    }
+
+    try:
+        # 1️⃣ Fetch the redirect page (Google’s stub)
+        resp = requests.get(google_news_url, headers=headers, timeout=10, verify=False)
+        if resp.status_code != 200:
+            return google_news_url
+
+        html = resp.text
+
+        # 2️⃣ Look for meta-refresh redirect
+        match = re.search(r'URL=(https?://[^"]+)', html)
+        if match:
+            real_url = unquote(match.group(1))
+            return real_url
+
+        # 3️⃣ Fallback: try any href redirect links
+        soup = BeautifulSoup(html, "html.parser")
+        possible_link = soup.find("a", href=True)
+        if possible_link:
+            return possible_link["href"]
+
+        return google_news_url
+
+    except Exception as e:
+        print(f"Failed to extract from {google_news_url}: {e}")
+        return google_news_url
+
+
+
 def scrape_google_news(keyword, start=target_from, end=target_to):
+
     """Fetch articles from Google News RSS within the date range."""
     query = f"{keyword} after:{start} before:{end}"
     url = f"https://news.google.com/rss/search?q={query.replace(' ', '+')}"
@@ -83,12 +124,18 @@ def scrape_google_news(keyword, start=target_from, end=target_to):
     soup = BeautifulSoup(response.content, "xml")
 
     articles = pd.DataFrame(columns=['title','url','date'])
-    for item in soup.find_all("item",limit=3):
+    for item in soup.find_all("item", limit=20):
         title = item.title.text
         link = item.link.text
         pub_date = item.pubDate.text
-        # articles.append({"title": title, "url": link, "date": pub_date})
-        articles.loc[len(articles)] = {'title': title, 'url': extract_real_url(link), 'date': pub_date}
+        # Always resolve to full article URL
+        real_url = extract_real_url(link)
+
+        articles.loc[len(articles)] = {
+            "title": title,
+            "url": real_url,
+            "date": pub_date
+        }
     return articles
 
 def getArticleContent(df_articles):
