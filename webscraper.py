@@ -17,6 +17,10 @@ import re
 from urllib.parse import unquote
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 from googlenewsdecoder import gnewsdecoder
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import torch
+
+from sklearn.metrics import accuracy_score, precision_score
 
 target_stock = "AMZN" # Manually change, for now
 target_csv = f'readingArticles_{target_stock}.csv'
@@ -142,14 +146,73 @@ def getArticleContent(df_articles):
     df_articles = df_articles.iloc[to_keep]     # Drop all rows with no content
     return df_articles
 
+def getSentiments(df_articles):
+    tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
+    model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
+    txt = []
+    for index, row in df_articles.iterrows():
+        txt.append(row['title'] + " " + row['content'])
+    inputs = tokenizer(txt, padding=True, truncation=True, return_tensors="pt")
+    outputs = model(**inputs)
+    probabilities = torch.softmax(outputs.logits, dim=1)
+
+    print(model.config.id2label)
+    sentiment_labels = [1, -1, 0]
+    sentiment = []
+    predicted_indices = torch.argmax(probabilities, dim=1)
+    print(predicted_indices)
+    for i, idx in enumerate(predicted_indices):
+        sentiment.append(sentiment_labels[idx])
+        print(f"Article {i+1}: {sentiment_labels[idx]}  ->  {txt[i][:80]}...")
+    df_articles['sentiment'] = sentiment
+    df_articles.to_csv(target_csv, index=False, quoting=csv.QUOTE_ALL)
+
+def evaluate_accuracy():
+    print("\nEvaluating accuracy using sentences_allagree.csv")
+    df = pd.read_csv("sentences_allagree.csv")
+
+    tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
+    model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
+
+    texts = df["sentence"].astype(str).tolist()
+    inputs = tokenizer(texts, padding=True, truncation=True, max_length=128, return_tensors="pt")
+    with torch.no_grad():
+        outputs = model(**inputs)
+
+    probs = torch.softmax(outputs.logits, dim=1)
+    predicted_indices = torch.argmax(probs, dim=1)
+
+    sentiment_labels = [1, -1, 0]
+    predictions = [sentiment_labels[idx] for idx in predicted_indices]
+
+    ground_truth = df["numerical_sentiment"].tolist()
+
+    acc = accuracy_score(ground_truth, predictions)
+    prec = precision_score(ground_truth, predictions, average="macro", zero_division=0)
+
+    print(f"Accuracy: {acc:.3f}")
+    print(f"Precision (macro): {prec:.3f}")
+
 def export_to_csv(articles, filename=target_csv):
     df = pd.DataFrame(articles)
     df.to_csv(filename, index=False, encoding="utf-8")
     print(f"Exported {len(df)} articles to {filename}")
 
 if __name__ == "__main__":
+    start_total = time.time()
+    start_article_get = time.time()
     topic = target_stock
     print(f"Searching for '{topic}' articles from 2020–2024...")
     results = scrape_google_news(topic)
     results_with_text = getArticleContent(results)
+    getSentiments(results_with_text)
     export_to_csv(results_with_text)
+    end_article_get = time.time()
+    start_acc_eval = time.time()
+    evaluate_accuracy()
+
+    print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
+    end_acc_eval = time.time()
+    print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
+    end_total = time.time()
+    print(f"\nTotal program runtime: {end_total - start_total:.2f} seconds")
