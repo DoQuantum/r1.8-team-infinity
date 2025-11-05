@@ -1,3 +1,5 @@
 .env
 finbert_finetuned/
 tf_env
+
+Amazon_sentiments.csv

@@ -74,8 +74,6 @@ def predict_sentiment(posts):
         predictions.append(post)
     return predictions
 
-
-
 if __name__ == "__main__":
     company_name="Amazon"
     posts_2020 = fetch_old_posts(company_name, "wallstreetbets", year=2020, max_posts=500)
@@ -87,17 +85,29 @@ if __name__ == "__main__":
 
     # Save results to CSV
     df = pd.DataFrame(scored_posts)
-    df = df[["created_date", "title", "body", "sentiment", "url"]]  # optional: select relevant columns
-    output_path = f"{company_name}""_sentiments.csv"
+    df = df[["created_date", "title", "body", "sentiment", "url"]]
+    output_path = f"{company_name}_sentiments.csv"
     df.to_csv(output_path, index=False, encoding="utf-8")
+
     print(f"\nSaved all {len(df)} posts with sentiment scores to {output_path}")
-    print(df.columns)
+
+    gitignore_path = ".gitignore"
+    try:
+        with open(gitignore_path, "a+", encoding="utf-8") as f:
+            f.seek(0)
+            lines = f.read().splitlines()
+            if output_path not in lines:
+                f.write(f"\n{output_path}\n")
+                print(f"Added '{output_path}' to .gitignore.")
+            else:
+                print(f"'{output_path}' is already in .gitignore.")
+    except Exception as e:
+        print(f"Warning: Could not update .gitignore — {e}")
+
     print(df.head())
 
-    # Print sample output
     for i, post in enumerate(scored_posts[:5], 1):
         print(f"\n[{i}] {post['created_date']}")
         print(f"Title: {post['title']}")
         print(f"Sentiment: {post['sentiment']} (0=neutral, 1=positive, -1=negative)")
         print(f"URL: {post['url']}")
-
