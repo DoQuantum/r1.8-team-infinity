@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+import csv
 from newspaper import Article
 from datetime import datetime as time
 from dotenv import load_dotenv
