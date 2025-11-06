@@ -23,11 +23,10 @@ import torch
 
 from sklearn.metrics import accuracy_score, precision_score
 
-target_stock = "GOOG" # Manually change, for now
+target_stock = "AMZN" # Manually change, for now
 target_csv = f'readingArticles_{target_stock}.csv'
 target_from = '2020-01-01'
 target_to = '2021-01-01'
-num_articles = 25
 
 def get_proxies():
     url = 'https://free-proxy-list.net/'
@@ -94,7 +93,7 @@ def scrape_google_news(keyword, start=target_from, end=target_to):
     soup = BeautifulSoup(response.content, "xml")
 
     articles = pd.DataFrame(columns=['title','url','date'])
-    for item in soup.find_all("item", limit=num_articles):
+    for item in soup.find_all("item", limit=20):
         title = item.title.text
         link = item.link.text
         pub_date = item.pubDate.text
@@ -211,7 +210,7 @@ if __name__ == "__main__":
     export_to_csv(results_with_text)
     end_article_get = time.time()
     start_acc_eval = time.time()
-    evaluate_accuracy()
+    # evaluate_accuracy()
 
     print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
     end_acc_eval = time.time()
