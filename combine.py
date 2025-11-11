@@ -1,17 +1,24 @@
-import numpy as np
 import pandas as pd
-import seaborn as sns
-from statsmodels.tsa.api import ARDL
-from statsmodels.tsa.ardl import ardl_select_order
+import geopandas as gpd
+import numpy as np
+from shapely.geometry import Polygon, box, Point
+from itertools import islice
+import pyproj
+import json
+import re
+from datetime import datetime
 
-# Placeholder
-stock_prices = pd.Series([1,2,3,4,5])
-daily_sentiment = pd.Series([-1,-0.5,0,0.5,1])
+target_stock = "Amazon"
 
+csv_files = [f'readingArticles_{target_stock}.csv', f'{target_stock}_sentiments.csv']
 
+# Load each CSV file into a DataFrame and store in a list
+dataframes = [pd.read_csv(csv_file) for csv_file in csv_files]
 
+dataframes[0].drop('authors') # Temp - remove authors column in news csv
+dataframes[1].rename(columns={'created_date': 'date', 'body': 'content'})
 
-# Suppose stock_prices is a pandas Series with the same index as daily_sentiment
-ardl_model = ARDL(stock_prices, lags=2, exog=daily_sentiment)
-ardl_result = ardl_model.fit()
-print(ardl_result.summary())
+# Concatenate all DataFrames into a single DataFrame
+csvFile = pd.concat(dataframes, ignore_index=True)
+
+csvFile.to_csv(f"{target_stock}_all.csv")
