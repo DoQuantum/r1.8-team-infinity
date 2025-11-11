@@ -23,11 +23,7 @@ import torch
 
 from sklearn.metrics import accuracy_score, precision_score
 
-<<<<<<< HEAD
-target_stock = "MSFT" # Manually change, for now
-=======
-target_stock = "AMZN" # Manually change, for now
->>>>>>> f54401d317d714bed050d2de605ae6060176a285
+target_stock = "Microsoft" # Manually change, for now
 target_csv = f'readingArticles_{target_stock}.csv'
 target_from = '2020-01-01'
 target_to = '2021-01-01'
@@ -213,13 +209,8 @@ if __name__ == "__main__":
     getSentiments(results_with_text)
     export_to_csv(results_with_text)
     end_article_get = time.time()
-<<<<<<< HEAD
     #start_acc_eval = time.time()
     #evaluate_accuracy()
-=======
-    start_acc_eval = time.time()
-    # evaluate_accuracy()
->>>>>>> f54401d317d714bed050d2de605ae6060176a285
 
     print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
     #end_acc_eval = time.time()
