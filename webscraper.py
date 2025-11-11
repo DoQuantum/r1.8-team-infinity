@@ -23,7 +23,7 @@ import torch
 
 from sklearn.metrics import accuracy_score, precision_score
 
-target_stock = "GOOG" # Manually change, for now
+target_stock = "MSFT" # Manually change, for now
 target_csv = f'readingArticles_{target_stock}.csv'
 target_from = '2020-01-01'
 target_to = '2021-01-01'
@@ -122,17 +122,17 @@ def getArticleContent(df_articles):
                 article = Article(url)
                 article.set_html(html)
                 article.parse()
-                try:
-                    article.nlp()  # enable summary and keywords
-                except:
-                    pass
-                authors.append(article.authors)
-                for text in contents:               # Check if duplicate
-                    if not article.text in text:
-                        to_keep.append(index)
-                        break
-                contents.append(article.text.replace('\n',''))
-                print("Content length:", len(article.text))
+                text = article.text.replace('\n', '')
+
+                # only append if non-empty and not already in list
+                if text and text not in contents:
+                    authors.append(article.authors)
+                    contents.append(text)
+                    to_keep.append(index)
+                    print("Content length:", len(text))
+                else:
+                    authors.append(None)
+                    contents.append(None)
                 
             except:
                 authors.append(None)
@@ -210,11 +210,11 @@ if __name__ == "__main__":
     getSentiments(results_with_text)
     export_to_csv(results_with_text)
     end_article_get = time.time()
-    start_acc_eval = time.time()
-    evaluate_accuracy()
+    #start_acc_eval = time.time()
+    #evaluate_accuracy()
 
     print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
-    end_acc_eval = time.time()
-    print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
+    #end_acc_eval = time.time()
+    #print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
     end_total = time.time()
     print(f"\nTotal program runtime: {end_total - start_total:.2f} seconds")

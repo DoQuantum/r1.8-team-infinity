@@ -23,7 +23,7 @@ from sklearn.metrics import accuracy_score, precision_score
 # Output CSV
 
 # ['AAPL', 'MSFT', 'GOOG', 'AMZN', 'JPM'] Target stocks to test code with
-target_stock = "GOOG" # Manually change, for now
+target_stock = "JPM" # Manually change, for now
 target_csv = f'readingArticles_{target_stock}.csv'
 target_from = '2025-01-01'
 target_to = '2025-02-01'
