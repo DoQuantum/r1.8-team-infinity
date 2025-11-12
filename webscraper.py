@@ -24,8 +24,9 @@ import torch
 from sklearn.metrics import accuracy_score, precision_score
 
 target_stocks = ["AAPL", "AMZN", "GOOG", "JPM", "MSFT"]
-target_index = 0 #AAPL
-target_csv = f'readingArticles_{target_stocks[target_index]}.csv'
+target_index = 0 # AAPL
+run_all = False
+target_csv = ''
 target_from = '2020-01-01'
 target_to = '2021-01-01'
 
@@ -221,8 +222,8 @@ def run_company(index):
     print(f"\nTotal program runtime: {end_total - start_total:.2f} seconds")
 
 if __name__ == "__main__":
-    run_company(0)
-
-    # RUN ALL
-    # for i in range(5):
-    #     run_company(i)
+    if run_all:
+        for i in range(5):
+            run_company(i)
+    else:
+        run_company(target_index)
