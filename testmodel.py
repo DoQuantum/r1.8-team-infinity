@@ -24,14 +24,17 @@ def fetch_old_posts(company, subreddit, year=2020, max_posts=500):
     all_posts = []
     last_created_utc = before
 
-    print(f"Fetching posts from r/{subreddit} in {year}...")
+    company = company.upper()
+    encoded_query = f"{company}%20OR%20%24{company}"  # search both AMZN and $AMZN
+
+    print(f"Fetching posts from r/{subreddit} in {year} for '{company}'...")
 
     while len(all_posts) < max_posts:
         size = min(100, max_posts - len(all_posts))
         url = (
             f"https://api.pullpush.io/reddit/search/submission/"
             f"?subreddit={subreddit}&after={after}&before={last_created_utc}"
-            f"&size={size}&q={company}&sort=desc"
+            f"&size={size}&q={encoded_query}&sort=desc"
         )
         response = requests.get(url)
         if response.status_code != 200:
@@ -56,7 +59,7 @@ def fetch_old_posts(company, subreddit, year=2020, max_posts=500):
                 "url": f"https://www.reddit.com{post.get('permalink', '')}"
             })
 
-        last_created_utc = data[-1]["created_utc"]
+        last_created_utc = data[-1]["created_utc"] - 1
         print(f"Collected {len(all_posts)} valid posts so far...")
         time.sleep(1)
 
@@ -75,8 +78,8 @@ def predict_sentiment(posts):
     return predictions
 
 if __name__ == "__main__":
-    company_name="Amazon"
-    posts_2020 = fetch_old_posts(company_name, "wallstreetbets", year=2020, max_posts=500)
+    company_name = "GOOG"  
+    posts_2020 = fetch_old_posts(company_name, "wallstreetbets", year=2020, max_posts=20)
     scored_posts = predict_sentiment(posts_2020)
 
     # Convert Unix timestamps to readable dates

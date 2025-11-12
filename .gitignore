@@ -3,3 +3,21 @@ finbert_finetuned/
 tf_env
 
 Amazon_sentiments.csv
+
+Google_sentiments.csv
+
+Microsoft_sentiments.csv
+
+J.P. Morgan_sentiments.csv
+
+Apple_sentiments.csv
+
+AMZN_sentiments.csv
+
+MSFT_sentiments.csv
+
+APPL_sentiments.csv
+
+JPM_sentiments.csv
+
+GOOG_sentiments.csv
