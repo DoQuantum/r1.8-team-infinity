@@ -25,6 +25,7 @@ from sklearn.metrics import accuracy_score, precision_score
 
 target_stocks = ["AAPL", "AMZN", "GOOG", "JPM", "MSFT"]
 target_index = 0 # AAPL
+num_articles = 20
 run_all = False
 target_csv = ''
 target_from = '2020-01-01'
@@ -95,7 +96,7 @@ def scrape_google_news(keyword, start=target_from, end=target_to):
     soup = BeautifulSoup(response.content, "xml")
 
     articles = pd.DataFrame(columns=['title','url','date'])
-    for item in soup.find_all("item", limit=20):
+    for item in soup.find_all("item", limit=num_articles):
         title = item.title.text
         link = item.link.text
         pub_date = item.pubDate.text
