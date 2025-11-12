@@ -8,13 +8,13 @@ import json
 import re
 from datetime import datetime
 
-target_stock = "Amazon"
+target_stock = "Microsoft"
 csv_files = [f'readingArticles_{target_stock}.csv', f'{target_stock}_sentiments.csv']
 
 # Load each CSV file into a DataFrame and store in a list
 dataframes = [pd.read_csv(csv_file) for csv_file in csv_files]
-dataframes[0].drop('authors') # Temp - remove authors column in news csv
-dataframes[1].rename(columns={'created_date': 'date', 'body': 'content'})
+dataframes[0] = dataframes[0].drop('authors', axis=1) # Temp - remove authors column in news csv
+dataframes[1] = dataframes[1].rename(columns={'created_date': 'date', 'body': 'content'})
 # Concatenate all DataFrames into a single DataFrame
 csvFile = pd.concat(dataframes, ignore_index=True)
 csvFile.to_csv(f"{target_stock}_combined.csv")

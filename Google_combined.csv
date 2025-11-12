@@ -1,0 +1,788 @@
+,title,url,date,content,sentiment
+0,Updating Google Photos’ storage policy to build for the future - blog.google,https://blog.google/products/photos/storage-changes/,"Wed, 11 Nov 2020 08:00:00 GMT","We launched Google Photos more than five years ago with the mission of being the home for your memories. What started as an app to manage your photos and videos has evolved into a place to reflect on meaningful moments in your life. Today, more than 4 trillion photos are stored in Google Photos, and every week 28 billion new photos and videos are uploaded.Since so many of you rely on Google Photos to store your memories, it’s important that it’s not just a great product, but also continues to meet your needs over the long haul. In order to welcome even more of your memories and build Google Photos for the future, we are changing our unlimited High quality storage policy.Starting June 1, 2021, any new photos and videos you upload will count toward the free 15 GB of storage that comes with every Google Account or the additional storage you’ve purchased as a Google One member. Your Google Account storage is shared across Drive, Gmail and Photos. This change also allows us to keep pace with the growing demand for storage. And, as always, we uphold our commitment to not use information in Google Photos for advertising purposes. We know this is a big shift and may come as a surprise, so we wanted to let you know well in advance and give you resources to make this easier.Existing High quality photos and videos are exempt from this changeAny photos or videos you’ve uploaded in High quality before June 1, 2021 will not count toward your 15GB of free storage. This means that photos and videos backed up before June 1, 2021 will still be considered free and exempt from the storage limit. You can verify your backup quality at any time in the Photos app by going to back up & sync in Settings.",0
+1,"Google Says It Doesn’t 'Sell' Your Data. Here’s How the Company Shares, Monetizes, and Exploits It. - Electronic Frontier Foundation",https://www.eff.org/deeplinks/2020/03/google-says-it-doesnt-sell-your-data-heres-how-company-shares-monetizes-and,"Thu, 19 Mar 2020 07:00:00 GMT","""Google will never sell any personal information to third parties; and you get to decide how your information is used."" - Sundar PichaiSound familiar? Although big tech companies like Google keep the lights on by harvesting and monetizing your personal data, they can be quick to mince words and deny the strawman scenario of exchanging hard drives full of your data for a suitcase of money. Now California law has given them another reason to deny and deflect.The California Consumer Privacy Act (CCPA) went into effect on January 1, 2020. One of its biggest effects is to regulate the sale of data: under the law, any exchange of personal information for “valuable consideration” is, with some exceptions, a “sale.” Any company that sells data has to give users the chance to opt out of that sale, and facilitate those opt-outs by placing a “do not sell my data button” on the company’s website.This is a big deal. The CCPA gives Californians an affirmative right to control how our personal data is used. On its own, the CCPA is not enough to fix the problems with tech’s use of personal data, but it is a good first step down the road to privacy reform.How can a company that monetizes personal data evade these new CCPA duties? One way is to claim they do not “sell” data, as that term is used in CCPA. Google, the adtech oligarch, devourer of data, surveyor of souls, That Which Knows All That Is Known, has decided that it doesn’t sell data.Thanks for clearing that up.Google controls about 62% of mobile browsers, 69% of desktop browsers, and the operating systems on 71% of mobile devices in the world. 92% of internet searches go through Google and 73% of American adults use YouTube. Google runs code on approximately 85% of sites on the Web and inside as many as 94% of apps in the Play store. It collects data about users’ every click, tap, query, and movement from all of those sources and more.So what is happening with all of that data, which Google says it’s not selling, but from which it makes tens of billions of dollars a year?Let’s find out.Real-time biddingGoogle monetizes what it observes about people in two major ways:It uses data to build individual profiles with demographics and interests, then lets advertisers target groups of people based on those traits. It shares data with advertisers directly and asks them to bid on individual ads.The second method of monetization involves most of the behaviors that regular people might think of as “selling data.” Google is involved at nearly every level of the complex, automated process of third-party ad placement known as “real-time bidding,” or RTB.Real-time bidding is the process by which publishers auction off ad space in their apps or on their websites. In doing so, they share sensitive user data—including geolocation, device IDs, identifying cookies, and browsing history—with dozens or hundreds of different adtech companies.Each RTB auction typically sees user data passing through three different layers of companies on its way from a device to an advertiser: supply-side platforms (or SSPs) collect user data to sell, ad exchanges organize auctions between them and advertisers, and demand-side platforms (or DSPs) “bid” on behalf of advertisers to decide which ads to show to which people. These auctions take milliseconds, constantly churning away in the background of your browsing activity as companies at every level of the process share and collect more and more data to add to their existing profiles of users.Data flows in a typical real-time bidding systemGoogle controls massive portions of nearly every level of the real-time bidding ecosystem. In 2007 Google purchased DoubleClick, then the largest third-party ad network for the Web. And in 2009 it bought AdMob, the largest ad server for the then-nascent mobile application market. Both AdMob and DoubleClick have blossomed under Google’s ownership, and today they continue to dominate their respective markets. DoubleClick (now folded into Google Marketing Platform) controls over half of the ad exchange market on the Web, and AdMob is far and away the most popular supply-side platform for apps on both iOS and Android.Real-time bidding is a convoluted, opaque system of data collection and sharing that enables profiling and surveillance by advertisers, data brokers, hedge funds, and ICE. It is at the center of everything that’s wrong with privacy in tech. Let’s take a look at how Google claims it doesn’t sell data at different levels of the RTB process.On your phoneAdMob is a mobile supply-side platform. That means the company creates tools, called Software Development Kits (SDKs), that developers build into their apps. AdMob partners with ad exchanges, and its SDKs connect apps to the exchanges directly. Inside an app, AdMob code collects information and shares it with Google and other exchanges through processes called “open bidding” and “mediation.” Your phone shares data, including your device ID and geolocation data, with Google and with other ad exchanges; the app serves you an ad; Google and the developer get paid.A partial list of the ad exchanges that Google shares data with through AdMob Open Bidding.In your browserGoogle’s Ad Manager product (formerly Doubleclick for Publishers) is the equivalent of AdMob for the web. Developers install Google’s code on their websites, and the code makes requests to Google and other ad exchanges with your identifying cookie as well as other information. Again, Google sends data out into the ecosystem, and advertisers send money back.Google also shares data with advertisers in other, less direct ways, such as by “cookie matching,” which lets third-party adtech companies connect their own tracking cookies to Google’s identifier. It has even been caught setting up “workarounds” to keep its non-consensual data-sharing measures active in jurisdictions where they should be illegal, like the EU.On Google’s serversAfter the data leaves your device, it goes to one of several downstream services, like Google’s own Ad Exchange. Google collects bid requests from all over the Internet: from both sites and apps; from phones, computers, game consoles, and TVs; and from its own as well as competing SSPs. Then it presents those bid requests to hundreds of “authorized buyers”—demand side platforms that represent advertisers. Each of those DSPs has access to a firehose of personal information about millions of different users on all different devices. Google runs billions of ad auctions per day; in the process, it shares data about millions of people and receives millions of dollars from advertisers.The data being transferred here is all associated with at least one unique ID: this could be the ad ID which identifies your phone, the cookie ID stored in your browser, or Google’s own internal ID for your account. Either way it ties back to you. It can include geolocation information, gender, age, and interests.Beyond RTB: customer data filesRTB isn’t the only way Google shares data with advertisers (or anyone else with money). Google also allows its advertiser customers to target users by name, email, or device ID and reach them almost anywhere. Through its “Customer Match” program, advertisers can upload lists of users they want to reach, and Google will serve them ads in exchange for money.This is an indirect means of data sharing, but the end result is the same. Companies can upload lists of “anonymous” device IDs or phone numbers, and Google will connect those numbers to real people. Then, Google will serve ads to those people across its platforms: on their phones, computers, and TVs. Anyone who engages with those ads will be sent right to the advertiser’s landing page, where the advertiser can collect cookie IDs, IP address, location, and more. Researchers have found that this style of individual-targeting system exposes users to a wide range of privacy leaks.To make this more concrete: suppose a company wants to acquire data about expecting mothers. It can buy a list of a million device IDs that a data broker believes to belong to such women. The company can upload this list to Google and target an ad at those IDs. If even a small fraction—say, 1%—click on the ad, then 10,000 people are sent to the advertiser’s landing page, where they automatically share their IP address, cookies, and possibly geolocation data. The company now has sensitive medical data about 10,000 people served up to it on a silver platter. (Google prohibits targeting based on medical and other characteristics in its Customer Match terms of service, but it is unclear how the company audits or enforces them.)This system provides a way for companies to turn lists of identifiers into direct pipelines to real humans. Advertisers piggyback on Google’s identity graph, and can acquire new data about their targets in the process. And for its services, Google gets paid. Once again, Google insists this is not a sale.The need for stronger consumer data privacy lawsIn many different ways, Google sends data to advertisers, and advertisers send it money.Yet Google claims that it’s not “selling” anything.It does acknowledge that somewhere in this process, a “sale” is occurring. It just insists that Google itself isn’t the one selling data. Instead, although Google facilitates the whole process, it places the responsibility of CCPA compliance on website and app publishers. Therefore, in order to opt out of having your data sold by Google’s services, you need to opt out with each individual app and website that you use. Doing so won’t even stop your data from being collected; it will only stop Google from showing you behaviorally targeted ads.If Google isn’t “selling” data for purposes of CCPA protections of consumers, that underscores the need for a more comprehensive law that treats privacy as a default, not an option. It’s unreasonable to expect users to tell every company in the expansive tech ecosystem, one by one, that they would like their privacy please. And companies like Google shouldn’t be able to monetize data they collect without consent even if they aren’t technically “selling” it. Data collection, use, and sharing should be minimized by default.",0
+2,Apple and Google partner on COVID-19 contact tracing technology - Apple,https://www.apple.com/newsroom/2020/04/apple-and-google-partner-on-covid-19-contact-tracing-technology/,"Fri, 10 Apr 2020 07:00:00 GMT","Across the world, governments and health authorities are working together to find solutions to the COVID-19 pandemic, to protect people and get society back up and running. Software developers are contributing by crafting technical tools to help combat the virus and save lives. In this spirit of collaboration, Google and Apple are announcing a joint effort to enable the use of Bluetooth technology to help governments and health agencies reduce the spread of the virus, with user privacy and security central to the design.Since COVID-19 can be transmitted through close proximity to affected individuals, public health officials have identified contact tracing as a valuable tool to help contain its spread. A number of leading public health authorities, universities, and NGOs around the world have been doing important work to develop opt-in contact tracing technology. To further this cause, Apple and Google will be launching a comprehensive solution that includes application programming interfaces (APIs) and operating system-level technology to assist in enabling contact tracing. Given the urgent need, the plan is to implement this solution in two steps while maintaining strong protections around user privacy.First, in May, both companies will release APIs that enable interoperability between Android and iOS devices using apps from public health authorities. These official apps will be available for users to download via their respective app stores.Second, in the coming months, Apple and Google will work to enable a broader Bluetooth-based contact tracing platform by building this functionality into the underlying platforms. This is a more robust solution than an API and would allow more individuals to participate, if they choose to opt in, as well as enable interaction with a broader ecosystem of apps and government health authorities. Privacy, transparency, and consent are of utmost importance in this effort, and we look forward to building this functionality in consultation with interested stakeholders. We will openly publish information about our work for others to analyze.All of us at Apple and Google believe there has never been a more important moment to work together to solve one of the world’s most pressing problems. Through close cooperation and collaboration with developers, governments and public health providers, we hope to harness the power of technology to help countries around the world slow the spread of COVID-19 and accelerate the return of everyday life.",0
+3,Our third decade of climate action: Realizing a carbon-free future - blog.google,https://blog.google/outreach-initiatives/sustainability/our-third-decade-climate-action-realizing-carbon-free-future/,"Mon, 14 Sep 2020 07:00:00 GMT","A few years ago flooding devastated Chennai, where I grew up. Seeing the images of the city—which had experienced extreme drought for so many years of my life—covered in flood waters, really made the impacts of climate change feel much closer to home. Last week, many of us woke up to orange skies in Northern California as wildfires continue to rage up and down the West Coast. I know others in Australia and Brazil have recently experienced similar events, and sadly they won’t be the last.The science is clear: The world must act now if we’re going to avert the worst consequences of climate change.We are committed to doing our part. Sustainability has been a core value for us since Larry and Sergey founded Google two decades ago. We were the first major company to become carbon neutral in 2007. We were the first major company to match our energy use with 100 percent renewable energy in 2017. We operate the cleanest global cloud in the industry, and we’re the world’s largest corporate purchaser of renewable energy.In our third decade of climate action, we are going even further to help build a carbon-free future for everyone. Here’s how:We’re eliminating our entire carbon legacy, effective today.We are the first major company to make a commitment to operate on 24/7 carbon-free energy in all our data centers and campuses worldwide. This is far more challenging than the traditional approach of matching energy usage with renewable energy, but we’re working to get this done by 2030.We’re investing in technologies to help our partners and people all over the world make sustainable choices. For example, we are investing in manufacturing regions to enable 5 GW of new carbon-free energy, helping 500 cities reduce their carbon emissions and finding new ways to empower 1 billion people through our products.We estimate that the commitments we’re making today will directly generate more than 20,000 new jobs in clean energy and associated industries, in America and around the world, by 2025.Here’s more about what we’re announcing today.",0
+4,Our $1 billion investment in partnerships with news publishers - blog.google,https://blog.google/outreach-initiatives/google-news-initiative/google-news-showcase/,"Thu, 01 Oct 2020 07:00:00 GMT","One of the most enduring memories of my childhood is waiting for my father and grandfather to finish the paper over breakfast every morning so that I could get the latest headlines, especially in the sports section. To this day, my father still texts me whenever he sees something interesting in the news … which is a lot! I have always valued quality journalism and believed that a vibrant news industry is critical to a functioning democratic society.It’s equally important to Google’s mission to organize the world's information and make it universally accessible and useful. Over the last several years, we’ve taken many steps to support the news industry, from sending 24 billion visits to news websites globally every month, to the Google News Initiative’s $300 million commitment, including emergency funding for local publishers globally to help with the impact of COVID-19 and our Digital Growth Program aimed at small and medium-sized publishers to accelerate their business growth.But there is more to do. Today I’m proud to announce Google is building on our long-term support with an initial $1 billion investment in partnerships with news publishers and the future of news.",0
+5,Navigate safely with new COVID data in Google Maps - blog.google,https://blog.google/products/maps/navigate-safely-new-covid-data-google-maps/,"Wed, 23 Sep 2020 07:00:00 GMT","Where we get the dataData featured in the COVID layer comes from multiple authoritative sources, including Johns Hopkins, the New York Times, and Wikipedia. These sources get data from public health organizations like the World Health Organization, government health ministries, along with state and local health agencies and hospitals. Many of these sources already power COVID case information in Search, and we’re now expanding this data to Google Maps.While getting around is more complicated these days, our hope is that these Google Maps features will help you get where you need to be as safely and efficiently as possible. The COVID layer starts rolling out worldwide on Android and iOS this week.",0
+6,"A faster Chrome, for everything you need to get done - blog.google",https://blog.google/products/chrome/faster-chrome/,"Tue, 17 Nov 2020 08:00:00 GMT","Today we're offering up our final Chrome release of 2020. The updates can help you get things done this holiday season (and beyond), so you can make life's work a bit smoother and reclaim precious time.Faster to start, faster to load, and way more battery lifeThis month's update represents the largest gain in Chrome performance in years, thanks to many under-the-hood improvements. Here’s what’s starting to roll out today:Chrome now prioritizes your active tabs vs. everything that’s open—reducing CPU usage by up to 5x and extending battery life by up to 1.25 hours (based on our internal benchmarks).Chrome now starts up to 25 percent faster, loads pages up to 7 percent faster, and does all of this using less power and RAM than before.Chrome on Android now loads pages near instantaneously when you navigate backward and forward, making these common tasks super fast.Tabs: pin ‘em, group ‘em, and now search ‘emMany people use tabs to organize their stuff online—from read-worthy articles, to sources of inspiration, to everyday to-do’s. This range of utility is why you can pin tabs (for those go-to pages), send tabs to your other devices and even group tabs in Chrome. This month we're adding tab search to the toolbox.You’ll now be able to see a list of your open tabs—regardless of the window they’re in—then quickly type to find the one you need. It’s search … for your tabs! The feature is coming first to Chromebooks, then to other desktop platforms soon.",0
+7,Our data centers now work harder when the sun shines and wind blows - blog.google,https://blog.google/inside-google/infrastructure/data-centers-work-harder-sun-shines-wind-blows/,"Wed, 22 Apr 2020 07:00:00 GMT","What’s nextThe first version of this carbon-intelligent computing platform focuses on shifting tasks to different times of the day, within the same data center. But, it’s also possible to move flexible compute tasks between different data centers, so that more work is completed when and where doing so is more environmentally friendly. Our plan for the future is to shift load in both time and location to maximize the reduction in grid-level CO2 emissions. Our methodology, including performance results of our global rollout, will be shared in upcoming research publications. We hope that our findings inspire other organizations to deploy their own versions of a carbon-intelligent platform, and together, we can continue to encourage the growth of carbon-free electricity worldwide. Learn more about Google’s progress toward a carbon-free future on our Sustainability site.",0
+8,"A redesigned Google Photos, built for your life’s memories - blog.google",https://blog.google/products/photos/redesigned-google-photos/,"Thu, 25 Jun 2020 07:00:00 GMT","Five years ago, we noticed that people were struggling to manage their photos and videos—there wasn’t a place to keep them all, storage was disorganized, and it was hard to find specific photos. We designed Google Photos to solve these problems and since then more than one billion people use the app each month. Over the past few years we’ve also seen that people use Google Photos when they feel nostalgic and want to reminisce. Google Photos has become more than just an app to manage your photos, it’s become the home for your life’s memories.And that’s why today, we’re launching a redesigned Google Photos, focused on your memories, to help you find and relive your most treasured moments.A new, simplified experienceIn the redesigned Google Photos, we’re giving your photos and videos more prominence and bringing search front-and-center with a new three-tab structure:",0
+9,Get around safely with these new Google Maps features - blog.google,https://blog.google/products/maps/get-around-safely-these-new-google-maps-features/,"Mon, 08 Jun 2020 07:00:00 GMT","Get alerts about important informationWhen you look up public transit directions for a trip that is likely to be affected by COVID-19 restrictions, we’ll show relevant alerts from local transit agencies. These alerts can help you prepare accordingly if government mandates impact transit services or require you to wear a mask on public transportation. Transit alerts are rolling out in Argentina, Australia, Belgium, Brazil, Colombia, France, India, Mexico, Netherlands, Spain, Thailand, United Kingdom and the U.S. where we have information from local transit agencies, with more coming soon.We’re also introducing driving alerts to notify you about COVID-19 checkpoints and restrictions along your route, like when crossing national borders (starting first in Canada, Mexico and the U.S.). You’ll see an alert on the directions screen and after starting navigation if your route is impacted by these restrictions.When navigating to medical facilities or COVID-19 testing centers, we’ll display an alert reminding you to verify eligibility and facility guidelines to avoid being turned away or causing additional strain on the local healthcare system. Starting this week, alerts for medical facilities will be available in Indonesia, Israel, the Philippines, South Korea, and the U.S., and testing center alerts will be available in the U.S.",0
+10,New Google Lens features to help you be more productive at home - blog.google,https://blog.google/products/google-lens/new-google-lens-features-help-you-be-more-productive-home/,"Thu, 07 May 2020 07:00:00 GMT","Lately our family dining table has also become a work desk, a video conference room and … a kid’s playground. As I learn how to become a full time kids-entertainer, I welcome anything that can help me stay productive. And while I usually turn to Search when learning about new things, sometimes what I’m looking for is hard to describe in words.This is where Google Lens can help. When my family’s daily activity involves a walk in the neighborhood, Lens lets me search what I see, like a flower in our neighbor’s front yard.",0
+11,Our commitments to racial equity - blog.google,https://blog.google/inside-google/company-announcements/commitments-racial-equity/,"Wed, 17 Jun 2020 07:00:00 GMT","Building sustainable equityCreating meaningful change starts within our own company. Strengthening our commitment to racial equity and inclusion will help Google build more helpful products for our users and the world. To that end, we’re announcing several commitments to build sustainable equity for our Black+ community.First, we’re working to improve Black+ representation at senior levels and committing to a goal to improve leadership representation of underrepresented groups by 30 percent by 2025. To help achieve this, we’ll post senior leadership roles externally as well as internally, and increase our investments in places such as Atlanta, Washington DC, Chicago, and London, where we already have offices. We'll take the same approach across regions, using site and country-specific plans to recruit and hire more underrepresented Googlers in communities where the social infrastructure already supports a sense of belonging and contributes to a better quality of life.Second, we’ll do more to address representation challenges and focus on hiring, retention, and promotion at all levels. To help direct that work, I’m establishing a new talent liaison within each product and functional area to mentor and advocate for the progression and retention of Googlers from underrepresented groups. I’m also convening a task force, including senior members of the Black+ community at Google, to develop concrete recommendations and proposals for accountability across all of the areas that affect the Black+ Googler experience, from recruiting and hiring, to performance management, to career progression and retention. I’ve asked the task force to come back with specific proposals (including measurable goals) within 90 days.Third, we’re working to create a stronger sense of inclusion and belonging for Googlers in general and our Black+ community in particular. Our internal research shows that feelings of belonging are driven by many aspects of our experiences at work, including the psychological safety we feel among our teams, the support of our managers and leaders, equitable people processes, and opportunities to grow and develop our careers. Across all of these dimensions, we’re committed to building more inclusive practices and policies—and revisiting them when we don’t get them right.As one example, we’ve had a security practice of Googlers watching for “tailgaters” in order to reduce instances of unauthorized visitors in offices. We have realized this process is susceptible to bias. So, over the past year, our Global Security and Resilience team partnering with a cross-functional working group, conducted extensive research, listened to Black Googlers’ experiences, and developed and tested new security procedures to ensure we could maintain the safety and security of the Google community without relying on this type of enforcement. Now, as we prepare to return to the office, we will end the practice of Googlers badge-checking each other and rely on our already robust security infrastructure.Fourth, we’ll establish a range of anti-racism educational programs that are global in view and able to scale to all Googlers. We’ll be welcoming external experts into Google to share their expertise on racial history and structural inequities, and start conversations on education, allyship, and self-reflection. And this week we’ve begun piloting a new, multi-series training for Googlers of all levels that explores systemic racism and racial consciousness, to help develop stronger awareness and capacity for creating spaces where everyone feels they belong. We plan to roll out this training globally by early next year. We’ll also integrate diversity, equity, and inclusion into our mandatory manager trainings.Fifth, we’re focused on better supporting the mental and physical health and well-being of our Black+ community. For example, over the past year, we’ve worked with our mental health provider in the U.S., to increase their Black network of counselors. Our global EAP providers are also working to further diversify their network of counselors. Over the next 90 days, our Benefits team will work with the Equity Project Management Office and Black Leadership Advisory Group to identify areas where we could expand our benefits or provide additional support to Googlers and their families. As one example of the kinds of programs that work: we've made the medical second opinion service available to Googlers’ extended family—something that our Black+ community told us was important to supporting a family structure that includes siblings, parents, parents-in-law and grandparents.",0
+12,When parents become teachers: tools to help students at home - blog.google,https://blog.google/outreach-initiatives/education/parents-become-teachers/,"Tue, 11 Aug 2020 07:00:00 GMT","Editor’s note: On August 11, 2020 Google for Education kicked off a global back-to-school event, The Anywhere School. Check out the full recap of product launches and our collection of announcements.For me, life at home now means an office in my garage and three children at home attempting to learn. I’m still adjusting to my children making appearances on my Google Meet meetings, trying to schedule more walking meetings to squeeze in some exercise, and creating a schedule that my children will only loosely follow. Luckily, nobody knows about the chaos that ensues behind the scenes thanks to Google Meet’s noise cancellation feature!With these changes, you may realize that you need a crash course in algebra or Shakespeare, and one on the digital tools your kids are using. The resources below, along with our Tech Toolkit for Families and Guardians, including a video series, can answer your questions about helping kids with lessons and homework, new products and features to help with staying in touch with teachers, and safeguarding kids when they’re online.",0
+13,New ways to get around with Google Maps on iOS - blog.google,https://blog.google/products/maps/new-ways-get-around-google-maps-ios/,"Mon, 10 Aug 2020 07:00:00 GMT","Google Maps helps you find places to go, things to do and how to get there—no matter what device you’re using. With compatibility for Apple’s CarPlay Dashboard and a new app for the Apple Watch, people using iOS devices can safely and easily navigate with Google Maps right from their car or wrist.Get things done without missing a turnIn the CarPlay Dashboard you can now switch or pause songs from your favorite media app, rewind or fast forward podcasts or audiobooks, or quickly check calendar appointments without ever leaving turn-by-turn navigation in Google Maps. The information is displayed in a split screen view so you can get the information you need while keeping your focus on the road.",0
+14,"Google TV: Entertainment you love, with help from Google - blog.google",https://blog.google/products/google-tv/entertainment-you-love-google-tv/,"Wed, 30 Sep 2020 07:00:00 GMT","Live TV integration is available now with a YouTube TV membership in the U.S., which includes more than 85 channels, a DVR with unlimited storage space and more. Integration with more live TV providers is coming soon.A little help from GoogleWith Google TV, the biggest screen in your home is now more helpful. Ask Google about the weather, sports scores and more, and get answers right on your TV. You can even view and control your compatible connected home devices with just your voice. Simply press and hold the Google Assistant remote button and say ""Show me the front door"" to see your security camera feed.When you aren’t watching TV, ambient mode lets you connect to Google Photos so you can showcase images of your favorite people and places on your home’s biggest screen. Google TV is also compatible with more than 6,500 apps built for Android TV OS so you can access your favorites across gaming, fitness, education, music and more. Support for Stadia is coming in the first half of 2021.Available on the new Chromecast with Google TVThe all-new Chromecast with Google TV comes with a remote and plugs right into your TV’s HDMI port, so you can watch your favorite content in up to 4K HDR. Starting today in the U.S., Chromecast with Google TV is available for $49.99 in three colors: Snow, Sunrise and Sky. We will be bringing Chromecast with Google TV to more countries by the end of the year.Starting in 2021, Google TV will also be available on televisions from Sony and other Android TV OS partners.Last but not least, we know that your TV isn't the only place for watching entertainment. To make it easy to discover and enjoy your entertainment no matter where you go, Google TV will also be available via the new Google TV app, which will begin rolling out today to Android mobile devices in the U.S. as an update to the Google Play Movies & TV app.¹Google TV search and discover functionality for Peacock content will be available soon.",0
+15,Find high-quality apps for kids on Google Play - blog.google,https://blog.google/products/google-play/teacher-approved-apps/,"Wed, 15 Apr 2020 07:00:00 GMT","We’ve heard from parents that it’s difficult to dig through all the content that's out there for kids. Today, we’re making it easier for parents to find the good stuff, with a new Kids tab on Google Play filled with “Teacher approved” apps that are both enriching and entertaining. We decided to launch the Kids tab a bit earlier than planned because parents who have tried it out told us that it’s been helpful, especially now with their kids home from school and spending more time with screens. Because it’s early, you may not see some of your favorite apps in there just yet, but we’re adding new content as quickly as possible.",0
+16,Increasing transparency through advertiser identity verification - blog.google,https://blog.google/products/ads/advertiser-identity-verification-for-transparency/,"Thu, 23 Apr 2020 07:00:00 GMT","We’re committed to giving our users transparency, choice and control when it comes to the ads they see on our platforms. That’s why we’ve long offered tools like Ad Settings which allows people to control how ads are personalized or even opt out of personalized ads altogether, as well as features like Why this ad? which helps explain why a specific ad is being shown. Now, we’re working to bring additional transparency into the advertiser behind the ads people see.In 2018, we announced a new identity verification policy for political advertisers. The policy requires all advertisers that want to run election ads on our platforms go through a verification program to confirm their identity. We display that identity in the ad unit so that users can learn more about the election ads they see on Google’s platforms. Since introducing this program, we’ve verified political advertisers in 30 countries. And now, to provide greater transparency and equip users with more information about who is advertising to them, we are extending identity verification to all advertisers on our platforms.As part of this initiative, advertisers will be required to complete a verification program in order to buy ads on our network. Advertisers will need to submit personal identification, business incorporation documents or other information that proves who they are and the country in which they operate. Beginning this summer, users will start to see disclosures that list this information about the advertiser behind the ads they see.",0
+17,Google Maps 101: How AI helps predict traffic and determine routes - blog.google,https://blog.google/products/maps/google-maps-101-how-ai-helps-predict-traffic-and-determine-routes/,"Thu, 03 Sep 2020 07:00:00 GMT","Every day, over 1 billion kilometers are driven with Google Maps in more than 220 countries and territories around the world. When you hop in your car or on your motorbike and start navigating, you’re instantly shown a few things: which way to go, whether the traffic along your route is heavy or light, an estimated travel time, and an estimated time of arrival (ETA). While all of this appears simple, there’s a ton going on behind the scenes to deliver this information in a matter of seconds.Today, we’ll break down one of our favorite topics: traffic and routing. If you’ve ever wondered just how Google Maps knows when there’s a massive traffic jam or how we determine the best route for a trip, read on.Live traffic, powered by drivers all around the worldWhen people navigate with Google Maps, aggregate location data can be used to understand traffic conditions on roads all over the world. But while this information helps you find current traffic estimates —whether or not a traffic jam will affect your drive right now—it doesn’t account for what traffic will look like 10, 20, or even 50 minutes into your journey. This is where technology really comes into play.Predicting traffic with advanced machine learning techniques, and a little bit of historyTo predict what traffic will look like in the near future, Google Maps analyzes historical traffic patterns for roads over time. For example, one pattern may show that the 280 freeway in Northern California typically has vehicles traveling at a speed of 65mph between 6-7am, but only at 15-20mph in the late afternoon. We then combine this database of historical traffic patterns with live traffic conditions, using machine learning to generate predictions based on both sets of data.Recently, we partnered with DeepMind, an Alphabet AI research lab, to improve the accuracy of our traffic prediction capabilities. Our ETA predictions already have a very high accuracy bar–in fact, we see that our predictions have been consistently accurate for over 97% of trips. By partnering with DeepMind, we’ve been able to cut the percentage of inaccurate ETAs even further by using a machine learning architecture known as Graph Neural Networks–with significant improvements in places like Berlin, Jakarta, São Paulo, Sydney, Tokyo, and Washington D.C. This technique is what enables Google Maps to better predict whether or not you’ll be affected by a slowdown that may not have even started yet!Keeping it freshFor most of the 13 years that Google Maps has provided traffic data, historical traffic patterns have been reliable indicators of what your conditions on the road could look like—but that's not always the case. Since the start of the COVID-19 pandemic, traffic patterns around the globe have shifted dramatically. We saw up to a 50 percent decrease in worldwide traffic when lockdowns started in early 2020. Since then, parts of the world have reopened gradually, while others maintain restrictions. To account for this sudden change, we’ve recently updated our models to become more agile—automatically prioritizing historical traffic patterns from the last two to four weeks, and deprioritizing patterns from any time before that.How Google Maps selects routesOur predictive traffic models are also a key part of how Google Maps determines driving routes. If we predict that traffic is likely to become heavy in one direction, we’ll automatically find you a lower-traffic alternative. We also look at a number of other factors, like road quality. Is the road paved or unpaved, or covered in gravel, dirt or mud? Elements like these can make a road difficult to drive down, and we’re less likely to recommend this road as part of your route. We also look at the size and directness of a road—driving down a highway is often more efficient than taking a smaller road with multiple stops.Two other sources of information are important to making sure we recommend the best routes: authoritative data from local governments and real-time feedback from users. Authoritative data lets Google Maps know about speed limits, tolls, or if certain roads are restricted due to things like construction or COVID-19. And incident reports from drivers let Google Maps quickly show if a road or lane is closed, if there’s construction nearby, or if there’s a disabled vehicle or an object on the road. Both sources are also used to help us understand when road conditions change unexpectedly due to mudslides, snowstorms, or other forces of nature.Putting it all togetherSo how exactly does this all work in real life? Say you’re heading to a doctor’s appointment across town, driving down the road you typically take to get there. When you leave the house, traffic is flowing freely, with zero indication of any disruptions along the way. With Google Maps’ traffic predictions combined with live traffic conditions, we let you know that if you continue down your current route, there’s a good chance you’ll get stuck in unexpected gridlock traffic about 30 minutes into your ride—which would mean missing your appointment. As a result, Google Maps automatically reroutes you using its knowledge about nearby road conditions and incidents—helping you avoid the jam altogether and get to your appointment on time.Predicting traffic and determining routes is incredibly complex—and we'll keep working on tools and technology to keep you out of gridlock, and on a route that's as safe and efficient as possible.",0
+18,Introducing the new Google Analytics - blog.google,https://blog.google/products/marketingplatform/analytics/new_google_analytics/,"Wed, 14 Oct 2020 07:00:00 GMT","By applying Google’s advanced machine learning models, the new Analytics can automatically alert you to significant trends in your data - like products seeing rising demand because of new customer needs. It even helps you anticipate future actions your customers may take. For example, it calculates churn probability so you can more efficiently invest in retaining customers at a time when marketing budgets are under pressure. We’re continuing to add new predictive metrics, like the potential revenue you could earn from a particular group of customers. This allows you to create audiences to reach higher value customers and run analyses to better understand why some customers are likely to spend more than others, so you can take action to improve your results.",0
+19,Stay informed and get around safely with Google Maps - blog.google,https://blog.google/products/maps/stay-informed-and-get-around-safely-google-maps/,"Thu, 15 Oct 2020 07:00:00 GMT","Make informed decisions with new live busyness updatesThe ability to see busyness information on Google Maps has been one of our most popular features since it launched back in 2016. During the pandemic, this information has transformed into an essential tool, helping people quickly understand how busy a place is expected to be so they can make better decisions about where to go and when. In fact, as people around the world adjusted to life during the pandemic, they used popular times and live busyness information more. We saw engagement with these features rise 50 percent between March and May as more people tapped, scrolled and compared data to find the best days and times to go places.We’ve been expanding live busyness information to millions of places around the world, and are on track to increase global coverage by five times compared to June 2020. This expansion includes more outdoor areas, like beaches and parks, and essential places, like grocery stores, gas stations, laundromats and pharmacies. Busyness information will surface in directions and right on the map—so you don’t even need to search for a specific place in order to see how busy it is. This will soon be available to Android, iOS and desktop users worldwide.",0
+20,Ryan Cohen Tweet Analysis $GME,https://www.reddit.com/r/wallstreetbets/comments/knum06/ryan_cohen_tweet_analysis_gme/,2020-12-31 12:53:11,"# GME God Ryan Cohen has spoken.
+
+https://preview.redd.it/pwsjxcdt8k861.png?width=583&amp;format=png&amp;auto=webp&amp;s=6b2d090fb923ecf1edb88004d307bd7ebe855d87
+
+""An ounce of prevention is worth a pound of cure."" Idk what this meant so I typed in google and got this answer "" it's easier to stop something from happening in the first place than to repair the damage after it has happened. ""
+
+I think this is a strong message for all the shorts frantically covering their positions right now. He's obviously referring to the short squeeze here and warning all the shorts to cover their positions now before MOASS happens.
+
+I think the short squeeze is imminent. There will be some bombs dropped in the near future.
+
+# I LOVE YOU RYAN
+
+positions: $GME 100 1/15 30c",-1
+21,AAPL is the 2021 Play,https://www.reddit.com/r/wallstreetbets/comments/kntu36/aapl_is_the_2021_play/,2020-12-31 12:11:40,"Missed out on the TSLA run in 2020? Aww, that’s cute. You must be new to WSB. Well here’s your source of tendies for 2021 if you’re not a complete idiot and you can afford modest leaps. 
+
+Some proper DD. I’m not citing sources, y’all can Google shit.
+
+- They have around $200B cash on hand
+- They had 34% increase in sales just on Xmas (278M)
+- With the M1 processor, they’ve increased interest in their hardware again. Winning back jaded fanboys and killing the hackintosh community almost overnight.
+- Their iPhone 12 sales are rumored to be strongest mobile sales to date.
+- The stock is up over 80% in 2020 despite a pandemic
+
+Now for bias and my own opinions:
+
+I’ve been following Apple most of my life. I worked on some of the first hackintosh distros (iatkos) as a broke college student. I can tell you definitively that a massive majority of Apple users are in the digital media and production space. With their prioritization on services the last few years, they’ve really slacked in staying competitive in hardware. They’ve also made some weird plays at being different without actually innovating. That’s changed entirely this year. Their next earnings is going to reflect that. The M1 is a game changer. Almost everyone I know (which is hundreds of people in the digital agency space) have already or are planning on grabbing up Mac mini’s or Airs because of the chip and price point. Apple is also pretty much recession proof. 
+
+My predictions:
+
+- 10% price increase leading up to Q1 earnings just off anticipation.
+- 20% price increase post Q1 (probably within a week or two) and pre Q2
+- An easy 100% increase by year end.
+
+My play:
+
+Get calls on discount now. Near ITM for next earnings call. OTM leaps.",0
+22,🌌👽Why I'm Bullish on Palantir - Oxford Phd Student Analysis👽🌌,https://www.reddit.com/r/wallstreetbets/comments/kntigf/why_im_bullish_on_palantir_oxford_phd_student/,2020-12-31 11:55:28,"So I don't know too much about investing, apart from reading the financial times each day. However as a computer science doctoral student at Oxford, specialising in security and data analytics, I have invested 2000 pounds into Palantir stock. I am excessively bullish about long term prospects for this stock, for the following reasons:
+
+[Dr. Moonshot Sparkles authorising the trade.](https://preview.redd.it/n6xh3rtsyj861.jpg?width=1080&amp;format=pjpg&amp;auto=webp&amp;s=c4b9ae91f4e45b52e04938e358fe17324d27cc5a)
+
+\-Palantir were offering undergraduate and masters students here up to 100,000 pounds to act as forward deployed engineers (in 2016).
+
+\-Palantir's recruitment process is known to be equivalent to or even tougher than Google's, 1 of my friends failed Palantir's assessments but now works as a site reliability engineer at Google  
+
+\-My investment adviser, Dr. Moonshot Sparkles, pictured wearing a Palantir hat, given as part of campus recruitment efforts is excessively bullish on PLTR. 
+
+\-[https://theintercept.com/2017/02/22/how-peter-thiels-palantir-helped-the-nsa-spy-on-the-whole-world/](https://theintercept.com/2017/02/22/how-peter-thiels-palantir-helped-the-nsa-spy-on-the-whole-world/)  \- If you scroll to the end of this tl;dr article you can see reviewers from alleged software enginers at GCHQ saying, and i quote:
+
+'Palantir\] is the best tool I have ever worked with. It’s intuitive, i.e. idiot-proof, and can do a lot you never even dreamt of doing.
+
+This morning, using TWO FACE rather than XKS to review the activity of the last 3 days. It reduced the initial analysis time by at least 50%.'
+
+and
+
+'While it’s long been known that Palantir got on its feet with the intelligence community’s money, it has not been previously reported that the intelligence community actually helped build the software. The continuous praise seen in these documents shows that the collaboration paid off. Under the new “Palantir Model,” “data can come from anywhere” and can be “asked whatever the analyst wants.”'
+
+Whilst the validity of these sources may be questionable, Dr. Sparkles and I are of the firm opinion that if these analytics tools are sufficient for bulk data collection and analysis for the intelligence community, their impact in private sector will be significant.",0
+23,"""But nobody knows what PLTR even does!!1""",https://www.reddit.com/r/wallstreetbets/comments/kns06p/but_nobody_knows_what_pltr_even_does1/,2020-12-31 10:33:29,"what PLTR actually does - MDM (Master Data Management - google it) is the biggest wish list for every single company right now that has more than one system in their IT stack. It lets you view one report/dashboard with data from multiple systems - Palantir does this and does it well.
+
+PLTR basically, as far as their most popular product, allows companies to consolidate all their data into one big view/lens. Why is this needed? Because as almost all companies vest more and more into their IT stack, the more of a shit show it can become. Most mid to large companies have around 10+ internal systems they use to service their customers across all business units. Hell you might even work somewhere where you have to log into 6 different systems each day to do your job.
+
+Reporting on the data in each of those systems even if they're integrated already can be super challeging - this is where Palantir comes in. EVERY company is needing this right now, MDM is becoming the hottest fucking thing in tech right now as far as ""wants"" by the executive/mid-level management teams in companies.
+
+Palantir is going far.",0
+24,"Stock Market News for Today | LMT, AAPL, ACB, TLRY, FUBO, ARKK &amp; other stock market news",https://www.reddit.com/r/wallstreetbets/comments/knqfeb/stock_market_news_for_today_lmt_aapl_acb_tlry/,2020-12-31 8:57:34,"**Are investors too bullish right now? What are the latest market movements in the auto industry? Pot get legalized in Mexico while FuboTv Plunges yet again. Let’s talk about this and other stock market news**
+
+**\~Very Long Post\~**
+
+Hello everyone and Good Morning!
+
+First of all, I wanted to wish everyone a happy new year and hopefully things get better in 2021, and this also brings us at least the great returns that we had in 2020 in the stock market!
+
+So, let’s start with the recap of yesterday, as we saw all 3 big indexes finish the last full trading day of the year in the green, with the [Dow Jones](https://ibb.co/0cvjjHN) leading the way, up .24% and closing at a new record high, while both the tech heavy [Nasdaq Composite](https://ibb.co/QFyd2f6) and the broad market [SP500](https://ibb.co/B67fT1g) were up just over .1% for the day.
+
+We also saw the [VIX](https://ibb.co/b6Nqf9Z) barely drop yesterday closing just below 23, and with the Georgia runoff election just days away, we can see this going higher if the Democrats win both seats.
+
+We saw almost 70% of the companies advancing [yesterday](https://ibb.co/g9CHK9Q) with most of them trading way below average volume as 7 of the 11 [SECTORS](https://ibb.co/LzXDF2P) finished in the green, with Energy &amp; Materials closing the day up more than 1.3% while the biggest loser was the Communications sector, falling almost 0.7%, as we saw the small-cap stocks regain some momentum, [leading](https://ibb.co/yQCFtTZ) the way after they had 2 very bad days to start the week, while the only group that was losing ground yesterday was the large-cap growth sector.
+
+Here is the [HEAT MAP](https://ibb.co/x5bN7Lk) from yesterday that pretty much sums up the other charts as we can see most big tech companies like Amazon, Google, Microsoft and even Apple losing ground for the day, while the biggest gainers were companies like Tesla &amp; TSM alongside the industrial sector and companies like Disney and Mastercard.
+
+Yesterday we also got the investor sentiment [SURVEY](https://ibb.co/7QPXjPV), which for me personally came in pretty mixed, as I use this as a contrarian indicator. This last week we saw 2.5% more investors moving to the bull’s camp, while we also saw almost a 5% increase in bears, as investors become more divided. I think the market is still a little to over bullish and I would avoid to add more money right now, but I wouldn’t get of the stock market either. I think this is a good moment to stay put and wait for more developments overall, but there might still be some good opportunities around in the market and I wouldn’t avoid getting into those.
+
+We also got a lot of economic data yesterday, with a survey for business uncertainty for [December](https://ibb.co/87FMyQ6) showing increasing uncertainty for sales growth but a with a small decline in employment growth expectations.
+
+Meanwhile another number that confirms the investor sentiment survey is the Investor Confidence [Index](https://ibb.co/5952C9Z) which rose by more than 13 points in November, as investors increased the risk appetite for their portfolios.
+
+Alongside this we also saw the November pending home [SALES](https://ibb.co/F8WBXnh) decrease by more than 2.5% month over month, but are still up more than 16% since a year ago, with this monthly decrease mostly coming due to the shortage of inventory.
+
+The Chicago [PMI](https://ibb.co/QF40My3) also came in way better than expected and 59.5 vs 57 expected and up from the 58.2 in the previous month with the biggest movement coming from the employment indicator as it rose to a one year high but is still in contraction territory since 2019.
+
+We also saw the wholesale [inventories](https://ibb.co/fkWmNmc) decrease in November’s advance read while the [retail](https://ibb.co/BBKNrb5) inventories saw an increase of .7%, pretty much in-line with expectations while the trade [balance](https://ibb.co/CKSR070) also saw a surprise decline in the deficit to more than of $84B, $4B worse than the last revision.
+
+[Today](https://ibb.co/D14JGZc) we get initial and continuing jobless claims numbers, alongside the money supply and the FED Balance sheet to end us off for the year.
+
+In some other stock market [news](https://ibb.co/GkZgGM1), we saw Fubo sink more than 14% again yesterday after another investing firm announced they have shorted the stock, pointing to the insane valuations of more than $13.000/subscriber.
+
+We also saw a [research](https://ibb.co/QMF5fnG) that indicated some changes in the market share of car companies with Hyundai/Kia having the biggest gains alongside GM, while Nissan saw the biggest decline in market share, mostly due to selling larger &amp; pricier SUVs with cars continuing to see a decline in sales, while the larger vehicles have started to rebound slightly, as all car makers are [bringing](https://ibb.co/kJGkXtz) more &amp; more SUVs and Trucks to the market.
+
+Lockheed Martin also was [awarded](https://ibb.co/bWS5G6j) a new Navy contract worth more than $900M as this might help the company start to get back on track while Mexico will become the world largest legal cannabis market as the Mexican Senate passed a bill in November which is [expected](https://ibb.co/VW3Lqtn) to receive approval in the lower house by February. This is great news for companies in the sector like ACB, Canopy Growth and the future merged company Tilray &amp; Aphria.
+
+Also, one of the biggest active ETFs with over $15B in assets, the [ARK](https://ibb.co/80WJFdW) Innovation ETF saw it’s first daily withdrawal since November, as this hasn’t experienced weekly outflows since early in 2020, this might have been driven by profit taking as this ETF has surged more than 140% this year and also just the ex-dividend date on the 29th, as people expect for the ETF to have a hard time in duplicating the results of this year, which saw it rise on the back of Tesla and Roku with both of them seeing massive increases, with Tesla having more than 7x-ing this year, as that is the biggest holding in the ETF, but who knows we have to wait and see as [TESLA](https://ibb.co/ZzGQgqX) may hit 500K deliveries this year.
+
+And one last piece of [news](https://ibb.co/9bQhB4B) is that Apple did a big purge in their App Store, removing almost 40K game apps as this was the deadline for the developers to submit a government issued license number that enabled users to make in-app purchases. I don’t really think this will have a major impact for the revenues but we will soon find out.
+
+Let’s hope for a good day in the market as US [FUTURES](https://ibb.co/mvv7tjX) seem to be pointing at a mixed open, with the Nasdaq and the SP500 pointing at a good open while the Dow is slightly down, and with no connection to this, in the UK, the [BREXIT](https://ibb.co/Rh1DYyG) chapter is finally about to close.
+
+Thank you everyone for reading! Hope you enjoyed the content! Be sure to leave a comment down below with your opinion on the stock market!
+
+Have a great day and see you next time!",1
+25,A Digital Advertiser’s Take on FB in Q1,https://www.reddit.com/r/wallstreetbets/comments/knivl9/a_digital_advertisers_take_on_fb_in_q1/,2020-12-30 23:29:56,"So I’m sure the iOS14 update and it’s negative impact on digital advertising / data collection is already somewhat priced into FB, but I don’t think people are considering how much it’ll really impact their bottom line.
+
+I won’t bore you with the technical stuff like apple getting rid of IDFAs etc.. but one huge update rolling out in March is going to be a required opt-in where people have to agree to let FB collect ANY of their data. I’m sure most people know this, but many don’t know that it’s estimated that just 15-20% of users will opt in. 
+
+Another thing is these changes don’t only hurt FBs data collection and thus the quality of audience targeting, but it also severely impacts the ability for advertisers to track their conversions. So much so, that Facebook will soon only be reporting conversions that take place within 7 days of interacting with an ad. Advertisers are seriously upset with this as we’ve always been able to track conversions for 28 days since the dawn of digital marketing. 
+
+FB said they were going to implement it in October this year, but after a big uproar from advertisers they said they’ll delay it until 2021 and that it could be as early as January. But they said that it’s definitely happening. Facebook definitely wouldn’t do this unless they expect performance metrics to drastically decline. 
+
+This change is the part that I don’t think is fully priced in and I think it’ll drive A LOT of ad spend away from the platform.
+
+I know from experience that FB ad performance has been declining badly since around September this year and most advertisers feel the same way. People are already moving FB budget to other ad channels and I believe that after all the changes in Q1 it will drive A LOT of money away, especially when it comes to small businesses which make up a huge portion of their advertising revenue. There’s also agencies like mine which will have disgruntled clients and will want to move budget to Google, Taboola, etc.
+
+TLDR - FB ad performance has been on the decline and upcoming changes in Q1 will make it much worse, thus driving A LOT more ad spend away from the platform than expected. The play is major puts after FBs June 2021 earnings report which I think will SEVERELY underperform",0
+26,Why I'm emptying my bank account and buying long $GOOGL calls,https://www.reddit.com/r/wallstreetbets/comments/kndkc7/why_im_emptying_my_bank_account_and_buying_long/,2020-12-30 18:28:10,"Google seems to get a lot less love than the other tech behemoths. They are sadly not the cutthroat capitalists like Apple or Amazon. But they spend a shit ton on R&amp;D projects like self-driving cars and other weird “moonshots” that are going to start paying off soon. The nerds in [Silicon Valley](https://www.businessinsider.com/most-desired-tech-companies-to-work-for-google-netflix-slack-2020-9) every year say Google is their most desired company to work for. I've decided to put my all my savings into long options.
+
+**Some Google initiatives or statistics that are cool but not why they are undervalued:**
+
+**Android market share worldwide:** 73%
+
+**Search market share:** 87%
+
+**Youtube:** 600 hours of video uploaded every minute, ad revenues through the roof
+
+**Stadia:** One of projects from their “moonshot factory” that looked like it would fail spectacularly until the disaster of Cyberpunk 2077 on consoles showed Stadia could provide mid-tier PC performance on games minus the $2,000 for a PC. Huge increase in users since Cyberpunk fiasco.
+
+**Why I’m going all in: Google is going to take over the world with AI**
+
+Google owns the top two AI outfits in the world, Google Brain and DeepMind. They are far ahead of their competitors in the most important industry of the future.
+
+DeepMind’s AI team solved protein folding this past month. Experts didn’t think this would be possible for decades. Their team will receive the first Nobel Prize where a neural network did a majority of the work. The monetization and scientific breakthrough possibilities for their proprietary protein folding prediction models are endless. ([more info](https://www.youtube.com/watch?v=W7wJDJ56c88))
+
+Google Brain and Deepmind are working with Waymo. No other self-driving company has technology that is remotely close to Waymo. Google proprietary AI processors allow them to simulate billions of miles on the road and millions of people help train their models with captchas everyday. Their taxis are already in Arizona with no human operators. There have been no injuries to passengers. There isn’t a very small chance the car will kill you like with some [Waymo](https://www.theguardian.com/technology/2020/feb/25/tesla-driver-autopilot-crash) [competitors](https://www.nytimes.com/interactive/2018/03/20/us/self-driving-uber-pedestrian-killed.html). Uber realized the threat that Waymo posed to their business and tried to steal their technology. Waymo destroyed them in court and Uber sold off their self-driving operation this past month. Waymo will be first to market partnered with Lyft and will be significantly cheaper than Uber rides with human drivers. ([more info](https://arstechnica.com/cars/2020/12/this-arizona-college-student-has-taken-over-60-driverless-waymo-rides/), [2](https://www.theverge.com/2018/5/9/17307156/google-waymo-driverless-cars-deep-learning-neural-net-interview))
+
+**Cons:**
+
+**Google is super woke.** From what I’ve read their internal message boards make woke twitter look like r/The_Donald. Could definitely be bad for business but they did recently fire one of the libs for jeopardizing their AI business. 
+
+**Politicians want to fuck them.** There is a lot of anti-big tech sentiment on both sides of the aisle now but this has more to do with their enemies (Oracle, Yelp, etc) trying to litigate rather than innovate. I just don’t see politicians breaking up a business that consistently ranks as one of the most respected brands in the country according to Morning Consult and which provides so many useful free services to constituents. 
+
+**Trades made so far**
+
+GOOGL $3,000 1/20/2023
+
+GOOGL $2,900 1/20/2023
+
+**Disclaimer: I’m retarded**",0
+27,"Its a Boomer play, but its guaranteed money: $GE Leaps",https://www.reddit.com/r/wallstreetbets/comments/kn6iy2/its_a_boomer_play_but_its_guaranteed_money_ge/,2020-12-30 12:29:17,"So, this DD isn't actual TA. It is a series of (what I believe) are **very** safe assumptions: a combination of political analysis, energy trends, and inevitable nation-wide ""**must have**"" investments. WARNING: this is long. By necessity, one assumption leads to another. I'll give you the **one sentence TLDR** up front, but because this is an assumption-chain, I encourage you to read this post
+
+\----
+
+TL/DR: 
+
+**In order for Biden to get a quick win for what is looking like unfavorable (to Dems) 2022 midterms, he will first shoot for a massive infrastructure bill. Either way Georgia goes, Dems won't blow up the filibuster. Therefore, if he wants to have any ""green"" policies in his first term, he has to make it super amenable to Republicans. (1) Connecting \*\*rich\*\* renewable areas (mostly Republican states) by extensive HVDC lines to (2) an enhanced nationwide Grid (HVDC lines) will kill two birds with one stone. This \^ infrastructure is inevitable, either way. $GE is the #1 and only American HVDC provider, 220k workers +. $GE Renewables don't contribute to revenue right now, but HVDC + Wind (which will be yuge) make it a massive discount rn.** 
+
+\-----
+
+I am going to lay down a series of linear assumptions and realities below. I feel like these assumptions are all safe, therefore, it is highly likely that the outcome I describe comes to fruition within the next 4 years. 
+
+1. **EVs are going to see mass adoption**. Every automaker + Apple is trying to get in on this. BEV advantages are simply too great. It is highly likely that by 2025, 30% or more of the U.S. fleet will be electric. This will only continue to 2030. 
+
+2. **This will cause big increases in demand on the grid**. Go google around: Grid owners are ecstatic about this. The average American home uses \~33 kWh of energy per day. I own a model 3, and BARELY drive (i dont commute) and still use \~10kWh per day for driving. A commuter may use around 30-35 kWh per day just to drive. By 2025, if \~30% of the U.S. fleet is electric, that'll cause a significant increase in grid demand. More important, though, is that energy generation investment takes time. Grid owners know this is coming. They will beef up generation faster and faster as the U.S. economy becomes more **electrified** instead of based on fossil fuels. 
+
+3. **Added capacity is likely to be green**. This has 2 causes. (1) Finance: Coal isn't cost competitive with solar and wind anymore. Solar is getting very, very cheap and more and more efficient. Offshore wind is having a renaissance. Nuclear is greener, but more expensive (\~$4,200 per kW), and NIMBYism will prevail. Solar/wind + batteries is cheaper than $4,200 per kW right now. Additionally, Alaskan oil can't even get bank financing now, and Coal isn't expanding. People see the end is near. (2) Politics. Dem administration for the next 4 years, and green energy isn't the political football it was 10 years ago. Fighting renewables isn't the focus of the right anymore. Additionally, Democrats resist natural gas expansion: remember the Keystone pipeline? Natural gas is pretty green and cheap af, but its not everywhere, and I deem it unlikely that population centers (NE Corridor, Cali, Chicago, etc etc) are going to be OK with more and more natural gas plants. I deem it unlikely that we're gonna be a 50%+ natural gas country. 
+
+4. **Biden will do an infrastructure bill**. This will happen. Its popular, its needed, and its perfect for his huge desire to be seen as a bipartisan president. 
+
+5. **Biden will try and include moderate green elements in this bill because he knows he won't get green policies otherwise**. Even if the two Georgia seats go blue, there is \*\*ZERO\*\* chance the Dems blow the filibuster. You have (1) a president that won by a narrow margin, that (2) isn't that popular, (3) who has a bad-looking 2022 midterm, that (4) won't run in 2024 cause hes ancient, with (5) a not-too-popular VP, can't afford to run roughshod over norms and weaken their 2022 prospects. 50-50 plus Kamala casting the deciding vote? Please. Not happening.
+
+6. **Green elements in an infrastructure bill will have to benefit Red states** in order to get passed. We're not gonna get a carbon tax / cap and trade system. We're not gonna get massive oil taxes
+
+7. **A lot of Red states are RICH in renewables**. Look at these maps ([https://www.nrel.gov/gis/solar.html](https://www.nrel.gov/gis/solar.html)) for U.S. solar, and this map ([https://energy.maryland.gov/Pages/Info/renewable/windmaps.aspx](https://energy.maryland.gov/Pages/Info/renewable/windmaps.aspx)) for U.S. wind. What do you notice? For the most part, **there are huge wind opportunities in the Midwest**. **There is huge solar potential across Texas and the South**. Outside of California and Northeast Corridor offshore wind, renewables are concentrated in the Midwest and South. 
+
+8. **Right now, we can't take full advantage of these areas because the infrastructure to transport 2025-2030 sized energy demands to population centers don't exist**. This is key. Right now, the U.S. energy grid is largely disconnected in terms of HVDC lines (high voltage lines capable of transmitting huge amounts of power with minimal loss: it resembles small, little fiefdoms. Google ""U.S. HVDC Map"" (make sure you're looking at the current ones--not the projections). We don't have that much HVDC infrastructure. In this past, there wasn't a huge emphasis because there wasn't that much need....renewables price efficiency didn't make for THAT compelling of a need, and localized Grid owners made-do with the status quo. **HVDC network improvement is INEVITABLE.** Renewables are too cheap, and the efficiencies inherent in concentrating wind and solar where appropriate are too vast. Right now, as you read this, there is an UNDERSEA Ultra HVDC cable being laid between Australia and Singapore to transport solar power. I shit you not. Europe and China are building vast HVDC and Ultra HVDC lines right now. **Look at this wiki page:** [**https://en.wikipedia.org/wiki/List\_of\_HVDC\_projects**](https://en.wikipedia.org/wiki/List_of_HVDC_projects)**. See how many are in Asia/Euro vs the U.S.? Its a fucking joke.** It is extremely unlikely that we're gonna just slap solar and wind where they are sub-optimal, rather than seek greater ROI. Mass HVDC lines are inevitable. 
+
+9. General Electric is the only large American HVDC provider. GE employs 200,000+ Americans. It is literally one of the oldest American companies. It has a super American brand name, and is politically connected. 
+
+10. HVDC is **expensive**. I'm not an expert, but because of NIMBY, its likely that a lot of HVDC will be buried along rail lines (From what I read). HVDC between hundreds of wind/solar fields across the U.S. will need to be built, plus HVDC / Ultra HVDC between renewable zones to NE Corridor, Chicago, California. I'd google around for figures, but basically, its $$$$$$$$$. 
+
+11. **Right now,** General Electric's Renewables sector barely brings in any revenue (17% 2019 revenue, around $15 billion [https://www.statista.com/statistics/245430/revenue-of-general-electric-by-segment/#:\~:text=Aviation%20and%20power%20are%20the,U.S.%20dollars%20one%20year%20before](https://www.statista.com/statistics/245430/revenue-of-general-electric-by-segment/#:~:text=Aviation%20and%20power%20are%20the,U.S.%20dollars%20one%20year%20before).). The new CEO is actually pretty fucking great ([https://en.wikipedia.org/wiki/H.\_Lawrence\_Culp\_Jr](https://en.wikipedia.org/wiki/H._Lawrence_Culp_Jr)). He turned Danaher around, and is setting up GE for success. GE has a TON of debt (debt/equity above 6.0), but what will happen to the stock when GE is given absolutely gigantic contracts in order to buff up the U.S. Grid? They really are the only American company with the production/size ability to do this. What happens when the GE Renewables sector grows by 4-5x over the next 10 years? Grid improvements + Wind turbines are going to go up bigly. That $15 billion revenue line item may increase dramatically. 
+
+If you read this far, let me restate that this isn't TA. I don't have strikes for you. I don't know how to value HVDC and Wind over the next decade. However, I have a **STRONG** feeling in my nips that $GE is going to be a major American comeback story, and \^ that political/economic/renewable trends make it exceedingly likely that GE will have huge grid contracts coming up. **How much of this is already baked into the price? I have no idea, but I do know that the big boys don't gamble on Adderall rantings like this, so it probably isn't baked in.** 
+
+I'm using GE to add some safety to my current 100% TSLA portfolio. I encourage you all to pick up at least a few cheap 2022 GE Leaps. I'm buying the furthest out, highest strike calls I can get.",0
+28,SNOW fall coming,https://www.reddit.com/r/wallstreetbets/comments/kmu4ds/snow_fall_coming/,2020-12-29 22:37:13,"Second lockup expiry date has been set. See below. 
+
+“On December 29, 2020, the Price Condition was satisfied, and the Early Release Date will be January 7, 2021. As a result, the Company estimates that up to approximately 37.9 million shares of the Company’s Class A common stock will become eligible for sale in the public market at the open of trading on January 7, 2021.”
+Google SNOW SEC filings it’s the top document. 
+
+
+SNOW volume today was 4M. 7M average. 38M shares will be available for trading On the 7th. 
+
+I was hoping it would be the 4th to give a few days before theta destroyed me. Oh well. Positions:
+
+SNOW 300p Jan 8th
+
+SNOW has a bright future but that’s a lot of shares that VC gets to sell.",0
+29,"The $2,000 shimmy will come down to Section 230",https://www.reddit.com/r/wallstreetbets/comments/kmu1lj/the_2000_shimmy_will_come_down_to_section_230/,2020-12-29 22:32:45,"https://www.google.com/amp/s/www.cnbc.com/amp/2020/12/29/covid-stimulus-update-senate-considers-vote-on-2000-stimulus-checks.html
+
+The $2,000 stimmy will come down to if Democrats will agree to repeal section 230 and investigate voter fraud.
+
+To me investigating any voter fraud should be welcomed.  I highly doubt if any is found it would be enough to overturn the election but I think as Americans we should want this to ensure our elections are safe.  I’m sure there will be pushback  but I personally do not see any negative in this.
+
+Section 230 looks to be the heart of what the Republicans want.  I don’t know enough about section 230 to know if repealing it would be a good thing or a bad thing, so if anyone can comment on this please do.
+
+But it looks like Democrats don’t want to repeal this and Republicans do, so the only way the $2,000 stimmy will be passed is if they come to an agreement on this.",-1
+30,🇨🇳 commodities to 🚀 in 2021,https://www.reddit.com/r/wallstreetbets/comments/kmty0s/commodities_to_in_2021/,2020-12-29 22:26:41,"Top five China commodities to eye for growth in 2021 https://reut.rs/3ruyzjX
+
+https://fingfx.thomsonreuters.com/gfx/ce/dgkvlqqyepb/Ferrous%20metals%202021.JPG
+
+Iron ore outperformed all commodities in 2020, more than doubling to record highs on strong Chinese steel demand.
+
+Prices may not gain as much next year, but supply worries in Brazil coupled with enduring strength in Chinese manufacturing and construction suggest the market still has legs.
+
+“Strong end-user steel demand and robust Chinese property indicators suggest the rally in iron ore may not be over,” said OCBC Bank economist Howie Lee.
+
+Lee expects prices to peak in the second quarter of 2021 on demand from China’s infrastructure projects. “But normalizing supply from Brazil and moderating demand from China could pressure iron ore by end-2021.”
+
+This aligns with what I have been saying on steel and steel stocks. 
+
+If prices peak and companies lock in orders for the second half of 2021, which they will look to do, any reduction in iron ore costs will enhance margins as they will have contract orders in hand with lower input costs. 
+
+Steel 🙌 
+
+$MT, $VALE, $CLF, $CMC
+
+Also, more on Russia imposing duties to keep steel domestically and off the export market:
+
+https://www.metalbulletin.com/Article/3968552/Apex/Russia-considers-export-duties-on-steel-billet-rebar.html
+
+India is considering similar measures:
+
+https://www.google.com/amp/s/www.hellenicshippingnews.com/india-steel-cos-blame-high-cost-of-iron-ore-for-price-hike/amp/
+
+Hang in there. 
+
+It’s the end of the year and rebalancing is going on.",0
+31,Bed Bath to infinity and Beyond - $BBBY - Solid DD Document,https://www.reddit.com/r/wallstreetbets/comments/kmp2lg/bed_bath_to_infinity_and_beyond_bbby_solid_dd/,2020-12-29 17:55:43,"\*\*I am not a financial advisor, this is purely MY opinion and you should not make any financial decision's based on this post\*\*
+
+&amp;#x200B;
+
+Been seeing a few posts on $BBBY, wanted to share some solid DD (above mediocre) .
+
+Load up and giddy up! Full DD document is in the link below, but here is summary as it's a TLDR.
+
+Bed Bath and Beyond ($BBBY)is a great play on the continued trend in “home” themed christmas gifts. Despite Christmas, the home goods market is absolutely on Fire.
+
+The best part about this trade is that there is a ton of data that supports the trade and it was EXTREMELY easy to uncover the supporting data. Huge shoutout to u/quantifiedmarkets for sharing some of these GTRENDS with me.
+
+Bed Bath and Beyond is a parent company with the following Subsidiaries; Bed Bath &amp; Beyond, Harmon and Harmon FAce Values, and buybuy BABY
+
+These  companies are red hot this christmas season due to the continued trend stay at home/home furnishing related purchases.
+
+The company has shed some of its subsidiaries this year and recently announced the sale of Cost Plus World Market. I believe this is the right move. The new CEO wants to trim the fat, and focus on Home, Health/Wellness, and Baby.
+
+They recently rolled out same day delivery for buybuyBaby and Bed Bath and Beyond to compete with the Ecommerce Giants.
+
+The trade here is that $BBBY has been getting beat up this last month. Down 7.7% in the last month which provides a nice point of entry for us DMers. I believe they are on pace to crush earnings based on the GTrend data provided below. (Web traffic data is forthcoming) Earnings are right after Christmas on **January 7th, 2021**. It will include sales from September, October, and November.
+
+On December 14, [Bed Bath &amp; Beyond approved $150 million](http://bedbathandbeyond.gcs-web.com/news-releases/news-release-details/bed-bath-beyond-inc-continues-fast-paced-transformation) for its accelerated share repurchase (ASR). That’s on top of the $225 million already in the ASR. That expands the company’s total share repurchase plan over the next three years from $675 million up to $825 million. Management plans to complete the purchases by February 27.
+
+The InvestorPlace article below provides some great insight into a potential forthcoming short squeeze. It’s one of the most shorted stocks on the market… a Q3 beat + short squeeze would be a match made in heaven… for us long folks!
+
+&amp;#x200B;
+
+Full DD with Trend charts and supporting Data below.
+
+&amp;#x200B;
+
+&amp;#x200B;
+
+[https://docs.google.com/document/d/1gnCJ4fzKrHwNkLz6ToJ9opHXzCqM5dTVLhDrK8Hg9yc/edit?usp=sharing](https://docs.google.com/document/d/1gnCJ4fzKrHwNkLz6ToJ9opHXzCqM5dTVLhDrK8Hg9yc/edit?usp=sharing)",0
+32,Bridgetown Holdings,https://www.reddit.com/r/wallstreetbets/comments/kmi22a/bridgetown_holdings/,2020-12-29 11:56:10,"I don't have the time for a full DD on this one, but I think this will be a good play if all things align. ticker BTW.N (minus the dot of course)
+
+This is a Thiel backed SPAC that is currently targeting Tokopedia. Now the risk here is that the deal never materializes since it hasn't been officially announced in any way and there is talk of an IPO, but i'm willing to take a punt. 
+
+I am posting this on a pullback day as recent commentary is that DDs are being posted at ATH or after it has run up 100-300%. Yes this is up about 50% in the past week or so, but I do think we could see $20 in the next 2 weeks if the rumours persist. If the Tokopedia deal ever happens, we could be looking at $30-$40 easy pre-merger.
+
+Tokopedia is trying to be the Amazon/Sea Ltd of Indonesia and border countries, if you haven't seen world populations recently Indonesia is the 4th largest country. These are countries that Amazon will never fully penetrate, they don't see it worth their time and people don't trust them. Direct competition is SEA's shopee.
+
+SoftBank, Google, and Alibaba have all invested big $$$ at some point in the past 3 years.",0
+33,PLTR - Technical/Fundamental Analysis from a Professional Investor - Update 12/29,https://www.reddit.com/r/wallstreetbets/comments/kmhp1p/pltr_technicalfundamental_analysis_from_a/,2020-12-29 11:37:06,"So a lot has happened with the shares.
+
+The wedge looks like it has broken down, but it could easily be just an extension of a wedge. The point is that we don't have a full breakdown unless we spend considerable time below 25, then I could maybe see things fall back down to 20. I think it is far more likely we just remain in this extended consolidation phase of 25-30 until we get some sort of a catalyst or a short squeeze.
+
+https://preview.redd.it/ddzg718of5861.png?width=1224&amp;format=png&amp;auto=webp&amp;s=58b39c19f793dee8366fc2bafbc55bfe49d49836
+
+But this is not the point of the post today. Today I am here to convince you why a cost basis of 20 or 25 doesn't matter for PLTR. You are buying the company at around 40-50x 2020E sales, Which seems quite high  (not as much compared to SNOW and some other big data plays) but still. So why bother with PLTR?
+
+Before I proceed, I know most people who are here can't read, and I am going to be dropping a gigantic wall of text which I expect all maybe two of your guys to read, so here is the short form  **🚀**  **🚀**  **🚀**
+
+This was the primer I had written on Information Technology  back in 2017
+
+[https://etherealvalue.wordpress.com/2017/02/25/technology-primer/](https://etherealvalue.wordpress.com/2017/02/25/technology-primer/)
+
+I started by looking at the S&amp;P500 since the early 1900s to understand if there was a mental model I could use to outperform the index. What I found was that starting in the late 1800s, most of the companies that ended up creating enormous shareholder value started as technology companies. Dupont was a technology company in the 1800s, Edison Electric was a technology company in the 1900s, GM was a technology company in the 1920s. If one looks at the market capitalization of companies today, many of the largest are today’s technology companies: Google, Apple, Amazon, Microsoft have market capitalizations which eclipse many old traditional industries.
+
+There is clearly something about technology companies that allows them to generate enormous shareholder value and create wealth for society, after all, if the stock index was still dominated by the likes of American Cotton Oil and American Sugar Refining like in the 1900s, we would all be living in a different and much poorer world. The challenge with investing in technology companies is that for every Edison Electric there is a Zenith Radio. for every IBM there is a Sinclaire Rearch and for every Apple there is a Blackberry. There had to be a way to analyze or put into context why some companies last longer than others and why some managed to generate returns over a thousand fold for its investors while others fizzile and pop with the latest turn in the economic cycle.
+
+I agree with Peter Thiel’s thesis that technology advancement is probably slowing down and primarily concentrated around information technology as a result of regulations around the “world of stuff”. I believe this will continue to be the trend of the next 20-30 years, with some exceptions and that the rise of AI may start creating innovation again in many static fields. I believe historically, there were massive innovation happening across multiple disciplines from the 1800s-1950s, where technological progress branched  out like a tree and built on itself. Since the 1970s or so, this branch narrowed  into only a few sectors, primarily focused in information technology.
+
+So I wanted to strip out the massive amount innovations that have taken place around agriculture, communications, transportation, energy and petrochemicals over the past 100 years. It is helpful to think backwards if you will, focusing on just the age of computers and back into the late 1800s, into the birth of the electronic age. When we focus on just the computer led revolution in the 1950s and electricity revolution in the 1870s, we start seeing some interesting trends.
+
+**Information Technology Cycles**
+
+The following is my attempt at describing from a very high level the history of computing and informational technology. What I found was that technology moves both in cycles of proliferation and consolidation and that there is a directional theme.
+
+Electronic Age
+
+**Electricity/Scaled Power (1875-1900):** Platform competition and consolidation phase: Edison vs Tesla. Enterprise facing, originally to convince government and factory owners to replace physical labor.(Important companies: GE and Westinghouse)
+
+**Electronics (1900-1925):** Electricity prices fall as infrastructure rollout, creating a proliferation of electronic hobbyists and startups. Hardware dominates first half, platform dominates next half. Consumer Facing.(Important companies: RCA, Zenith, Galvin (Motorola), most went belly up, upstream and downstream do well)
+
+**Electronics Consolidation (1925-1950):** The electronics sector consolidates, with content platform operators (software) dominating, and winners usually emerge from previously niche targets.(Important companies: AT&amp;T, NBC, IBM)
+
+Computing/Software Age
+
+**Computing/Scaled Electronic (1950-1975):** Platform consolidation: IBM and the seven dwarfs. Enterprise facing, originally to convince government and large scale enterprise to replace  basic mental labor.(Important companies: IBM)
+
+**From Hardware to Software (1975-2000):** Computing price falls, creating a proliferation of hobbyists, IT startups and companies. Lots of PC makers who go bust, software and internet dominate in the second half.(Important companies: Intel, Microsoft, Apple, Dell, most early PC makers go belly up, up and downstream do well)
+
+**Software Consolidation (2000-2025):** Sectors like Retail, information and social consolidate. Hardware continues to fall away to software as content platform start to dominate, winner is emerging across multiple sub verticals.(Important companies: Amazon, Apple, Alibaba, Tencent)
+
+Cloud/AI Age
+
+**Machine Learning (ML)/Smart Software (2025-2050):** Platform consolidation phase. Enterprise facing, convince companies this is the future of advanced mental labor. It will be about the use of AI at the industrial scale being adapted by corporations and governments for various analytical, resource management and decision making processes.(Candidate Important companies\*\*:\*\* AWS, Microsoft, Palantir, companies yet to exist in China)
+
+**Specialized AI (2050-2075):** Machine learning/AI becomes cheaper, creating a proliferation of AI hobbyists and developers, high level programing focused, consumer facing. This will be about the proliferation of AI in our everyday lives. Just as how starting in the 1990s, the story of technology was one with the integration of computers and software to our daily lives, to some extent, outsourcing the memory/logic processing components of our lives to computers. Now, we will be calling upon multiple AIs to do many deal of the functions of our lives in perhaps faster input times (using neural interfaces). Companies and products could be formed in seconds from simply thinking through the process and outsourcing it to smart software who functionally construct its various parts in second to minutes depending on how quickly you can direct and scale your digital minions to do your bidding.(Candidate important companies: most will go bust, up and downstream will likely do well.)
+
+**General AI (2075-2100):** Consolidation of Software/AI. It will be about the web linkages of human/AI integration. Whether this looks like some sort of neural net where we live in a web of information buffeted by our web of AI advisors.
+
+The average core technology cycle seems to be approximately 75 years, with 25 years of infrastructure platform competition and roll-out, 25 years of new venture creation most of which gets washed out, and 25 years of industry consolidation.
+
+The initial phase of the cycle is dominated by 1-3 players fighting it out in a standards war that then gets rolled out as the foundational infrastructure of the next 50 years:
+
+In the initial phase, the general theme is that the companies start off as enterprise and government facing. In the historical electronics and computer cycle, there has been two such periods, the roll out of electrical grid by GE/Westinghouse and the roll out of mainframe computers by IBM. In the case of the AC vs DC standard war between Edison and Tesla, both men through their respective backers, GE and Westinghouse, to invent and supply standardized power equipment and build power plant, the initial consumers were local government to replace previous gas lamp systems with electrical street lamps and to factories. The new technology was seen as cheaper and more efficient than previously gas operated lambs operated by cities and more importantly, electricity delivered by wire is seen as much more efficient than having onsite power for factory operators, allowing for the displacement of onsite steam engines and boilers. The birth of the mainframe computer was similar, although less competitive. Due to an earlier lead and first mover position, IBM was able to dominate the market over its competitors, making them irrelevant. The mainframe computer was sold to large corporations and government defense agencies for the calculation of complex formulas that had previously required the employment of hundreds of staff. The two initial cycles produce two monopolistic businesses that are still DOW components today, GE and IBM, which set the standard for a drop in the price of electricity and computing that would benefit the next phase of the cycle.
+
+The proliferation phase, the general theme is that there is a cheapening of the previous platform technology, electricity and computing power, which enables hobbyists to take advantage and start building new products in the electronics and PC space. This is characterized by period of high new firm creation, high levels of creativity and a move from enterprise focus to the consumer. We saw it in the 1900-1920s with the birth of the electronics industry, there were dozens of radio makers, appliance makers and various electronics manufacturing startups. During this time, there was heavy competition from the host of new hardware businesses, with most profits coming from IP licensing. A similar analogy could be made of the PC era of the 1980s-2000s, there was a lot of hardware makers, it was highly competitive, and the winners of the era were primarily focusing on software (ie Microsoft).
+
+The consolidation phase, In the case of the 1920s, the commoditization of hardware created an opportunity for content providers. History is littered with names of large scale manufacturer that are now defuct, names like Zenith, admiral and dozens of electronics makers which use to hover mid-western industrial hubs such as Chicago. The content providers in Radio and TV became more dominant. Through the current consolidation phase, starting in 2000, we see less new venture creation and generally a focus on the content/distribution platform side of consumer technology. Amazon, Netflix, Google, Apple are key examples of the shift.
+
+What it means today,
+
+I would argue that we are in the consolidation part of the cycle until 2020-2025, where it will continue to be about shrinking number of consumer technology players and the dominance of content over infrastructure. This explains the phenomenal increase of FANG stocks relative to the rest of the market. As a result, for the next 5-10 years, if one can pick good entry points for Amazon (I will discuss my dislike of Google in a future post), one will be successful, and the company will likely last for a long time. It remains to be seen if Apple can create a bigger ecosystem. Contrarian value plays probably revolve around Chinese ADRs which are out of favor with the US public.
+
+**From 2025 onward, the most exciting prospect is the idea of a repeat of the infrastructure buildout that happened at the onset of the electricity and computing age. I believe that the new phase will be targeting enterprise and government and will be a winner take all fight similar to the few cycles. The previous cycles revolved around scaled mechanical energy and scaled linear mental processing, I believe the next phase will revolve around advanced mental processing. I think that corporations and government while benefiting from scale, are beholden to inefficient decision making due to complicated management structuring.** The automation of complex management process that can analyze of complex large data and deploy resources more efficiently will become invaluable to large corporate/government clients. Companies that have potential in this space are big data players with big client channels like AWS and **Palantir** or emergent players which have yet to develop in the US or China. It is also possible that will come from a spinout team from one of current tech giants.
+
+It is a serious mistake to continue to look for consumer plays in the technology space. I believe that the sector is consolidating and played out. New entrants will find it nearly impossible to survive at the downturn of the next cycle and current incumbents will solidity their positioning. The next batch of potentially interesting companies will likely come from the enterprise space. While Wall Street analysts continues to be focused on AWS and the fight over IaaS and PaaS, the most interesting segment to watch is in advanced analytics and resource allocation tools, which is ripe for innovation. There are lots of fat in the middle management layer of corporations and governments. I strongly believe that this space is where the next once in a generation infrastructure player (like GE and IBM) can offer an impressive solution which will fill the niche. The early identification of this company/companies will generate significant out performance relative to any market benchmark.
+
+2020 Update:
+
+If we are in the infrastructure roll-out stage than first mover absolutely has an advantage as we could see with GE, IBM and microsoft to some extent during the previous eras. In the consolidation ages, the last mover had an advantage. Amazon and Apple were not the first e-commerce or hardware makers, but are likely the last because they benefit from  a slow down of technology and a focus on ease of use and scale.  This is why every contract and sticky ones PLTR has is so important, because these relationships will scale in a non-linear way once AI and machine learning starts making its way into  large institutions and first mover advantage is very very important here, just like how GE was working around the clock to sign on factories and local governments for lighting and electricity contracts, once they were in, that is forever and they could start selling other equipment and devices all of which were collecting licensing or patent fees.
+
+I have very high conviction on Palantir.  I believe the reason above is what drove Peter Thiel to invest into Palantir, because it is building the infrastructure layer for the age of AI and PLTR is primed to becoming the single most important company in technology for the next 2-3 decades and will be a 100-1,000x bagger.
+
+Position Update;Now have $220k in shares  (bought another \~$90k in shares yesterday, still about 30k (down from 50k) in calls. I fully expect to lose all my call value.  If it drops to 20, I'll add another 100k. These shares are long term holds and are the ones to pass down to your children.",-1
+34,"Stock Market News for Today | Fubo, GM, Tesla, Ford, Lemonade, Nikola, JP Morgan &amp;other news [12-29]",https://www.reddit.com/r/wallstreetbets/comments/kmdirq/stock_market_news_for_today_fubo_gm_tesla_ford/,2020-12-29 7:28:48,"**Why did FuboTv and Lemonade crash yesterday. JP Morgan goes all-in on travel and Nikola spikes after their report. Let’s talk about this and other stock market news**
+
+**\~Very Long Post\~**
+
+Hello everyone and Good Morning! So, let’s start with the recap of yesterday, as we saw the broad stock market [SP500](https://ibb.co/w73qSnv) leading the way, up .87%, with the [Nasdaq Composite](https://ibb.co/6y9ZnHT) also gaining more than .7% and the [Dow Jones](https://ibb.co/qnJN88J) rising by more than 200 points to finish the day, with all 3 big indexes finishing broadly higher, with all of them also closing at all-time highs, after the relief [BILL](https://ibb.co/LRcCDdL) lifted many stocks, as this bill does include direct payments and unemployment benefits while also including over $300B that will be direct to the small businesses relief funding programs alongside other good [programs](https://ibb.co/jbhM2b2), like rent assistance, child care, vaccine distribution and others. But despite this great movement in the stock market, we did see the [VIX](https://ibb.co/Hn8QrkZ) rising by almost 1%, with most factor groups trading lower [yesterday](https://ibb.co/F7dWsYS), with only large-cap growth companies gaining, while the biggest losers were in the small and mid-caps, especially the growth companies.
+
+[Yesterday](https://ibb.co/Cwnvhrv) there was almost a 50/50 split in advancing to declining stocks, with 177 new highs on decent volume, as more companies have started to trade below the 50-day SMA, which is a good thing as the trend was worrying with over 84% of companies above that moving average just recently.
+
+We also saw 9 of the 11 [sectors](https://ibb.co/Km2fdpd) gaining yesterday with communications, consumer discretionary and technology all gaining over 1% for the day while the 2 sectors that lost ground and lagged the market were Energy and Materials.
+
+Here is the [HEAT MAP](https://ibb.co/gr6GrMj) that confirms those charts, as we can see big gains made in the big tech names with Amazon, Facebook and Google all gaining more than 2% for the day with Netflix and Microsoft also posting a 1% gain. We can also see the biggest losers coming in the Software-Application and Biotech sectors, probably because of tons of profit taking after huge-runups this year, while funds want to show investors that they own the big names, not those very volatile high-flying stocks of 2020, maybe that is one of the reasons for this rotation.
+
+We also saw the total people through TSA [checkpoints](https://ibb.co/ByxKmYy) in the Christmas weekend rise to over 2.4M people, the busiest since March, but that is still down about 50% since last year. This are better news for the Airlines especially after Trump also finally signed the stimulus bill which does include funds for the Airlines.
+
+While TrueCar also released some December [estimates](https://ibb.co/KL4K7X9) for auto sales, in which we can see a 4,7% increase year over year and a 32% increase over last month, as the industry is still continuing the rebound since the March lows. This is a good outlook for the industry so expect big OEM to start rising again after a pause in companies like Ford or GM since the end of November. Regarding this subject maybe Tesla can start selling even more cars, this after an Indian minister [reported](https://ibb.co/k2W2LML) Tesla will start operations in early 2021 in the country.
+
+Alongside great sales numbers in the auto industry, we also received the Dallas FED manufacturing [Survey](https://ibb.co/Ssdf7Kd), which came in better than expected with production, new orders and capacity utilization all having big increases since the last report.
+
+[Today](https://ibb.co/vdHr1wT) we get some numbers from the Redbook store sales and the SP Home Price Index, while we also await to see what the Republican [Senate](https://ibb.co/261v76w) will do after the House passed the $2000 stimulus proposal, as the leader of the Senate hasn’t yet announced anything.
+
+In some other stock market news, we saw some highly volatile names make moves with [Nikola](https://ibb.co/M8xVsvm) popping after a JP Morgan analyst predicted a less drama filled 2021, I can’t imagine what he sees in the company, as they still don’t have any new breakthrough technology or really anything to show, just promises after promises. While we also saw [FuboTV](https://ibb.co/vkkLy38) dropping more than 11% for the 2nd straight day before regaining some of the losses after-hours, this happened after it was called a best short idea at Hedgeye on top of last week short reports, and meanwhile, we also saw [Lemonade](https://ibb.co/vVZnw9c) fall 14% after the lockup period expired after the IPO, adding more than 30M shares to the small public float available until now.
+
+We also saw JP Morgan [acquiring](https://ibb.co/WVq4jGp) a credit card rewards business; thus, betting travel will come back in the next years. The company will acquire the technology platforms, travel agency, gift card and points businesses from cxLoyalty Group, which is a privately held company. This will be a hit to Expedia, as JP Morgan had been using the credit card rewards program from them, but now will return the use the cxLoyalty platform like they did until 2018, as cxLoyalty has over 3.000 clients and market partners like Citigroup, Capital One and Mastercard and serve more than 70M consumers.
+
+Let’s hope for a good day in the market as both the [EU STOCKS](https://ibb.co/zFkGLYs) and the [US FUTURES](https://ibb.co/R2L0kRV) seem to be pointing at a good open, with all 3 big indexes in the green as the Nasdaq is leading the way, as growth companies are [outperforming](https://ibb.co/gMFNd50) the value plays in this final month of 2020. As we also saw yesterday Goldman’s chief economist lifting the [outlook](https://ibb.co/rv12bH5) for the Q1 US Gross domestic product by 2% and a full year growth increase of .50% to see a Gross domestic product growth of 5.8% in 2021, which should be another bullish sign for the stock market.
+
+Thank you everyone for reading! Hope you enjoyed the content! Be sure to leave a comment down below with your opinion on the stock market!
+
+Have a great day and see you next time!",0
+35,Why Palantir is a Solid Long (Software Engineer Perspective),https://www.reddit.com/r/wallstreetbets/comments/km624j/why_palantir_is_a_solid_long_software_engineer/,2020-12-28 22:29:11,"My friend is a software engineer at Google, and he believes Palantir is a solid long based off of the ability of their engineers. The hiring process at Palantir for software engineers is more competitive than Google, Facebook, etc. (or at least as competitive). He said he was rejected by Palantir but hired by Google.
+
+I think among the tech companies, the ones with the highest engineering bar are the smaller companies (often startups), like Netflix, Facebook, Airbnb, Palantir. Google ranks somewhere in the middle difficulty. Then the ""easiest"" to get in are Amazon and Microsoft. Don't get me wrong though, all tech companies are hard to get in. However, I know that there are a lot of ""coasters""/""slackers"" in large companies who do the bare minimum etc. Large tech companies try their best to set high bar for entry, but because of the large number of engineers they need, they inevitably lower standards in the long run.
+
+This is especially true of engineers in government... which is the ultimate ""monolith"" and magnet of mediocrity.
+
+Palantir's competition is other government contractors, and the work done by other government contractors has historically been extremely mediocre. Do you remember the Obama care website that the government paid an absurd $2 billion to make? How about during covid, the state of New York couldn't manage their unemployment website (due to high traffic) by themselves. They needed help from Google to help run the unemployment website from their platform.
+
+From my point of view, there is no way Palantir can lose if they are hiring the best engineers, and if their competition is government contractors.
+
+EDIT: Positions: 1k shares in Palantir",0
+36,Vaccine Boosters Could Be Needed 153 Days After 2nd Dose,https://www.reddit.com/r/wallstreetbets/comments/klnxl1/vaccine_boosters_could_be_needed_153_days_after/,2020-12-28 5:16:33,"TITLE: Vaccine Boosters Could Be Needed 153 days after second dose.
+
+**Microbiology PHD estimates there have already been 100k reinfections**
+
+&gt;In actuality, there are most likely around 50,000-100,000 reinfections in the world, excluding asymptomatic first or second infections which may not have been caught on either screening.[[0]](https://www.reddit.com/r/Coronavirus/comments/kj6f2s/observational_study_on_healthcare_workers/ggv298c/)
+
+Reinfections are common given the opportunity [[1]](https://www.reddit.com/r/news/comments/khsw6u/scientists_urge_concern_not_alarm_over_new_virus/ggo8qir/). Reinfections can be used to estimate anti-body half life for anti-bodies created by the vaccine. [[2]](https://medical-dictionary.thefreedictionary.com/antibody+half-life). Reinfections can also be used as an indicator for B cell immunity, as B cell immunity created via an infection is the same as B cell immunity created by a vaccine. [[3]](https://www.cdc.gov/coronavirus/2019-ncov/vaccines/different-vaccines/mrna.html). **Reinfections indicate anti-body half life is short and B cell immunity is weak**. This implies booster shots are needed but bi-annual vaccine boosters are not logistically feasible.
+
+Antigenic drift can reduce efficacy rapidly. Its not possible to vaccinate for multiple versions bi-annually. [[4]](https://twitter.com/trvrb/status/1340409968818671616?s=20). ""Immune Evasion"" can already be seen occuring in the South African strain [[5]](https://sciencespeaksblog.org/2020/12/22/covid-19-south-african-variant-may-be-worse-than-uk-variant/). Suspiciously, there are also 1594 untested and suspected cases in fda report for pfizer vaccine, in vaccinated group. [[6]](https://www.fda.gov/media/144245/download). 
+
+**The Moderna Vaccine’s Antibodies May Not Last As Long As We Hoped**
+
+&gt;A significant determinant of vaccines’ effectiveness in controlling a pandemic is antibody duration—how long the antibodies last in a person’s system. [[7]](https://www.forbes.com/sites/williamhaseltine/2020/12/22/the-moderna-vaccines-antibodies-may-not-last-as-long-as-we-hoped/)
+
+**A Prospective Study on Rapidly Declining SARS‐CoV‐2 IgG Antibodies Within One to Three Months of Testing IgG Positive**
+
+&gt;**Conclusions**
+&gt;Our findings show that the protective COVID-19 IgG antibodies rapidly decline over one to three months. Rapidly decaying protective IgG antibodies would impact herd immunity and vaccine durability. It is critical for the potential vaccines to generate both protective T- and B-cell immune responses in a sustained manner. [[8]](https://www.cureus.com/articles/46453-a-prospective-study-on-rapidly-declining-sarscov2-igg-antibodies-within-one-to-three-months-of-testing-igg-positive-can-it-lead-to-potential-reinfections)
+
+**Anti-body half life can be determined from the following equation.** [[10]](https://en.m.wikipedia.org/wiki/Half-life)
+
+&gt;Nt = No × (0.5)  ^ (t / thalf)
+
+&gt;10 = 100 × (0.5) ^ (90 / thalf)
+
+&gt;0.10 = (0.5) ^ (90 / thalf)
+
+&gt;ln(0.10) = ln(0.5) × (90 / thalf)
+
+&gt; thalf = (90 × ln(0.5)) / ln(0.10)
+
+&gt; thalf = 27 days.
+
+**27 day anti-body half life coincides with known IgG half lifes**
+
+&gt;For total IgG, the half-life found was 25.8 days; for IgG1 it was 29.7 days; for IgG2 it was 26.9 days; and for IgG3 it was 15.7 days. The results are similar to those reported for endogeneous IgG [[11]](https://www.google.com/search?q=antibody+half+life&amp;oq=antibody+ha&amp;aqs=chrome.1.69i57j69i59j0l3.4678j0j4&amp;client=ms-android-hms-tmobile-us&amp;sourceid=chrome-mobile&amp;ie=UTF-8)
+
+A vaccine would provide up to 4 times the initial anti-body count as a natural infection. 
+
+**Re-run the equation to find how long it would take for anti-bodies, provided by a vaccine, to drop below the critical threshold, in a two shot, 30 days apart, scenario**
+
+&gt;10 = 400 × (0.5) ^ (t / 27)
+
+&gt; ln(0.025) = ln(0.5) × (t / 27)
+
+&gt; t = (27 × ln(0.025)) / ln(0.5)
+
+&gt; t = 143 days
+
+Stonks fall fast. Spy 315p 6/9/21 (Fauci's expected booster date)
+
+**TL;DR**: Anti-body half life is short. B cells immunity is weak due as indicated by reinfections ([100k estimated](https://www.reddit.com/r/Coronavirus/comments/kj6f2s/observational_study_on_healthcare_workers/ggv298c/?utm_source=reddit&amp;utm_medium=usertext&amp;utm_name=wallstreetbets&amp;utm_content=t3_klnxl1)). Vaccine boosters needed ~143 days after second dose (+10 to 12 days to reach max anti-body count), or bi-annually.
+
+&gt;Bonus Points: The 100k reinfection estimate sourced from a PHD in Microbiology / Immonology AND is also in charge of ordering bootser shots [[9]](https://www.reddit.com/r/Coronavirus/comments/kj6f2s/observational_study_on_healthcare_workers/ggv4kmm/)
+
+**This is also the opinion of the Israeli government**
+
+&gt;“The conclusion as it stands now is that even if an effective vaccine is developed, it won’t eradicate the virus and it will be necessary to be vaccinated several times a year to avoid re-infection.” [[12]](https://www.theyeshivaworld.com/news/headlines-breaking-stories/1906190/dozens-of-israelis-diagnosed-with-covid-for-2nd-time-kupat-cholim-official-says.html)
+
+Which is perfectly logical. A flu vaccine provides protection for *flu season*. Covid-19 season is the entire year. Youve fallen for a trap. 
+
+🌈🐻",0
+37,Is At&amp;t $T a no brainer?,https://www.reddit.com/r/wallstreetbets/comments/klg2fg/is_att_t_a_no_brainer/,2020-12-27 20:19:13,"I mean with how well HBO max is doing, went from 8 million to 12 million active users in 2 months, is going to start releasing new movies straight to streaming, and is now the most downloaded entertainment app in google play store (not sure about apples app store).
+
+ So Netflix's market cap is 227 billion vs At&amp;t which is 204 billion, Hbo max which is brand new only has 6% the amount of users compared to Netflix so it has a shit load of growth potential. 
+
+Also on an anecdotal note most people I know either have an HBO max account or are talking about getting one.
+
+We also all seen how much Disney has shot up do to Disney Plus (which has 86 million users, but has been out for 13 months compared to HBO max which only been out for 7 months, also it's twice as expensive as disney plus). Another thing to consider is it just recently came out to ROKU which is just another avenue for downloads. 
+
+Leaps 2 years out for 32 strike is only $209 which is dirt fucking cheap.
+
+Sorry in advanced, I'm as fucking retarded",0
+38,"SGMO DD- Crispr Patents, valuation, and ARKG",https://www.reddit.com/r/wallstreetbets/comments/klfpgo/sgmo_dd_crispr_patents_valuation_and_arkg/,2020-12-27 19:59:34,"* **WTF is SGMO?** Still the most drastically undervalued gene therapy company on the market. Launch sequence already started, and it’s still wicked undervalued.
+
+&amp;#x200B;
+
+* **How undervalued is SGMO?** I’m copying an *updated* valuation table from my first article, published last Sunday 12/20/20. Here’s that article in case you want more fundamental explanation of SGMO: [First SGMO DD Article](https://www.reddit.com/r/wallstreetbets/comments/kh7x4x/sgmo_investment_thesis_full_dd/?utm_source=share&amp;utm_medium=ios_app&amp;utm_name=iossmf__;!!Cjnu1T6GFXg!8oz9onn85pCSDC3gf9hR6p84b7kPdrharEB6YcEeW8boxiiLh2kl6c0qrTf0VV_U52QYiQ2x0A$)
+
+Then, the stock price was 14.32. This week, it touched $18.48 and closed at $17.81 on Friday. A month ago it was $9.44…
+
+&amp;#x200B;
+
+|Ticker|Market Cap|
+|:-|:-|
+|BMRN|16 B|
+|CRSP|12 B|
+|EDIT|5.21 B|
+|ONCE|Acquired for 4B for 1 approved therapy|
+|NTLA|3.67 B|
+|SGMO|2.52 B|
+
+&amp;#x200B;
+
+At these prices it should go up another 31% to be fairly valued with the next company on the list that would basically be a hairy guy in an inner tube compared to the SGMO yacht. 
+
+&amp;#x200B;
+
+* **Want a real SGMO vs EDIT valuation by an actual professional?** Here ya go: [SGMO vs EDIT valuation thread](https://twitter.com/mchilberg/status/1343189009095217152?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet)
+
+Also, SGMO's lead candidate for hemophilia (currently Phase 3 trial partnered with Pfizer) has better data than BMRN’s, so imho it should be worth AT LEAST 6x where it is at right now, and that’s excluding the fact that SGMO has partnerships with Pfizer, Takeda, Biogen, Kite, Sanofi and Novartis, in addition to 7 wholly-owned programs. That gives us a grand total of 18 lottery tickets at the moment: [https://www.sangamo.com/pipeline](https://www.sangamo.com/pipeline)
+
+&amp;#x200B;
+
+* **Why the hell are you comparing SGMO with CRSP?** You’ve probably heard of CRSPR but never heard of SGMO. Doesn’t fucking matter, because… PATENTS. CRSPR tech got a lot of attention and press in its early days, mostly from a Radiolab episode and then lots of follow-up news stories. It’s used a lot of places for research because it's cheap and widely available... and that’s the whole problem. So many institutions use CRSPR and publish improvements and modifications to the technique/process that the legal landscape is a goddamn patent quagmire (giggity).
+
+&amp;#x200B;
+
+* **Don’t believe me that CRSP’s patent game is weaksauce?** Check out this link: [Crispr patents by institution.](https://www.investorvillage.com/smbd.asp?mb=1933&amp;mn=153484&amp;pt=msg&amp;mid=21490140) It has a 2019 table put out by IPlytics showing the # of crispr patents owned by different companies/institutions.
+
+The first two companies are big agra.
+
+The next 4 are UCSF, Harvard, MIT, and UPenn.
+
+Right after that is SGMO.
+
+CRSP isn’t even on the goddamn map.
+
+&amp;#x200B;
+
+* **So SGMO owns the patents covering some of the IP CRSP is trying to use?** YES FUCKING YES \*bangs table\*. At least they sure AF do for this one covering BCL11A promotor genes: [https://www.investorvillage.com/smbd.asp?mb=1933&amp;mn=153565&amp;pt=msg&amp;mid=21490140](https://www.investorvillage.com/smbd.asp?mb=1933&amp;mn=153565&amp;pt=msg&amp;mid=21490140)
+
+&amp;#x200B;
+
+* **What’s a BCL11A promotor gene?** I highly doubt at anyone really gives a shit, but it is a nucleotide strand that causes increased expression of genetic material following its locus in a DNA strand. If you can target insertion of it “in front of” the gene you want to express (maybe genetic material encoding clotting factor in hemophilia) it ramps up expression of the subsequent gene. It doesn’t really matter. What does matter is that SGMO has a shiny new patent on it and CRSP is going to get taken to town (and not to have a lovely date at Olive Garden) by all the other IP departments of universities and SGMO if they ever manage to get a therapy approved.
+
+&amp;#x200B;
+
+* **Rake, no big pharma company would be so stupid that they marketed a therapy covered by another company’s patent, right????** Well, Merck had to pay Bristol-Myers Squibb a one-time settlement of 625 million and subsequent sales royalties of 6.5 percent the first 5 years to market, and 2.5 percent the next 2 years on market for Keytruda (pembrolizumab) because BMS had IP protection on the use of anti-PD-1 antibodies.
+
+&amp;#x200B;
+
+* **That must’ve been a one-off screw up, right?** Unfortunately not. Kite had to pay Memorial Sloan Kettering Cancer Center 752 million for IP infringement surrounding Yescarta. That was after Gilead paid 11.9 billion to acquire Kite.
+
+Both patent disasters are detailed in this IV article: [https://www.investorvillage.com/smbd.asp?mb=1933&amp;mn=153598&amp;pt=msg&amp;mid=21490140](https://www.investorvillage.com/smbd.asp?mb=1933&amp;mn=153598&amp;pt=msg&amp;mid=21490140)
+
+&amp;#x200B;
+
+* **Of note, SGMO’s proprietary gene-editing technology, Zinc-finger-nucleases, are wholly owned proprietary tech.** And it has [better precision and specificity than CRSPR](https://t.co/uKtI6vrAeb__;!!Cjnu1T6GFXg!6oZ04-OqlWutwVsIdNAOAKQ-IlWoIkV_CL4WnJbLO1Q-WZ02b883DiQUGphgBOdnxRvphNk3Wg$).
+
+&amp;#x200B;
+
+* **Why are they letting CRSP develop the tech and bring it to market?** You make more money that way? Patent trolling is pretty reprehensible, but if you can just let someone else put in all the money for development and clinical trials and marketing and FDA approval, then just sue them for royalties, you’re going to make a shit ton more than if you did the upfront work yourself.
+
+&amp;#x200B;
+
+* **You mentioned ARKG?** Yeah, because SGMO isn’t included in it yet. But Takeda and Novartis (both partnered with SGMO) are. There is suspicion SGMO might make an appearance on the list soon because it’s massively undervalued, and it would only make sense to shift profits from all the other gene-therapy hockey-stick runups this year to diversify and invest in something with room to run. Don’t take it from me, [this analyst](https://www.linkedin.com/in/jo-mama-7774ba1bb) believes SGMO is a prime choice for inclusion in ARKG. If you reviewed his linked in profile you might be interested to know he also is overweight on DEEZ with an upside target of $69.
+
+Got eem aside, if SGMO is included in ARKG it will experience a wicked bump in price just the like ARKG holding that has a low market cap and banned ticker that farms genetically modified salmon. They were at about $3-$4 a share for a loooooong time before ARKG inclusion and have since rocketed to a new normal of $9-$10 a share. The ticker starts with an “A” and ends with a “B” and theres a “Q” in the middle if you want to peep some hot price action.
+
+Honestly, from what I can tell, it's mostly rumors at this point, but I highly doubt Our Lady of Gains Cathie Wood would not dip her toes in the SGMO pool.
+
+&amp;#x200B;
+
+* **Shouldn’t funds like ARKG already know about SGMO?** I suspect they do, but way more importantly all the big pharma partners I mentioned earlier do. I said it before and I’ll say it again- those guys know a hell of a lot more than I do about what works, and it’s probably the main crux of my thesis.
+
+Unless SGMO’s CEO Sandy Macrae is Elizabeth Holmes 2.0 and this is a hilarious Sangameranos situation where I lose most of my retirement, things are looking pretty goddamn rosy.
+
+And trust me, Sandy Macrae is nowhere near the level of charismatic as Elizabeth Holmes is. Excellent CEO, strong clinician focused on safety first, able to turn this company into a powerhouse through acquisitions (TxCell) and partnerships- yes. Charismatic, kinda hot with crazy eyes and deep Venture Brothers [Dr. Girlfriend](https://youtu.be/2rs7VVjz5A8__;!!Cjnu1T6GFXg!__RIcIDFTSmG7OdGlGLgvdEQh3gV5d43LeHXCqDyyIjUP28_p4pbc2G9jmchEUBAjRHnzHT4LA$) dominatrix voice like Mrs. Holmes- nope, not even close. Listening to this guy talk is like watching paint dry while you’re stuck in an elevator someone farted in, so I’m assuming he must actually be peddling something good. Macrae is selling the STEAK, not the SIZZLE.
+
+&amp;#x200B;
+
+* **You seem to link a lot of IV articles, what’s up with that?** I’m just trying to distill down the important points for my fellow autists riding the short bus with me. PS, if my boy bct1192 from IV is reading this- much love, and know that “undiagnosed autist” is a strong compliment in the parlance of this forum.
+
+&amp;#x200B;
+
+* **Legit stacks? For real-real? Lunar Tendies?** Trust, WSB fam. I posted a YOLO screenshot in my first article before the pop this week, it was more than 51% of my IRA, and that’s just one of my 5 investment accounts.
+
+**TL;DR summary**\- SGMO undervalued, owns the patents to CRSP. SGMO stock price should go up 4x to be equivalent market cap.
+
+**TL;DR Investment moves**\- **Buy SGMO shares** since they are still relatively cheap, otherwise LEAP calls like **Jan ’22 $25 strike**. I say leaps because it's going to take off, but I'm not miss Cleo, you can't call me now, and I don't know when share price will go up. I don't want my bros losing out on a short-dated disaster. My conservative target price is $25 by EOY ’21. Long term target price $45 by EOY ’23 (following hemophilia A approval with Pfizer).",0
+39,🚀 🚀 PSTH Explained - I've Had Enough - This is a Monetary Handout - Please Take It And Stop Private Messaging Me🚀 🚀,https://www.reddit.com/r/wallstreetbets/comments/kldiv2/psth_explained_ive_had_enough_this_is_a_monetary/,2020-12-27 17:57:51,"**I am sorry if this is not news to you. I really am.**
+
+However, I am so discouraged today. I am the author of several PSTH DDs. Until my most recent DD, I figured this was on the WSB radar. Boy, was I wrong. A ton of private messages amazed me today and I had no choice but to post another explanation of this tontine structure. Please god, read the content. I made it short for you.
+
+\------------------
+
+**TLDR;**
+
+PSTH is a the biggest SPAC ever created (fact). For every 9 common shares you hold through merger, you get 2 more at $23. The stock is at $26 today and is going mile high (some projecting \~$100 based on other IPOs and the size and target list) in Jan or Feb on LOI.
+
+\-------------------
+
+**My most recent DD on PSTH (1/3, others were pinned by mods) that summarizes everything you need to know:**  [https://www.reddit.com/r/wallstreetbets/comments/kkukb8/psth\_warning\_shot\_qa\_ive\_done\_well\_in\_this\_market/](https://www.reddit.com/r/wallstreetbets/comments/kkukb8/psth_warning_shot_qa_ive_done_well_in_this_market/)
+
+\--------------------
+
+***It has become blatantly obvious that most of you are COMPLETELY IGNORANT OF THE PSTH PLAY AND IN SPECIFIC THE WARRANT INCENTIVE YOU ARE NOT TAKING ADVANTAGE OF.***
+
+**We therefor go to the PSTH S1 since no one on this sub can read or google or do both at the same time:**
+
+As the largest blank check company currently pursuing a business combination, we can offer a larger-capitalization private company (with market capitalization of $10,000,000,000 or more) the opportunity to gain access to the public equity markets, without such company having to conduct its own initial public offering (“IPO”). Through a merger, we will be, in effect, facilitating the IPO of a large private company, enabling a private business to avoid the inherent costs and risks associated with the traditional IPO process.
+
+First, our Distributable Tontine Redeemable Warrants provide our public stockholders with incentives not to redeem their shares of Class A Common Stock in connection with our initial business combination. We will issue a fixed pool of 44,444,444 Distributable Tontine Redeemable Warrants; **holders who choose to redeem their shares will lose the right to receive any such warrants.** Public stockholders who choose not to redeem their shares of Class A Common Stock will share in this fixed pool with other non-redeeming holders (on a pro-rata basis), and will receive the additional warrants that were effectively surrendered by redeeming holders. ***As a result, public stockholders who do not redeem their shares will receive at least two-ninths of a Distributable Tontine Redeemable Warrant per share they hold, and a proportionally greater amount as other holders elect to redeem.*** We believe this structure will likely lead to a lower level of redemptions, and therefore, we will likely have more funds available for our initial business combination.
+
+**NOW PAY ATTENTION, From the S1:**
+
+**PSTH.U**
+
+**Securities offered:**
+
+200,000,000 units, at $20.00 per unit, each unit consisting of:
+
+one share of Class A Common Stock;
+
+one-ninth of one Distributable Redeemable Warrant; **and**
+
+***a contingent right to receive Distributable Tontine Redeemable Warrants***
+
+\-------------------------------
+
+**What is the** ***contingent right to receive Distributable Tontine Redeemable Warrants*** **you ask?**
+
+**""By way of example, if no public stockholders elect to redeem their shares of Class A Common Stock in connection with our initial business combination,** ***for every nine shares of Class A Common Stock held by a public stockholder and not redeemed, such holder would receive two Distributable Tontine Redeemable Warrants.""***
+
+AGAIN: ***for every nine shares of Class A Common Stock held by a public stockholder and not redeemed, such holder would receive two Distributable Tontine Redeemable Warrants.""***
+
+AGAIN: ***for every nine shares of Class A Common Stock held by a public stockholder and not redeemed, such holder would receive two Distributable Tontine Redeemable Warrants.""***
+
+AGAIN SAY IT WITH ME: ***for every nine shares of Class A Common Stock held by a public stockholder and not redeemed, such holder would receive two Distributable Tontine Redeemable Warrants.""***
+
+\------
+
+*IT GETS BETTER*
+
+***""If half of the shares of Class A Common Stock issued in this offering are redeemed, for every nine shares of Class A Common Stock held by a public stockholder and not redeemed, such holder would receive four Distributable Tontine Redeemable Warrants.*** The contingent right to receive such warrants will remain attached to the shares of Class A Common Stock sold in this offering and will not be separately transferable, assignable or salable.""
+
+\------
+
+*Come with me and you'll be, in a world of pure imagination*....
+
+Take a history lesson folks, as [Deep Throat](https://en.wikipedia.org/wiki/Follow_the_money) famously said during the Watergate scandal, ""***Follow the money***"".
+
+***In PSTH,*** ***Follow the Smart Money***\*\*\*...\*\*\*
+
+\-------
+
+That is it. Sorry but I have been shocked more than ever before by the ignorance I have witnessed on WSB. Level 5, 6 and 7 accounts commenting dogshit misinformation.
+
+***MODS MESSAGING ME ASKING ME TO CLARIFY THE WARRANTS. JESUS CHRIST.***
+
+Merry Christmas.
+
+\---------------
+
+**S1:** [https://www.sec.gov/Archives/edgar/data/1811882/000119312520191638/d930055ds1a.htm#toc930055\_1](https://www.sec.gov/Archives/edgar/data/1811882/000119312520191638/d930055ds1a.htm#toc930055_1)
+
+[ PSTH. Q1, circa 2021. T+2 seconds post LOI. Zoom in, you can see the Silver Fox strapped in, laughing at you.](https://preview.redd.it/95tfkjm48t761.jpg?width=1200&amp;format=pjpg&amp;auto=webp&amp;s=7a013b6f0f73469606e053f20d068d762152dff2)",0
+40,"You fucking knuckleheads got my mom to reinvest her 401k into meme stocks indirectly through Asian ""financial experts"" on YouTube",https://www.reddit.com/r/wallstreetbets/comments/kl8wbp/you_fucking_knuckleheads_got_my_mom_to_reinvest/,2020-12-27 13:46:03,"I don't know how the fuck you guys became so powerful with 1.7m subscribers when you guys attest to your own retardation, but for some stupid reason you've caught the attention of a bunch of financial television personalities over in Asia. My mom has been watching them since she started investing in the stock market.
+
+From the beginning she was investing in blue chip stocks: Google, Amazon, Apple. But now she almost has 100 shares of Tesla, and wants to buy more instead of diversifying. She even bought Palantir and Nio. Luckily, she doesn't seem to know how to use options, but that could change any day and I have literally lost sleep over this because my mom is getting financial advice from a bunch of idiots from Reddit.
+
+My family is going through some immense personal and financial issues, and I can't believe she rolled over her 401k just to YOLO it all. She was supposed to use that money to pay the mortgage. She's way too old to play with all these risks. And now she won't listen to me because Tesla actually made her money. She doesn't realize she's playing within a bubble, and she has literally no investing strategy. I can't believe I'm the one who is more stressed out about this than she is.
+
+Yet as much as I hate you all, I can't help but be awed but how you guys have risen from the depths of 4chan to getting the attention of Bloomberg and Cramer, and now even a bunch of foreign broadcast financial personalities are eating your bullshit.
+
+Fuck y'all.
+
+**Edit**: Having almost 100 shares of TSLA doesn't make her wealthy when it's in a IRA that she can't access for almost a decade and she also has a $90k mortgage.",1
+41,$Kahoot - why it will rocket,https://www.reddit.com/r/wallstreetbets/comments/kl6qdk/kahoot_why_it_will_rocket/,2020-12-27 11:45:56,"Hello fellow autist of WSB.
+
+This company is going straight to the moon, and let me tell you why, but first let me tell you what the company does if you do not already know. Because I'm a full autist myself - I have totally copied to DD. Link will be in the buttom. 
+
+**The Company:**  Kahoot is a game-based learning platform that was founded in 2012  by Johan Brand, Jamie Brooker and Morten Versvik  Kahoot’s design is simple and intuitive. Hosts (e.g. teachers) can add slides, YouTube videos, puzzles, images to their questionnaire and build these on the Kahoot platform. Players connect using a simple PIN code and can team up with other players.  They then answer questions by choosing an option from a multiple choice, type their own answer, solve a puzzle, answer a poll…  These games can be played in the classroom, but also directly on [$ZM](https://twitter.com/search?q=%24ZM&amp;src=cashtag_click) , Skype, Google Hangouts.  Kahoot offers math, languages, reading courses and has branched into corporates and universities as 97% of Fortune 500 and 87% of Global Top 500 universities rely on Kahoot 
+
+**The market:**  Research And Markets forecasts that the EdTech and smart classroom market will grow from $ 86B in 2020 to $ 181B by 2025. Representing a CAGR of 16.1% over the 2020 - 2025 period.  HolonIQ forecasts the global EdTech market to reach $ 404B by 2025. Representing a CAGR of 16.3% over the 2019 - 2025 period. 
+
+**Financials:**   Invoiced revenue reached $ 11.6m in ***Q3 ’20 up 241%*** *YoY.* Gross Margins of 89% down from 93% a year earlier. EBITDA reached $ 1m up from a loss of $ 1.7m a year earlier for EBITDA Margins of 8.7%. NO DEBT. 
+
+**TL;DR:**  🚀 🚀🚀🚀🚀🚀🚀🚀🚀. This will be one of the rockets of 2021. I'm all in....
+
+*DD Stolen from:* [*https://twitter.com/GetBenchmarkCo/status/1341078005662289924*](https://twitter.com/GetBenchmarkCo/status/1341078005662289924) 
+
+Links for your own research: 
+
+[https://www.globenewswire.com/news-release/2020/09/30/2101344/0/en/EdTech-and-Smart-Classroom-Market-by-Hardware-System-Technology-and-Region-Global-Forecast-to-2025.html](https://www.globenewswire.com/news-release/2020/09/30/2101344/0/en/EdTech-and-Smart-Classroom-Market-by-Hardware-System-Technology-and-Region-Global-Forecast-to-2025.html)
+
+[https://www.holoniq.com/notes/global-education-technology-market-to-reach-404b-by-2025/](https://www.holoniq.com/notes/global-education-technology-market-to-reach-404b-by-2025/)",0
+42,Why you should have all your money in Genetics,https://www.reddit.com/r/wallstreetbets/comments/kkk00p/why_you_should_have_all_your_money_in_genetics/,2020-12-26 10:12:10,"I saw Cathie's outlook on Genetics and AI combining, and did my research. It has me convinced I should go super long on ARKG. Here is a video from a [MIT AI Chad and MIT Gene Chad](https://www.youtube.com/watch?v=brslF-Cy3HU&amp;ab_channel=LexFridman) \- the first of 3 on this podcast and my key takeaways were: Genes are cool as fuck. AI will do for the genome what it did for chess and Go. These companies have the potential to be the next FAANGs in exponential growth.
+
+This isn't all some hype to make me shoot thiccer rope like Spiderman, but industrial level genetics engineering. Need gasoline? Modify a bacteria to eat plastic and shit gasoline. Need a new organ? Farm that shit off a super pig. Need a specific drug that's expensive to make? Modify a nonspecific fungal enzyme to biosynthesize it. There isn't just one good reason to be long here, there are tons. Shit will actually be a genomic revolution. I think the human genetics stuff is the least interesting actually because of how complicated it will be and all the regulations and red tape. Modifying bacteria/fungus and shit you can culture and scale is going to be the real money. If I could go more specific on those ideas I would but I'll take the ARKG basket for now.
+
+It's going to disrupt major industries, and I guarantee genetics will help us combat climate change. We'll make bacteria that act as carbon sinks, and then retarded companies will pay tons of moneys to offset their carbon footprint to some assholes with giant vats of this shit in some barren wasteland just eating carbon dioxide and farting oxygen. It's going to change our world and make every industry it touches a level of magnitude more productive. This is the type of generational investment that Apple in 1996 or Google at IPO would have been.
+
+The keys to unlocking the 'genomic revolution' that ARKG wants are really just processing power and AI. Google is actually important here and will have a hand in the tech end. Deepmind just figured out protein folding. Remember in 2004 when we all tried to cure cancer by running spyware on our computers? It's fucking solved, proteins are solved. These are the building blocks of life and will give us tools to make new novel proteins that actually can turn us into stretch armstrong or make our dicks huge and so on. Now that we figured that out, the next step is learning what genes we can edit to start modifying proteins in our own bodies, or for more profit, bacteria/fungus. You can make a fucking enzyme that eats cancer. This shit is in the pipeline.
+
+tl;dr ARKG any strike. I'm in ARKG 105c 7/16 and wish I had more money to throw at it. There is nothing but room in this whole industry and it will change everything.
+
+edit: For people saying it's too late, the CRISPR ladies just won the fucking Nobel prize in chemistry this October. These companies have just started what will be a meteoric run-up as the costs keep getting lower and more research is done. Something something something, wrights law, money. This guy explains in [a video](https://www.youtube.com/watch?v=2dIHDOA8rRA&amp;feature=youtu.be&amp;ab_channel=TickerSymbol%3AYOU) if you can't read.",0
+43,"Hello $BABA holders, please don't $ROPE",https://www.reddit.com/r/wallstreetbets/comments/kjikuv/hello_baba_holders_please_dont_rope/,2020-12-24 11:53:03,"I am Chinese, or used to be years ago at least by nationality. I am not going to post Chinese news article detailing the entire power struggle, just English. I mean, you monkeys can't read moon runes.
+
+You see, the power struggle has been happening since Alibaba and Jack Ma became the ecommerce god of China, like Jeff ""the bald Grinch"" Bezos did with Amazon in America. China are commies, worshipping anyone but the party is illegal. That is why despite the profits and everything else, they are still sitting at 300+ and not flying like AMZN. Chinese know the power struggles all to well, smart ones will avoid it like plague. Not even Chinese boomers are touching it.
+
+https://asia.nikkei.com/Politics/Mystery-video-suggests-power-struggle-in-China
+
+The previous power struggles resulted in Ma forced out of CEO position in 2018, cue lip service to western friends who don't give a fuck just to make sure BABA don't drop. 
+
+https://www.google.com/amp/s/www.cnbc.com/amp/2019/10/18/alibabas-jack-ma-spent-10-years-preparing-for-his-retirement.html
+
+But like anyone who had felt the power trip of being the richest and most powerful man before, Ma could not stay retired and out of the limelight for long.
+
+So he came out of retirement with the biggest fintech IPO in Asia, Ant Group. Now, that really pisses the Emperor off. Recognising his efforts in revolutionalizing ecommerse, Emperor Xi decided to let him spend the rest of his life in retirement... like a charity case. Yet he decides to step in limelight again, and overshadow the most ~~paranoid and insecure~~ powerful man in all of China?! Well Emperor is the party and party is the Emperor, now Emperor finally decides that you must be removed. Especially when they are showing the entire China the power and money capitalism brings. Cue CCP vs CEO power struggle round 2, except this time they are clashing in the open.
+
+https://asia.nikkei.com/Editor-s-Picks/China-up-close/Analysis-Xi-sees-Alibaba-and-Tencent-as-rising-threats-to-power
+
+""Wait so why western crowds don't know???""
+
+Uh you retards know you don't read right?
+
+So what happens?
+
+Buy the dip??
+
+Cut losses and run???
+
+Answer is simple:
+
+If you are holding stocks then just keep holding it. BABA isn't going anywhere, they are the ecommerce monopoly along with Tencent in almost the entire Asia. The dip will not stop until power struggle turmoil is over, it will get even uglier over the months as Politburo falsify more charges to threaten the CEOs to back down.
+
+Recover your call losses with puts, it really is that easy.
+
+I have no options in it because I hate commies and know how they work. So until there is a clear winner in the power struggle, I am not gonna be a bad retard. If you want to listen, cool. If you think it's the dip you were waiting for, good luck with welfare because I tried. Then again I YOLO 50k each on GME and PLTR so what do I know? 🚀",1
+44,My gift to you - a better list of things you can do to stop losing all of your fucking money.,https://www.reddit.com/r/wallstreetbets/comments/kjhhgt/my_gift_to_you_a_better_list_of_things_you_can_do/,2020-12-24 10:45:53,"I realize none of you actually care about making money, but on the off chance I can help one person then this post will be worth it.
+
+(1) u/BeardlessPete is a fucking moron. He’s hawking TradingView. His post is an advertisement masquerading as enlightenment on reading charts. He doesn’t know shit about making money. 
+
+Learn the story on a stock — the company — and not some tick mark bullshit on a squiggly fucking line.
+
+His post: https://www.reddit.com/r/wallstreetbets/comments/kj7p0e/my_gift_to_you_a_list_of_things_you_can_do_to/?utm_source=share&amp;amp;utm_medium=ios_app&amp;amp;utm_name=iossmf
+
+(2) The best stock pickers are only correct about 40% to 50% of the time. That’s right, not as often as you think!  
+
+What does it mean to be “right” or “wrong”? Here’s the answer: 
+
+Just because you made or lost money doesn’t mean you are right or wrong. You always have a choice, invest in Stock A, invest in a broad market index, or do nothing.  You might be up 10% YTD and feel great, but the S&amp;amp;P 500 is up 14% YTD. You could have made more money with substantially less risk compounding with an index.
+
+(3) Are you better than the index? Find out!  Practice on tools like caps.fool.com. Make a pick and see how it performs against the market. If you don’t know if you are right or wrong you won’t learn how to make money. 
+
+(4) You aren’t going to make “boy band” money if you lose a lot of money.  When you gamble on a speculative stock and lose 80%, you need a 400% return to get back to even.  If you can steadily make 7%, do it 10 times in a row and you’ve made 100%.  Or at 10%, it’s 7 times. There will of course be volatility and varying time horizons. But, aim to (mostly) round the bases with singles, not (always) trying to swing for the fences with a cucumber as a bat. Fake internet points from loss porn are not badges of honor. You think the game different this time? It’s not. Degenerates have gambled since the beginning of markets. An irrationally exuberant market on a stock will end.  Do yourself a favor and learn to be better.  Having some speculative picks is fine — just understand and accept the inherent risks and volatility.
+
+(5) Have a bazooka gun of cash ready when quality goes on sale.  You will have a chance to buy most companies at a fair price. There will be pull backs and market dislocations. Be ready. Google, Microsoft, Netflix, Facebook, Intuitive Surgical, and many of the best performing stocks of all time have gone on sale — many times.  Be ready when the market corrects and buy quality. Be patient!  Don’t have always FOMO.
+
+(6) Market corrections with declines of between 10% and 20% happen about 2.5 times each year on average (source: Guggenheim). The average bear market lasts 18 months. Know this and use it to your advantage. Don’t panic sell quality names. Stay calm. If you don’t need the money to survive today, leave it alone. If you do, what the fuck were you doing investing in stocks?  Think about this. How will you act WHEN markets correct next?
+
+(7) Most of your investment returns are going to come from just a few of your stock picks. Let the winners run!  At some point you’ll consider rebalancing — that’s smart and okay. But having an oversized winner at 15% of your stock portfolio can be okay (if it’s a quality stock, not speculative). Let compound returns take over.  Nothing is better than crushing the market with 1% gain from a compounding stock. Better yet, when that 1% gain is MORE than your cost basis.
+
+(8) Trading isn’t therapy for boredom. Go play with yourself and then go for a walk. Trading isn’t going to make your day better.  Have the discipline to trade less, not more.  
+
+(9) Read more. Do you even know what you are investing in?  Know everything about your stocks. For 30+ years now all information ever published is at your fingertips. Yet, most of you won’t bother doing your own research. Readings someone else’s pitch (or article) can help you get started.  But go read the 10-K.  Read industry data. Twitter and message boards are full of morons with pump and dump agendas. Do basic research yourself. Do people like working there? How can that company make more money? Betting on companies is a very different mindset than just betting on tickers. Bet on companies. 
+
+(10) What can you learn about a company that (practically) no one else knows.  Make a thesis. Will Facebook be successful on mobile?  Can Microsoft move its massive enterprise software business to the cloud?  Can RiteAid compete with online pharmacies?  Can Google close it’s acquisition of FitBit?
+
+(11) Investor Relations doesn’t care about your cost basis or the number of shares that you own. They don’t. Management says they respect investors — but they mostly don’t give a shit. Jeff Bezos carves out 6 hours a year to talk to investors — just to be polite. Management teams are trying to run a complex enterprise, with major human capital issues. Most management teams are incentivized to build value over eternity. They don’t give a shit about your time horizon.  Most care about themselves first, employees second, customers third, suppliers fourth, partners fifth, the community sixth, and investors last. There’s very little that a company can do to affect share price in the short term.
+
+(12) Add to your winners. Don’t double down on losers, double up on winners. 
+
+(13) Find stocks that aren’t always in the headlines. Headlines lead to redlines.  If the story is in the news, you are probably too late (for now). Buying a stock isn’t like lining up to buy one of a limited number of holiday cakes. There’s always more stock.  Wait until the news cycle forgets about the stock and then consider buying. Do research first.
+
+(14) If you can’t sleep at night because you own a stock, you should NOT own that stock. Stocks don’t cuddle. They are like a brutally honest toddler with mood swings and basic needs. Overtime they might grow into a good adult but keep your expectations inline. It’s a long road to adulthood.
+
+(15) Lastly, what do you want the future to look like. Get off the of the news cycle and quarterly earnings game. Go find stocks that are FOCUSED on being massively better and more important in 5+ years. Price targets for these types of companies are bullshit. They always have been and they always will be. You’ll be amazed by what focused teams — motivated by making a better world — can achieve. The stock price simply weighs this impact — it doesn’t mean you a genius. You didn’t do the science. Be humble and donate some to charity and help the impoverished, because you were just a spectator holding shares.
+
+TLDR: u/BeardlessPete is a moron. Don’t lose money by being an idiot. Know if you are smart or lucky. Be patient. Be humble. Be kind.",-1

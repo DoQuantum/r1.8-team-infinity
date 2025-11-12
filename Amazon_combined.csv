@@ -1,0 +1,958 @@
+,title,url,date,content,sentiment
+0,Introducing Amazon One—a new innovation to make everyday activities effortless - About Amazon,https://www.aboutamazon.com/news/innovation-at-amazon/introducing-amazon-one-a-new-innovation-to-make-everyday-activities-effortless,"Tue, 29 Sep 2020 07:00:00 GMT","Starting today, customers can use Amazon One as an entry option at two of our Amazon Go stores in Seattle—our original Amazon Go store at 7 th & Blanchard as well as our store in South Lake Union at 300 Boren Ave. North. It takes less than a minute to sign up at these Amazon Go stores using an Amazon One device. The first step is to insert your credit card. Next, hover your palm over the device and follow the prompts to associate that card with the unique palm signature being built for you by our computer vision technology in real time. You’ll have the option to enroll with just one palm or both. And that’s it—you’re now signed up. Once you’re enrolled, to use Amazon One to enter these Amazon Go stores, you’ll just hold your palm above the Amazon One device at entry for about a second or so, and be on your way. It’s that simple.",0
+1,"Why AWS loves Rust, and how we’d like to help | AWS Open Source Blog - Amazon Web Services (AWS)",https://aws.amazon.com/blogs/opensource/why-aws-loves-rust-and-how-wed-like-to-help/,"Tue, 24 Nov 2020 08:00:00 GMT","One of the most exciting things about the Rust programming language is that it makes infrastructure incredibly boring. That’s not a bad thing, in this case. No one wants their electrical wiring to be exciting; most of us prefer the safety that comes with being able to flip a switch and have light to see by. For similar reasons, at AWS we increasingly build critical infrastructure like the Firecracker VMM using Rust because its out-of-the-box features reduce the time and effort needed to reach Amazon’s high security bar, while still delivering runtime performance similar to C and C++.Though AWS has benefited from Rust for several years, we’re looking for ways to contribute in meaningful ways. As Shane Miller, Senior Software Engineering Manager at AWS, says, “Rust helps us deliver fast, robust services to AWS customers at Amazon scale,” and we’re committing to further strengthen a community that has greatly benefited us and our customers. This commitment has included code contributions to Rust and Tokio, a runtime for writing asynchronous applications with Rust, but our commitment to the Rust community goes beyond code. In partnership with more than 5,500 contributors to Rust, we contribute in a variety of ways, all intended to enable AWS and others in the Rust community to build systems with confidence.In this post I’ll explain where (and why) AWS uses Rust, and how our contributions continue to evolve.Rust’s popularity growsDespite only hitting version 1.0 in 2015, Rust has become exceptionally popular. For five straight years, Rust has topped Stack Overflow’s “Most Loved” programming language list, based on survey responses from more than 65,000 developers. Meanwhile in Redmonk’s rankings of programming languages, Rust has cracked the top-20, a significant feat given the staying power of Java, C, JavaScript, etc.Here at AWS, we love Rust, too, because it helps AWS write highly performant, safe infrastructure-level networking and other systems software. Amazon’s first notable product built with Rust, Firecracker, launched publicly in 2018 and provides the open source virtualization technology that powers AWS Lambda and other serverless offerings. But we also use Rust to deliver services such as Amazon Simple Storage Service (Amazon S3), Amazon Elastic Compute Cloud (Amazon EC2), Amazon CloudFront, Amazon Route 53, and more. Recently we launched Bottlerocket, a Linux-based container operating system written in Rust. Our Amazon EC2 team uses Rust as the language of choice for new AWS Nitro System components, including sensitive applications such as Nitro Enclaves.Why has Rust proved so popular at AWS and elsewhere? As mentioned, this comes down to Rust’s cardinal virtues: performance and reliability.Because Rust does not require a runtime or garbage collector, it is able to achieve runtime performance similar to C and C++. At the same time, Rust uses a strict type system and ownership model to achieve compile-time verification of memory and concurrency safety, making the cost of testing and validating Rust implementations significantly lower than C/C++. Carl Lerche, a principal AWS engineer, says Rust and Tokio give AWS the ability to write services that respond fast, reliably, and that help us offer a better customer experience.But there’s more to Rust than code. David Barsky, a software engineer at AWS, says that Rust really focuses on providing a great experience for people. “So much so, it attracted a whole of bunch of people to systems programming who’ve never done it before, myself included,” he adds. The Rust community is particularly welcoming, reaching out to those that haven’t traditionally participated in systems programming or open source.For these and other reasons, we’ve looked for more ways to participate in the Rust community.Building for the buildersIn 2019 we announced our sponsorship of the Rust open source project. Such funding helped the Rust community to run ecosystem-wide regression tests with Crater on Amazon EC2, for example. It was good, but we wanted to do more.Ultimately, open source communities like Rust are about people, and we started hiring Rust and Tokio committers to ensure they’d have the time and resources necessary to further improve Rust. This led us to build a team around Tokio, hiring contributors like Sean McArthur, Lucio Franco, Jon Gjengset, and Lerche to continue to work side-by-side with developers from Buoyant, Dropbox, Confluent, vector.dev, fly.io, and more.More recently, we’ve been fortunate to hire key Rust maintainers such as Felix Klock. Given our dependence on Rust, we need deep in-house Rust expertise, just as we have with Java and other foundational technologies. Marc Brooker, a senior principal engineer at AWS, explains, “Hiring engineers to work directly on Rust allows us to improve it in ways that matter to us and to our customers, and help grow the overall Rust community.” At the same time, these investments for customers dovetail nicely with community priorities.Let’s be clear: We understand that we are net beneficiaries of the exceptional work that others have done to make Rust thrive. AWS didn’t start Rust or make it the success that it is today, but we’d like to contribute to its future success. We are convinced that investing in the wider Rust ecosystem helps our customers and those who may never become our customers. That’s OK. That’s how open source is supposed to work.“We’re not just hiring a couple of folks for Tokio and the Rust compiler,” Miller says. “Rust is a critical component of our long-term strategy, and we’re investing to deliver Rust engineering at Amazon scale. That includes developer tools, infrastructure components, interoperability, and verification.” And, as she’s quick to highlight that Rust is community-built: There have been more than 5,500 contributors to Rust since its inception, with an average of 350 contributors to each release.At AWS, we are grateful to be part of this welcoming, productive Rust community. If you’d like to help make Rust even better, there are a number of ways for you to get involved. And if you’d like to join our team, please see the open positions on our Rust/Tokio team.",0
+2,Amazon Halts Police Use Of Its Facial Recognition Technology - NPR,https://www.npr.org/2020/06/10/874418013/amazon-halts-police-use-of-its-facial-recognition-technology,"Wed, 10 Jun 2020 07:00:00 GMT","Amazon Halts Police Use Of Its Facial Recognition TechnologyEnlarge this image toggle caption Reed Saxon/AP Reed Saxon/APUpdated on June 12 at 12:55 p.m. ETAmazon announced on Wednesday a one-year moratorium on police use of its facial-recognition technology, yielding to pressure from police-reform advocates and civil rights groups.It is unclear how many law enforcement agencies in the U.S. deploy Amazon's artificial intelligence tool, but an official with the Washington County Sheriff's Office in Oregon confirmed that it will be suspending its use of Amazon's facial recognition technology.Researchers have long criticized the technology for producing inaccurate results for people with darker skin. Studies have also shown that the technology can be biased against women and younger people.Sponsor MessageIBM said earlier this week that it would quit the facial-recognition business altogether. In a letter to Congress, chief executive Arvind Krishna condemned software that is used ""for mass surveillance, racial profiling, violations of basic human rights and freedoms.""And Microsoft President Brad Smith told The Washington Post during a livestream Thursday morning that his company has not been selling its technology to law enforcement. Smith said he has no plans to until there is a national law.Congressional Democrats are seeking to regulate the technology in sweeping police reform legislation inspired by the nationwide protests over the killing of George Floyd, an unarmed black man who died in Minneapolis after a white police officer knelt on his neck for nearly nine minutes.The proposed bill would limit how much federal law enforcement officials could use facial recognition technology, including a ban on using the software with police body-worn cameras.In its statement, Amazon officials say the company supports federal regulation for its algorithm-driven facial recognition software, known as Rekognition.""We hope this one-year moratorium might give Congress enough time to implement appropriate rules, and we stand ready to help if requested,"" the company said in a statement.Amazon noted that authorities will still be able to use the facial recognition technology to help rescue human trafficking victims and reunite missing children with their families.Sponsor MessageRekognition is part of Amazon Web Services, the tech giant's cloud computing division. It can use machine learning to rapidly compare an image captured from a person's social media account or from an officer's smartphone to look for a match from a database of hundreds of thousands of mugshots. Critics have been wary that using an algorithm to confirm who someone is can lead to cases of mistaken identity.Nicole Ozer, technology and civil liberties director with the ACLU of Northern California, said a blanket ban on the technology is needed, but she welcomed Amazon's one-year pause, saying it shows that the company is ""finally recognizing the dangers face recognition poses to black and brown communities and civil rights more broadly.""Ozer added: ""Face recognition technology gives governments the unprecedented power to spy on us wherever we go. It fuels police abuse. This surveillance technology must be stopped.""Fight for the Future, a digital rights advocacy group, is also calling for an outright national ban on facial recognition technology and says Amazon's one-year break appears strategic.""They've been calling for the federal government to 'regulate' facial recognition, because they want their corporate lawyers to help write the legislation, to ensure that it's friendly to their surveillance capitalist business model,"" the group said. ""The reality is that facial recognition technology is too dangerous to be used at all.""American intelligence and military officials have long used facial recognition software in overseas anti-terrorist operations, but local and federal law enforcement agencies inside the U.S. have increasingly turned to the software as a crime-fighting tool. Immigration and Customs Enforcement has used the technology to scan millions of driver's licenses for possible matches.One study by the Massachusetts Institute of Technology demonstrated that while men with lighter skin were often almost always positively identified, about 7% of women with lighter skin were misidentified and up to 35% of women with darker skin were falsely identified.Sponsor Message""With IBM's decision and Amazon's recent announcement, the efforts of so many civil liberties organizations, activists, shareholders, employees and researchers to end harmful use of facial recognition are gaining even more momentum,"" said Joy Buolamwini, who led the MIT study and founded the Algorithmic Justice League, which is calling for a nationwide moratorium on all government use of facial recognition technologies. ""The first step is to press pause.""",-1
+3,We are implementing a one-year moratorium on police use of Rekognition - About Amazon,https://www.aboutamazon.com/news/policy-news-views/we-are-implementing-a-one-year-moratorium-on-police-use-of-rekognition,"Wed, 10 Jun 2020 07:00:00 GMT","We’ve advocated that governments should put in place stronger regulations to govern the ethical use of facial recognition technology, and in recent days, Congress appears ready to take on this challenge. We hope this one-year moratorium might give Congress enough time to implement appropriate rules, and we stand ready to help if requested.",1
+4,Price gouging has no place in our stores - About Amazon,https://www.aboutamazon.com/news/company-news/price-gouging-has-no-place-in-our-stores,"Mon, 23 Mar 2020 07:00:00 GMT","Working closely with law enforcement and policymakers to hold bad actors accountableLaw enforcement is critical to combating bad actors and protecting our customers. In most cases, state attorneys general are on the front lines of these efforts. Amazon is eager to partner with—and has proactively reached out to—every state attorney general in the country. We are actively collaborating with attorneys general in more than ten states, and with numerous federal prosecutors, as they work to investigate and prosecute alleged price gougers. To advance price gouging investigations and resolutions, we have also created a special mechanism for state attorneys general offices to quickly and easily escalate the consumer complaints they have received. We are also proactively sharing information with state attorneys general and federal regulators about sellers we suspect have engaged in egregious price gouging of products related to the COVID-19 crisis.",0
+5,Wondery to join Amazon Music - About Amazon,https://www.aboutamazon.com/news/company-news/wondery-to-join-amazon-music,"Wed, 30 Dec 2020 08:00:00 GMT","We’re pleased to announce that Wondery has signed an agreement to join Amazon Music. Wondery is an innovative podcast publisher with a track record of creating and producing top-rated podcasts that entertain and educate listeners, including “Dirty John,” “Dr. Death,” “Business Wars,” and “The Shrink Next Door.” Wondery is already delighting listeners with its collection of immersive podcasts, and the company is evolving this entertainment medium into a truly new and exciting experience. When the deal closes, nothing will change for listeners, and they’ll continue to be able to access Wondery podcasts through a variety of providers. With Amazon Music, Wondery will be able to provide even more high-quality, innovative content and continue their mission of bringing a world of entertainment and knowledge to their audiences, wherever they listen.",0
+6,Amazon introduces 'Distance Assistant' - About Amazon,https://www.aboutamazon.com/news/operations/amazon-introduces-distance-assistant,"Fri, 12 Jun 2020 07:00:00 GMT","As we've continued to learn and innovate to support the health and safety of our associates, we also saw an opportunity to evolve our tech even further and promote social distancing behavior in real-time. Given social distancing isn’t always natural, this team set out to use augmented reality to create a magic-mirror-like tool that helps associates see their physical distancing from others. Working backwards from a concept of immediate visual feedback, and inspired by existing examples like radar speed check signs, our 'Distance Assistant' provides employees with live feedback on social distancing via a 50 inch monitor, a camera, and a local computing device. The standalone unit uses machine learning models to differentiate people from their surroundings. Combined with depth sensors, it creates an accurate distance measurement between associates.",0
+7,Go behind the scenes as Amazon develops a new electric vehicle - About Amazon,https://www.aboutamazon.com/news/sustainability/go-behind-the-scenes-as-amazon-develops-a-new-electric-vehicle,"Thu, 30 Jan 2020 08:00:00 GMT","""We are focused on driving efficiency into every aspect of the vehicle design—everything from cabin heating to driver ergonomics to drivetrain design has been optimized for time and energy,"" said R.J. Scaringe, CEO of Rivian. ""And then the echo effect of this, of causing other logistics players in this space to also look at how they drive up efficiency within their fleet, will have a very large impact.""",0
+8,We’re acquiring Zoox to help bring their vision of autonomous ride-hailing to reality - About Amazon,https://www.aboutamazon.com/news/company-news/were-acquiring-zoox-to-help-bring-their-vision-of-autonomous-ride-hailing-to-reality,"Fri, 26 Jun 2020 07:00:00 GMT","Amazon and Zoox are pleased to announce that we've signed an agreement for Amazon to acquire Zoox. Zoox is a forward-thinking team that is pioneering the future of ride-hailing by designing autonomous technology from the ground up with passengers front-of-mind. Aicha Evans, Zoox CEO, and Jesse Levinson, Zoox co-founder and CTO, will continue to lead Zoox as a standalone business as they innovate and drive towards their mission.",1
+9,Amazon Sidewalk: a new way to stay connected - About Amazon,https://www.aboutamazon.com/news/devices/amazon-sidewalk-a-new-way-to-stay-connected,"Mon, 21 Sep 2020 07:00:00 GMT","Launching later this year, Amazon Sidewalk will provide immediate benefits to customers. For example, with Sidewalk, you can continue to receive motion alerts from your security cameras even when your Wi-Fi goes down. Or if your Wi-Fi does not reach your smart lights at the edge of your driveway, Sidewalk can help them stay connected. In the future, Sidewalk will also support a range of experiences from using Sidewalk-enabled devices to help find pets or valuables, to smart security and lighting, to diagnostics for appliances and tools.",0
+10,"Amazon launches ""Climate Pledge Friendly"" program - About Amazon",https://www.aboutamazon.com/news/sustainability/amazon-launches-climate-pledge-friendly-program,"Fri, 25 Sep 2020 07:00:00 GMT","“In line with our mission to make sustainable living commonplace, we are delighted to partner with Amazon on its Climate Pledge Friendly initiative,” said Fabian Garcia, President of Unilever North America, makers of Seventh Generation, Love Beauty Planet, and Dove, among other brands available through the program. “Amazon’s initiative will drive scale and impact for more sustainable consumption by helping customers easily discover products that are Climate Pledge Friendly and encourage the manufacturers to make their products more sustainable. Unilever is committed to delivering products that provide the best experience for consumers while reducing the impact that our products and our operations have on the environment.”",1
+11,Fringe notions on antitrust would destroy small businesses and hurt consumers - About Amazon,https://www.aboutamazon.com/news/policy-news-views/fringe-notions-on-antitrust-would-destroy-small-businesses-and-hurt-consumers,"Tue, 06 Oct 2020 07:00:00 GMT","Second, these misguided ideas perpetuate a false notion that online and physical retail channels are distinct markets. Simply put, retail is one market. As most people who read the report know from their own, firsthand experience, consumers browse and shop at both physical and online stores for the best prices, the best selection, and the most convenient way to get the products they want. In fact, consumers regularly use both online and physical channels even within the journey of a single purchase—for example, by searching for a product in a store, paying for it online, and then picking it up curbside. Online purchases are now the biggest growth area for retailers with large physical store footprints. Since the start of the COVID-19 pandemic, such retailers are reporting soaring digital sales: Best Buy grew online sales by 250%, Target by 195%, Lowe’s by 135%, Kroger by 127%, and Walmart by 97%—with customers often picking up their online purchases in these physical stores. Despite this growth, even at the peak of the pandemic, sales through online channels accounted for only about 20% of total retail sales—with the vast majority of spending still done in physical stores. The retail industry is thriving; competition is alive and well, and consumers have more options than ever before.",0
+12,Amazon receives FCC approval for Project Kuiper satellite constellation - About Amazon,https://www.aboutamazon.com/news/company-news/amazon-receives-fcc-approval-for-project-kuiper-satellite-constellation,"Thu, 30 Jul 2020 07:00:00 GMT","“We have heard so many stories lately about people who are unable to do their job or complete schoolwork because they don’t have reliable internet at home,” said Dave Limp, Senior Vice President, Amazon. “There are still too many places where broadband access is unreliable or where it doesn’t exist at all. Kuiper will change that. Our $10 billion investment will create jobs and infrastructure around the United States that will help us close this gap. We appreciate the FCC's unanimous, bipartisan support on this issue, and I want to thank Chairman Pai and the rest of the Commission for taking this important first step with us. We’re off to the races.”",0
+13,Echo Frames are now available to everyone - About Amazon,https://www.aboutamazon.com/news/devices/echo-frames-are-now-available-to-everyone,"Thu, 19 Nov 2020 08:00:00 GMT","The all-new Echo Frames have improved audio quality, longer battery life, new colors, and features that make it easier than ever to interact with Alexa throughout your day. The updated Echo Frames improve upon our open ear audio technology, offering richer and fuller sound compared to the previous version, so your music and Alexa’s voice are even clearer. The volume can now be set to automatically adjust at the start of playback based on the noise level of your environment and your selected listening profile—increasing the volume in noisier environments and lowering the volume in quieter environments. Echo Frames still include VIP Filter—a feature that allows you to choose the apps and contacts you want to hear from, while filtering out the rest. We’ve added support for calendars and group messaging, further enabling you to keep your phone in your pocket without worrying about missing an important update. As before, Echo Frames can also be used with native smartphone assistants on iOS and Android with a simple long press of the temple. And it’s now even simpler to fulfill your lens prescription by visiting any LensCrafters location.",0
+14,Amazon Luna early access begins today - About Amazon,https://www.aboutamazon.com/news/devices/amazon-luna-early-access-begins-today,"Tue, 20 Oct 2020 07:00:00 GMT","We are just getting started and need streamers and players of all kinds—core, casual, and first-time gamers—to provide feedback. We want to hear what customers like, what they don’t like, and what they want to see us build. If we’re doing something great, tell us. If we’re missing the bar, we want to know that too. We can’t wait to hear what you think.",0
+15,ViacomCBS A Top Pick for 2021,https://www.reddit.com/r/wallstreetbets/comments/knut76/viacomcbs_a_top_pick_for_2021/,2020-12-31 13:03:44,"Viacom and CBS merged in December 2019. Initially Wall Street analyst and investors took the merger poorly and it became a show and prove story. A year later and here we are, VIAC IS looking like a top pick for 2021. 
+
+To start you have the massive CONTENT production capacity which will drive the licensing business with Amazon a s Netflix, plus you have the owned and operated services with streaming and linear channels. The two distribution methods make the cost of productions less and grows streaming content libraries. Paramount and CBS own a shit load of IP STAR TREK being a big one but the older shows IP catalog is far larger than you realize. 
+
+Everything from Comedy Central and MTV compounds this IP catalog and they can produce these shows as reboots in many cases. I think most people don’t realize what this company has, the content and Streaming capabilities make this the most undervalued major streaming play. 
+
+It’s worth looking at and it’s a fresh idea which we need. Others have posted about this recently and put together better posts so look for additional research. 
+
+We haven’t even seen what’s coming from showtime now that HBO is going main stream with a wider array. Showtime could become the premier premium offering if HBO continues to water down the product with the need for more content to sell a broad streaming product. 
+
+Paramount plus has a huge 2 year slate we will get an update at streaming investor day early in 21. I’m long and plan to size up with options. 
+
+Position: equity viac, viac 35c 1/15/21   Viac 40c 3/19/21
+
+Plan to look at the calls in Jan with 6 mon - 12 min strike dates.",0
+16,Calls on Nigerian Scam Jumia - $90K Buy In,https://www.reddit.com/r/wallstreetbets/comments/knquvb/calls_on_nigerian_scam_jumia_90k_buy_in/,2020-12-31 9:25:49,"[position proof](https://i.imgur.com/We4aZF0.jpeg)
+
+**IPO and Shitron** 
+
+I guess to start off Ill preface with the Shitron and Jumia IPO dilemma. Andrew Left is a short seller being used a signal for short and distort attacks that he may be in cohorts with, with other funds. The idea of him being a single individual with poor grammatical prowess is a front. Based on borrow fees it is likely Left and friends shorted at IPO with possession of information that he gained either through corroboration with others, purchased, etc. He released the hit piece that I summarize and comment on below. That hit piece took JMIA from $50 to $2. The reason for such a violent decline is multifactored, that derives from the Citron report, legitimate financial struggles, and lastly (but just as important) is just how low the JMIA float is. They IPO’d with just 13 Million shares. A short and distort attack on a stock that will inherently already be volatile, is what did JMIA in. There were not enough shares to go around, making it easier to manipulate. Coincidentally (or not) it was one of the first plays on Citrons new hedge fund. Jumia did have a recent dilution, but they still sit as one of the lowest multi-billion-dollar companies in the market in regards to share float. It puts them along the lines of SEB and BRKA. To put things in perspective the float of your favorite meme stock (e.g., QS, NIO, etc. is anywhere from 10 to 200 times larger).
+
+[https://imgur.com/a/gXRAeYS](https://imgur.com/a/gXRAeYS)
+
+&amp;#x200B;
+
+In summary of the report Shitron and Co. claimed the following
+
+**Securities Fraud and Smoking Gun**
+
+Accuses JMIA of wanted to do what every other IPO is interested in which is raising funds and allowing original investors to exit. The modus operandi of Rocket Internet is to start these startups and exit early on them. The MTN exit was likely related to debt reduction as around that time they were ordered to pay over $1B USD in fines to Nigeria. They also tried to tack on the sale of Konga by Naspers, that it being a 90% loss is a signal. This is actually not true as the sale was undisclosed, there is NO source that this was what was lost. However, if we assume it’s true Naspers a $90B dollar company lost less than $80 million on Konga, based on its total investments. 
+
+http://www.chinagoabroad.com/en/article/r20-billion-jumia-ipo-could-help-mtn-reduce-debt-burden
+
+**They claim to present “some of many MATERIAL DISCREPANCIES”, which we can assume what is presented is the WORST discrepancy that exists:**
+
+**Claimed that the 20%-30% discrepancy in users in filings is fraud:**
+
+This statement was unsourced with a link, claiming it came from an “anonymous” source. Realistically the data was separated by over a span of 6 months (or two quarters). Since being listed and reporting users this has been the average growth in users falling in line with the alleged discrepancy in user data. There has also been commentary that this is more of a reporting issue in terms of differing definition of sellers/merchants.
+
+**High returns, failed deliveries, and cancellations:**
+
+The return rate of 14% is actually not that high. Retail products at the consumer level have high return rates. The failed delivery rate is a result of the cash system that is employed in some communities. It requires a person to person confirmation, lack of communication results in a high number of failed deliveries. He later mentions this and sources the SEC document that this also results in financial losses in terms of delivery payment theft, but doesn’t mention that literally directly after that statement, that the issue has been corrected with the development of a payment processor.
+
+https://www.cnbc.com/2019/01/10/growing-online-sales-means-more-returns-and-trash-for-landfills.html
+
+**History of fraud in Nigeria**
+
+The source on this is an odd one, but regardless of validity, the amount allegedly stolen was small ($4m) and neither employee is still employed. The stock market is filled with companies that are thriving with past, present, and future reports of fraud at significantly higher magnitudes. 
+
+In terms of the sketchy sale to Jeremy hondra, I cannot find a source on it, not even the quotes. So, I can’t comment on it in-depth, but I will say that “$1” business sales are not unheard of. It's likely those businesses were losing significantly more than $3m a year and JUMIA and its other investors thought it was worthwhile to bring back, or it was a part of whatever agreement existed between the two.
+
+**Lack of audit**
+
+The stock was underwritten by JP Morgan and others, it would be in their financial interest that everything checks out with JMIA. Shitron implies in their statements that the alleged Nigerians under Ernst and Young (EY) can’t perform an audit. In the same document EY says they conduct audits to the standard of the “Public Company Accounting Oversight Board (United States) (PCAOB) and are required to be independent with respect to the Company in accordance with the U.S. federal securities laws and the applicable rules and regulations of the Securities and Exchange Commission and the PCAOB… Those standards require that we plan and perform the audit to obtain reasonable assurance about whether the financial statements are free of material misstatement, whether due to error or fraud.
+
+They go on to say that 
+
+“As part of our audits we are required to obtain an understanding of internal control over **financial reporting** but not for the purpose of expressing an opinion on the effectiveness of the Company’s internal control. Our audits included performing procedures to assess the risks of material misstatement of the **financial statements**, whether due to error or fraud, and performing procedures that respond to those risks. Such procedures included examining, on a test basis, evidence regarding the amounts and disclosures in the financial statements. Our audits also included evaluating the accounting principles used and significant estimates made by management, as well as evaluating the overall presentation of the financial statements. We believe that our audits provide a reasonable basis for our opinion.”
+
+The report makes it seem like it's an unaudited business. The source link doesn’t even take you to the right page. Either way audits of Jumia are currently available. 
+
+https://www.annualreports.com/HostedData/AnnualReports/PDF/NYSE\_JMIA\_2019.pdf
+
+**Long Perspective**
+
+With that being said Andrew Left and friends recently reversed their opinion and gave it a $100 price target. Some say it is genuine others think it's just to double dip and short it again. I personally don’t give a fuck what his intentions are. In the short term, it’s a part of what caused Octobers the run-up, in the long run, “stonks only go up”. But more seriously, citron’s value is using his career clout to acquire information, and strategically short these companies. Its not really in his MO to change opinions publicly unless he wants that information to be publicly held. In the sense that he wants the public to know and as a trader you understand that’s that what he wants, but I never really think past that. 
+
+As for JMIA I’m going to save the talk on “African Amazon”, especially considering amazon income is from being a cloud computing company more than it is a retail store. Also, while I disagree with Citron’s allegations, I do agree with the theme that Jumia is dysfunctional. But I’ve only ever made money off dysfunction, and the dysfunction of Jumia is just a reflection of Nigeria and not JUMIA the company. In fact, I take Jumia’s ability to function in Nigeria as a positive sign. While they’ve hemorrhaged money in the past and continue to do so they are on the path to profitability, with EPS increasing quarter after quarter, and little long term and short-term debt. The value of Jumia has been linked to the expected growth of Nigeria but I have zero hope in Nigeria. The value of Jumia will actually be in its expansion in east and north Arica. Amazon has already in the region of North Africa with its buyout of souq. Net Income for Jumia is still increasing YoY in these regions as well with increased usage of Jumia’s payment processor. Online retail shopping will increase with increasing global access to the internet, especially with the maturation of starlink. The processor and logistics is also where I see the growth occurring especially if both services break away from being a Jumia exclusive, and becomes involved in some of the industrializations of parts of Africa. They have an upcoming earnings report Feb 9th that I believe it’ll hit ATH around said date. Over the past few months, institutions have been buying it heavily prior to the earnings. Part of the anticipation is increased adoption of JumiaPay under covid.
+
+https://fintel.io/so/us/jmia",0
+17,"Stock Market News for Today | LMT, AAPL, ACB, TLRY, FUBO, ARKK &amp; other stock market news",https://www.reddit.com/r/wallstreetbets/comments/knqfeb/stock_market_news_for_today_lmt_aapl_acb_tlry/,2020-12-31 8:57:34,"**Are investors too bullish right now? What are the latest market movements in the auto industry? Pot get legalized in Mexico while FuboTv Plunges yet again. Let’s talk about this and other stock market news**
+
+**\~Very Long Post\~**
+
+Hello everyone and Good Morning!
+
+First of all, I wanted to wish everyone a happy new year and hopefully things get better in 2021, and this also brings us at least the great returns that we had in 2020 in the stock market!
+
+So, let’s start with the recap of yesterday, as we saw all 3 big indexes finish the last full trading day of the year in the green, with the [Dow Jones](https://ibb.co/0cvjjHN) leading the way, up .24% and closing at a new record high, while both the tech heavy [Nasdaq Composite](https://ibb.co/QFyd2f6) and the broad market [SP500](https://ibb.co/B67fT1g) were up just over .1% for the day.
+
+We also saw the [VIX](https://ibb.co/b6Nqf9Z) barely drop yesterday closing just below 23, and with the Georgia runoff election just days away, we can see this going higher if the Democrats win both seats.
+
+We saw almost 70% of the companies advancing [yesterday](https://ibb.co/g9CHK9Q) with most of them trading way below average volume as 7 of the 11 [SECTORS](https://ibb.co/LzXDF2P) finished in the green, with Energy &amp; Materials closing the day up more than 1.3% while the biggest loser was the Communications sector, falling almost 0.7%, as we saw the small-cap stocks regain some momentum, [leading](https://ibb.co/yQCFtTZ) the way after they had 2 very bad days to start the week, while the only group that was losing ground yesterday was the large-cap growth sector.
+
+Here is the [HEAT MAP](https://ibb.co/x5bN7Lk) from yesterday that pretty much sums up the other charts as we can see most big tech companies like Amazon, Google, Microsoft and even Apple losing ground for the day, while the biggest gainers were companies like Tesla &amp; TSM alongside the industrial sector and companies like Disney and Mastercard.
+
+Yesterday we also got the investor sentiment [SURVEY](https://ibb.co/7QPXjPV), which for me personally came in pretty mixed, as I use this as a contrarian indicator. This last week we saw 2.5% more investors moving to the bull’s camp, while we also saw almost a 5% increase in bears, as investors become more divided. I think the market is still a little to over bullish and I would avoid to add more money right now, but I wouldn’t get of the stock market either. I think this is a good moment to stay put and wait for more developments overall, but there might still be some good opportunities around in the market and I wouldn’t avoid getting into those.
+
+We also got a lot of economic data yesterday, with a survey for business uncertainty for [December](https://ibb.co/87FMyQ6) showing increasing uncertainty for sales growth but a with a small decline in employment growth expectations.
+
+Meanwhile another number that confirms the investor sentiment survey is the Investor Confidence [Index](https://ibb.co/5952C9Z) which rose by more than 13 points in November, as investors increased the risk appetite for their portfolios.
+
+Alongside this we also saw the November pending home [SALES](https://ibb.co/F8WBXnh) decrease by more than 2.5% month over month, but are still up more than 16% since a year ago, with this monthly decrease mostly coming due to the shortage of inventory.
+
+The Chicago [PMI](https://ibb.co/QF40My3) also came in way better than expected and 59.5 vs 57 expected and up from the 58.2 in the previous month with the biggest movement coming from the employment indicator as it rose to a one year high but is still in contraction territory since 2019.
+
+We also saw the wholesale [inventories](https://ibb.co/fkWmNmc) decrease in November’s advance read while the [retail](https://ibb.co/BBKNrb5) inventories saw an increase of .7%, pretty much in-line with expectations while the trade [balance](https://ibb.co/CKSR070) also saw a surprise decline in the deficit to more than of $84B, $4B worse than the last revision.
+
+[Today](https://ibb.co/D14JGZc) we get initial and continuing jobless claims numbers, alongside the money supply and the FED Balance sheet to end us off for the year.
+
+In some other stock market [news](https://ibb.co/GkZgGM1), we saw Fubo sink more than 14% again yesterday after another investing firm announced they have shorted the stock, pointing to the insane valuations of more than $13.000/subscriber.
+
+We also saw a [research](https://ibb.co/QMF5fnG) that indicated some changes in the market share of car companies with Hyundai/Kia having the biggest gains alongside GM, while Nissan saw the biggest decline in market share, mostly due to selling larger &amp; pricier SUVs with cars continuing to see a decline in sales, while the larger vehicles have started to rebound slightly, as all car makers are [bringing](https://ibb.co/kJGkXtz) more &amp; more SUVs and Trucks to the market.
+
+Lockheed Martin also was [awarded](https://ibb.co/bWS5G6j) a new Navy contract worth more than $900M as this might help the company start to get back on track while Mexico will become the world largest legal cannabis market as the Mexican Senate passed a bill in November which is [expected](https://ibb.co/VW3Lqtn) to receive approval in the lower house by February. This is great news for companies in the sector like ACB, Canopy Growth and the future merged company Tilray &amp; Aphria.
+
+Also, one of the biggest active ETFs with over $15B in assets, the [ARK](https://ibb.co/80WJFdW) Innovation ETF saw it’s first daily withdrawal since November, as this hasn’t experienced weekly outflows since early in 2020, this might have been driven by profit taking as this ETF has surged more than 140% this year and also just the ex-dividend date on the 29th, as people expect for the ETF to have a hard time in duplicating the results of this year, which saw it rise on the back of Tesla and Roku with both of them seeing massive increases, with Tesla having more than 7x-ing this year, as that is the biggest holding in the ETF, but who knows we have to wait and see as [TESLA](https://ibb.co/ZzGQgqX) may hit 500K deliveries this year.
+
+And one last piece of [news](https://ibb.co/9bQhB4B) is that Apple did a big purge in their App Store, removing almost 40K game apps as this was the deadline for the developers to submit a government issued license number that enabled users to make in-app purchases. I don’t really think this will have a major impact for the revenues but we will soon find out.
+
+Let’s hope for a good day in the market as US [FUTURES](https://ibb.co/mvv7tjX) seem to be pointing at a mixed open, with the Nasdaq and the SP500 pointing at a good open while the Dow is slightly down, and with no connection to this, in the UK, the [BREXIT](https://ibb.co/Rh1DYyG) chapter is finally about to close.
+
+Thank you everyone for reading! Hope you enjoyed the content! Be sure to leave a comment down below with your opinion on the stock market!
+
+Have a great day and see you next time!",1
+18,Why I'm emptying my bank account and buying long $GOOGL calls,https://www.reddit.com/r/wallstreetbets/comments/kndkc7/why_im_emptying_my_bank_account_and_buying_long/,2020-12-30 18:28:10,"Google seems to get a lot less love than the other tech behemoths. They are sadly not the cutthroat capitalists like Apple or Amazon. But they spend a shit ton on R&amp;D projects like self-driving cars and other weird “moonshots” that are going to start paying off soon. The nerds in [Silicon Valley](https://www.businessinsider.com/most-desired-tech-companies-to-work-for-google-netflix-slack-2020-9) every year say Google is their most desired company to work for. I've decided to put my all my savings into long options.
+
+**Some Google initiatives or statistics that are cool but not why they are undervalued:**
+
+**Android market share worldwide:** 73%
+
+**Search market share:** 87%
+
+**Youtube:** 600 hours of video uploaded every minute, ad revenues through the roof
+
+**Stadia:** One of projects from their “moonshot factory” that looked like it would fail spectacularly until the disaster of Cyberpunk 2077 on consoles showed Stadia could provide mid-tier PC performance on games minus the $2,000 for a PC. Huge increase in users since Cyberpunk fiasco.
+
+**Why I’m going all in: Google is going to take over the world with AI**
+
+Google owns the top two AI outfits in the world, Google Brain and DeepMind. They are far ahead of their competitors in the most important industry of the future.
+
+DeepMind’s AI team solved protein folding this past month. Experts didn’t think this would be possible for decades. Their team will receive the first Nobel Prize where a neural network did a majority of the work. The monetization and scientific breakthrough possibilities for their proprietary protein folding prediction models are endless. ([more info](https://www.youtube.com/watch?v=W7wJDJ56c88))
+
+Google Brain and Deepmind are working with Waymo. No other self-driving company has technology that is remotely close to Waymo. Google proprietary AI processors allow them to simulate billions of miles on the road and millions of people help train their models with captchas everyday. Their taxis are already in Arizona with no human operators. There have been no injuries to passengers. There isn’t a very small chance the car will kill you like with some [Waymo](https://www.theguardian.com/technology/2020/feb/25/tesla-driver-autopilot-crash) [competitors](https://www.nytimes.com/interactive/2018/03/20/us/self-driving-uber-pedestrian-killed.html). Uber realized the threat that Waymo posed to their business and tried to steal their technology. Waymo destroyed them in court and Uber sold off their self-driving operation this past month. Waymo will be first to market partnered with Lyft and will be significantly cheaper than Uber rides with human drivers. ([more info](https://arstechnica.com/cars/2020/12/this-arizona-college-student-has-taken-over-60-driverless-waymo-rides/), [2](https://www.theverge.com/2018/5/9/17307156/google-waymo-driverless-cars-deep-learning-neural-net-interview))
+
+**Cons:**
+
+**Google is super woke.** From what I’ve read their internal message boards make woke twitter look like r/The_Donald. Could definitely be bad for business but they did recently fire one of the libs for jeopardizing their AI business. 
+
+**Politicians want to fuck them.** There is a lot of anti-big tech sentiment on both sides of the aisle now but this has more to do with their enemies (Oracle, Yelp, etc) trying to litigate rather than innovate. I just don’t see politicians breaking up a business that consistently ranks as one of the most respected brands in the country according to Morning Consult and which provides so many useful free services to constituents. 
+
+**Trades made so far**
+
+GOOGL $3,000 1/20/2023
+
+GOOGL $2,900 1/20/2023
+
+**Disclaimer: I’m retarded**",0
+19,Post Pandemic Economy,https://www.reddit.com/r/wallstreetbets/comments/knbysh/post_pandemic_economy/,2020-12-30 17:05:04,"Let’s talk about what the world will look like post covid-19.
+
+It’s end of year 2021. Most people that wanted to have gotten the vaccine. Cases begin to drop rapidly, the hosipatals are becoming less crowded and lockdowns are now a thing of the past. 
+
+Do we just go back to normal or will there be a cultural change in the way people live this lives?
+
+Travel:
+As the borders open up I believe that people will be flocking to get away. Escape from the 4 walls that have kept them safe and ultimately sheltered them from harms way. 
+
+Airports will be slammed. Travel costs will sky rocket to make up for all the months of lost revenue they have incurred. 
+
+Entertainment companies will be able to charge more money for tickets and people will pay. 
+
+I do see consumer spending spiking during the first quarter post lockdown(whenever that may be)
+
+Work life balance will forever shift. 
+Companies now realize they can have employees work from home and save thousands on office related expenses. 
+
+I also believe that people have gotten used to spending more time with the family and that some would actually prefer this. 
+
+Online shopping has become the new norm during 2020. Every retailer in sight will have to offer some type of online experience in the next 3 years. 
+
+Food. 
+Restaurants have been hit hard in 2020. The ones that survived are most likely in for a treat. As travel and tourism industry goes on a high restaurants will directly benefit from increased foot traffic and lowered restrictions. 
+
+Humans are social creatures. We thrive on being part of a pack and being accepted. This is literally engrained in our DNA in efforts of finding a human mate and being able to reproduce. 
+
+All decisions always come back to basic needs of human life. 
+
+Food/ water
+Lesiure
+Shelter
+Family
+
+If we look at how we have adapted in the last year we can see how all the choices we made have revolves around those 4 basic needs
+
+Zoom became a huge hit since it provides a medium to connect with our family or for work which puts food on our table and shelter over our heads. 
+
+Amazon because we wanted to safely provide food and necessities without being in harms way. 
+
+Apple because it allows us to connect with our loved ones and people we care about, helps us do business which provides shelter and also games and reading leisure(and so many other things). A couple clicks and we have food at our doorstep. 
+
+This is called a 3 banger. It satisfys 3/4 of the basic human needs. 
+
+TDLR : Stonks only go up.",1
+20,"Stock Market News for Today | INTC, PTON, AAPL, HD, LULU &amp; other stock market updates [12-30]",https://www.reddit.com/r/wallstreetbets/comments/kn2g7f/stock_market_news_for_today_intc_pton_aapl_hd/,2020-12-30 8:40:50,"**Should you get into stocks that benefit from the booming housing market? Is the workout at home trade done? Intel stops the bleeding while Apple loses lawsuit. Let’s talk about this and other stock market news**
+
+Hello everyone and Good Morning! So, let’s start with the recap of yesterday, as we saw all 3 big indexes closing the day in the red despite hitting intraday records, with the [NASDAQ COMPOSITE](https://ibb.co/PCN8dwz) losing .38%, while both the broad market [SP500](https://ibb.co/cDjpNKP) and the [DOW JONES](https://ibb.co/RydQj61) Industrial finished the day down just over .2% as we also saw the [VIX](https://ibb.co/44wGzR0) rising by more than 4% yesterday as the $2000 stimulus was [BLOCKED](https://ibb.co/WFNSpCH) in the Senate by McConnell and the Georgia Senate runoff election is just a week away.
+
+Almost 70% of the [COMPANIES](https://ibb.co/LYM4JfL) were declining yesterday on below average volume as the number of companies that were trading above the 50-day moving average fell under 70% for the first time in quite a while.
+
+We saw 9 of the 11 [SECTORS](https://ibb.co/GRJSmht) closing in the red yesterday, with only the Health Care and Consumer Discretionary sectors having small gains as almost all the types of companies were losing ground [YESTERDAY](https://ibb.co/7tKPyP4), especially the small-caps with the small-cap growth group losing more than 2%.
+
+Here is the [HEAT MAP](https://ibb.co/KjVsn9X) from yesterday, it’s mostly red, with only a couple of companies that were gaining big like the Chinese companies alongside Amazon and Intel.HEAT
+
+We also got some economic data yesterday, as a review of the 2020 aviation and air travel [ESTIMATED](https://ibb.co/hRbYxpG) that traffic will be down 67% since last year, dropping to levels not seen since 1999, as air travel is still struggling to come back after the march bottoms. This has affected most of the [COMPANIES](https://ibb.co/FBq4g37) worldwide but it seems that China airlines is doing somewhat better with the biggest percentage of the total number of flights completed compared to last year.
+
+The SP Home price [INDICES](https://ibb.co/W67RBYh) also came in better than expected with the National Index increasing by 1.4% M/M, as this is a leading measure of real estate prices, gaining 8.4% nationwide over year ago.
+
+These moves can also be seen in the latest Redfin report, as home sales [PRICES](https://ibb.co/CwR5H56) are up 14% year/year to over $320K with a great increase in pending [SALES](https://ibb.co/mJtrwV9) which are also up more than 34% since last year, as the number of active [LISTINGS](https://ibb.co/vVkfMMh) of home sales is down more than 30%, as buyers can’t snatch them up quick enough with such low [YIELDS](https://ibb.co/7j1kY3s), as this has led for the [AVERAGE](https://ibb.co/gzQq8Wb) sale price to list value to rise to 99.4% which Is up 1.5% since 2019. This should be good news for companies like Toll Brothers, Lennar, HD and LOW.
+
+This was also accompanied by the great numbers in the us chain store sales [NUMBERS](https://ibb.co/4PykPcH), which rose by almost 9% y/y with December sales expected to rise almost 5% since last year and a .2% increase since last month.
+
+While [TODAY](https://ibb.co/8N3YMPV) we start the day with MBA Mortgage applications, home sales and the Chicago PMI alongside advance reads on many other data points.
+
+In some other stock market [NEWS](https://ibb.co/q1J6Snv), we saw Apple cool of a little yesterday, losing more than 1% for the day while they also lost a lawsuit aimed of stopping Corellium using virtual iPhone for security researching in the operating system, while [INTEL](https://ibb.co/3vvXFGT) finally got a breather and recovered some of the recent loses, after an activist hedge fund manager pushed for strategic changes in the company as Intel is losing market share and top designers, with the company also [ISSUING](https://ibb.co/WgtwTrY) a statement that lifted spirits around the stock.
+
+We also saw the [FAA](https://ibb.co/6rJ6bHd) introduce new rules for drones, this may have a big impact on companies like UPS, Walmart and Amazon, as all of them have started trials for drone-delivery, as this could lead to better margins for the companies.
+
+The Fed also [EXTENDED](https://ibb.co/cxV3HkC) the main street lending programs until Jan. 8 with the approval of Mnuchin as they try to process a bunch of applications this month, this means we can get even more money put into the economy and eventually the stock markets which is good news.
+
+And meanwhile, AstraZeneca’s vaccine was [APPROVED](https://ibb.co/y5QWbmh) for emergency use in the UK, this is another weapon to find this freaking illness, while JNJ will give us some results in early 2021 and Novavax just started their trial in the US.
+
+Also, one last piece of data that I found recently shows that there was indeed a huge spike this [YEAR](https://ibb.co/JrKw01B) in the move to live streaming video and pre-recorded videos this year, as this has boosted companies like Peloton, Lululemon and others.
+
+But this trend is seen slowing down in the next years with just a 4% [CAGR](https://ibb.co/HGhFJXS) in the equipment market, but that the exercise apps will see a big [GROWTH](https://ibb.co/02wm273) in the next years, so there are 2 different POV. I wouldn’t stay invested in companies like PTON right now, I’d rather take profits and move to other areas in the stock market. But don’t rush into companies like which have diluted their stock a lot or have lots of debt… this will not recover so fast...
+
+Let’s hope for a good day in the market as US [FUTURES](https://ibb.co/nbV49Bs) seem to be pointing at a good open, with all 3 big indexes in the green as the Nasdaq is leading the way.
+
+Thank you everyone for reading! Hope you enjoyed the content! Be sure to leave a comment down below with your opinion on the stock market!
+
+Have a great day and see you next time!",1
+21,$CRSR: Y'all are missing the point (Elgato = Tendies),https://www.reddit.com/r/wallstreetbets/comments/kmoxoo/crsr_yall_are_missing_the_point_elgato_tendies/,2020-12-29 17:48:20,"Alright fellow autists: this is going to be somewhat long (TL;DR at the bottom), but as someone who's dove head first into better understanding streaming, it's important to set aside the incredible name CRSR has in keyboards/mice/RAM/AIOs &amp; highlight the reasons why **Elgato and its growing proprietary software ecosystem is the biggest reason why I'm deep into $CRSR.**
+
+**Setting The Stage**
+
+Even before the lockdown, streaming and watching video games was mainstream. There have been stadium shows, exponential growth overseas, and they even stream Overwatch and Fortnite on Disney every so often. Most people don't talk about watching or streaming games with the same level of dismissal as they used to.
+
+Then the lockdown happened. Out of nowhere, everyone had more time to themselves and folks flocked to Twitch. Check out the chart below from TwitchTracker.
+
+[Way more dudes watching women play \\""Just Dance\\""](https://preview.redd.it/ndyq77o3v6861.png?width=1179&amp;format=png&amp;auto=webp&amp;s=c76c86d60a09e178cc09e9bcde9a570f0821e7ad)
+
+All of this is great, but as a CRSR bagholder this doesn't get me hard. This does:
+
+[Gonna need more gear, bro](https://preview.redd.it/gniz20jgv6861.png?width=1125&amp;format=png&amp;auto=webp&amp;s=c037f131a224d2f326be8bc1f7cc85b0d1764318)
+
+**""Why the fuck should I care about Twitch growth? I need them to sell more keyboards.""**
+
+Yeah okay but you're not getting it. There are a lot of streams on Twitch, and everyone thinks they're gonna make it. They're probably not, but the one thing people notice about pro streamers is their setup. They want it to look good, they want to show off their gear, and they want it to sound good. So how does CRSR fit?
+
+* Just showing up
+   * Nobody streaming console can do so without a capture card like the Elgato HD60 S. During the time of this writing, it's the #1 solution on Amazon with 11.3k+ ratings giving it 4.6\*
+* Looking good
+   * RGB to show off their build  (from case / fans / RAM &amp; cooling solution) - this is where CRSR is best known
+   * A good camera (can hook up to Elgato Cam Link $120+) -- or if you're a broke NKLA simp, you can use EpocCam to use your phone as a camera [(purchased by CRSR in October to become part of Elgato](https://www.globenewswire.com/news-release/2020/10/29/2116972/0/en/Turn-Your-Phone-into-a-Webcam-CORSAIR-Acquires-EpocCam.html))
+   * A good light to hide all your acne (Elgato Ring / Key Light $130-200)
+* Show off their gear
+   * Change stream transitions and switch gear quickly ([Elgato Stream Deck](https://www.elgato.com/en/gaming/stream-deck) $80-250)
+      * BONUS: Guess what else has Stream Deck integration? CRSR's $100+ keyboards.
+   * Green screen yourself so you float in the corner ([Elgato Green Screen](https://www.elgato.com/en/gaming/green-screen) $160)
+
+**Riding the Wave**
+
+A good-sounding stream is another story, and the moves of which are the biggest indicator to me of positive future growth. Up until recently, you had to get a normal mic with an XLR and plug it into an interface. The whole process was and is a PITA. You could always buy any USB mic, but your sound levels will probably be all fucked up. Without a mixer, you have to ensure the levels of game sound, your mic, a friend's chat mic, background music, stream sounds, etc are all perfect. This is a total mess, and I've watched my buddy haplessly run stream-after-stream with hilariously poor sound to no avail. Rich bois purchased [the GoXLR](https://www.amazon.com/GoXLR-Mixer-Sampler-Voice-Streamers/dp/B07JKNG4NV/ref=sr_1_2?dchild=1&amp;keywords=goxlr&amp;qid=1609276365&amp;sr=8-2), a plastic interface that sells for $500. Yup. $500.
+
+Elgato said ""nah fuck that shit"" and decided (as they clearly plan on doing in the future) this was fucking stupid and it could all be done via software. [This dude does a great job at explaining why this is important.](https://youtu.be/Kv5JO2Woxng?t=142) **When people purchase a Wave 1 or Wave 3 mic, they get access to Wave Link, allowing you to mix everything via software**. It looks like this:
+
+[Elgato now has its claws sunk directly into your wallet](https://preview.redd.it/clztclzn07861.png?width=1128&amp;format=png&amp;auto=webp&amp;s=fc72a9680a71f61e94bb8d5d934ce37ecaf1ca20)
+
+CRSR also figured all these new gamers would suck (tru) and purchased [Gamer Sensei](https://www.gamersensei.com/how-it-works) this year, an Esports coaching platform. This acquisition barely gave me a chub, but it proves CRSR is building a proprietary ecosystem and community used to both intro customers to the brand and get em hooked onto the product experience.
+
+Elgato is doing everything right, and we've only seen a glimpse of what a company like CRSR can do with such a brand in hand. With streaming still growing, future tendies are hiding in Elgato.
+
+**TL;DR**
+
+* **Streaming has exploded and behavior has changed**
+* **Even if enthusiast PC building doesn't explode, streamers will need tech to make them look pro; enter Elgato**
+* **For mainstream consumers, Elgato is the only name brand streaming peripheral company in the space**
+   * **More kids streaming = more kids begging their parents for Elgato/CRSR products = PROFIT**
+* **Shares and Calls. I'm holding a bucket of shares and some 5/21 &amp; 12/17 $40c because I don't YOLO (but props to** u/SIR_JACK_A_LOT **for throwing his dick on the table)**",0
+22,Bridgetown Holdings,https://www.reddit.com/r/wallstreetbets/comments/kmi22a/bridgetown_holdings/,2020-12-29 11:56:10,"I don't have the time for a full DD on this one, but I think this will be a good play if all things align. ticker BTW.N (minus the dot of course)
+
+This is a Thiel backed SPAC that is currently targeting Tokopedia. Now the risk here is that the deal never materializes since it hasn't been officially announced in any way and there is talk of an IPO, but i'm willing to take a punt. 
+
+I am posting this on a pullback day as recent commentary is that DDs are being posted at ATH or after it has run up 100-300%. Yes this is up about 50% in the past week or so, but I do think we could see $20 in the next 2 weeks if the rumours persist. If the Tokopedia deal ever happens, we could be looking at $30-$40 easy pre-merger.
+
+Tokopedia is trying to be the Amazon/Sea Ltd of Indonesia and border countries, if you haven't seen world populations recently Indonesia is the 4th largest country. These are countries that Amazon will never fully penetrate, they don't see it worth their time and people don't trust them. Direct competition is SEA's shopee.
+
+SoftBank, Google, and Alibaba have all invested big $$$ at some point in the past 3 years.",0
+23,PLTR - Technical/Fundamental Analysis from a Professional Investor - Update 12/29,https://www.reddit.com/r/wallstreetbets/comments/kmhp1p/pltr_technicalfundamental_analysis_from_a/,2020-12-29 11:37:06,"So a lot has happened with the shares.
+
+The wedge looks like it has broken down, but it could easily be just an extension of a wedge. The point is that we don't have a full breakdown unless we spend considerable time below 25, then I could maybe see things fall back down to 20. I think it is far more likely we just remain in this extended consolidation phase of 25-30 until we get some sort of a catalyst or a short squeeze.
+
+https://preview.redd.it/ddzg718of5861.png?width=1224&amp;format=png&amp;auto=webp&amp;s=58b39c19f793dee8366fc2bafbc55bfe49d49836
+
+But this is not the point of the post today. Today I am here to convince you why a cost basis of 20 or 25 doesn't matter for PLTR. You are buying the company at around 40-50x 2020E sales, Which seems quite high  (not as much compared to SNOW and some other big data plays) but still. So why bother with PLTR?
+
+Before I proceed, I know most people who are here can't read, and I am going to be dropping a gigantic wall of text which I expect all maybe two of your guys to read, so here is the short form  **🚀**  **🚀**  **🚀**
+
+This was the primer I had written on Information Technology  back in 2017
+
+[https://etherealvalue.wordpress.com/2017/02/25/technology-primer/](https://etherealvalue.wordpress.com/2017/02/25/technology-primer/)
+
+I started by looking at the S&amp;P500 since the early 1900s to understand if there was a mental model I could use to outperform the index. What I found was that starting in the late 1800s, most of the companies that ended up creating enormous shareholder value started as technology companies. Dupont was a technology company in the 1800s, Edison Electric was a technology company in the 1900s, GM was a technology company in the 1920s. If one looks at the market capitalization of companies today, many of the largest are today’s technology companies: Google, Apple, Amazon, Microsoft have market capitalizations which eclipse many old traditional industries.
+
+There is clearly something about technology companies that allows them to generate enormous shareholder value and create wealth for society, after all, if the stock index was still dominated by the likes of American Cotton Oil and American Sugar Refining like in the 1900s, we would all be living in a different and much poorer world. The challenge with investing in technology companies is that for every Edison Electric there is a Zenith Radio. for every IBM there is a Sinclaire Rearch and for every Apple there is a Blackberry. There had to be a way to analyze or put into context why some companies last longer than others and why some managed to generate returns over a thousand fold for its investors while others fizzile and pop with the latest turn in the economic cycle.
+
+I agree with Peter Thiel’s thesis that technology advancement is probably slowing down and primarily concentrated around information technology as a result of regulations around the “world of stuff”. I believe this will continue to be the trend of the next 20-30 years, with some exceptions and that the rise of AI may start creating innovation again in many static fields. I believe historically, there were massive innovation happening across multiple disciplines from the 1800s-1950s, where technological progress branched  out like a tree and built on itself. Since the 1970s or so, this branch narrowed  into only a few sectors, primarily focused in information technology.
+
+So I wanted to strip out the massive amount innovations that have taken place around agriculture, communications, transportation, energy and petrochemicals over the past 100 years. It is helpful to think backwards if you will, focusing on just the age of computers and back into the late 1800s, into the birth of the electronic age. When we focus on just the computer led revolution in the 1950s and electricity revolution in the 1870s, we start seeing some interesting trends.
+
+**Information Technology Cycles**
+
+The following is my attempt at describing from a very high level the history of computing and informational technology. What I found was that technology moves both in cycles of proliferation and consolidation and that there is a directional theme.
+
+Electronic Age
+
+**Electricity/Scaled Power (1875-1900):** Platform competition and consolidation phase: Edison vs Tesla. Enterprise facing, originally to convince government and factory owners to replace physical labor.(Important companies: GE and Westinghouse)
+
+**Electronics (1900-1925):** Electricity prices fall as infrastructure rollout, creating a proliferation of electronic hobbyists and startups. Hardware dominates first half, platform dominates next half. Consumer Facing.(Important companies: RCA, Zenith, Galvin (Motorola), most went belly up, upstream and downstream do well)
+
+**Electronics Consolidation (1925-1950):** The electronics sector consolidates, with content platform operators (software) dominating, and winners usually emerge from previously niche targets.(Important companies: AT&amp;T, NBC, IBM)
+
+Computing/Software Age
+
+**Computing/Scaled Electronic (1950-1975):** Platform consolidation: IBM and the seven dwarfs. Enterprise facing, originally to convince government and large scale enterprise to replace  basic mental labor.(Important companies: IBM)
+
+**From Hardware to Software (1975-2000):** Computing price falls, creating a proliferation of hobbyists, IT startups and companies. Lots of PC makers who go bust, software and internet dominate in the second half.(Important companies: Intel, Microsoft, Apple, Dell, most early PC makers go belly up, up and downstream do well)
+
+**Software Consolidation (2000-2025):** Sectors like Retail, information and social consolidate. Hardware continues to fall away to software as content platform start to dominate, winner is emerging across multiple sub verticals.(Important companies: Amazon, Apple, Alibaba, Tencent)
+
+Cloud/AI Age
+
+**Machine Learning (ML)/Smart Software (2025-2050):** Platform consolidation phase. Enterprise facing, convince companies this is the future of advanced mental labor. It will be about the use of AI at the industrial scale being adapted by corporations and governments for various analytical, resource management and decision making processes.(Candidate Important companies\*\*:\*\* AWS, Microsoft, Palantir, companies yet to exist in China)
+
+**Specialized AI (2050-2075):** Machine learning/AI becomes cheaper, creating a proliferation of AI hobbyists and developers, high level programing focused, consumer facing. This will be about the proliferation of AI in our everyday lives. Just as how starting in the 1990s, the story of technology was one with the integration of computers and software to our daily lives, to some extent, outsourcing the memory/logic processing components of our lives to computers. Now, we will be calling upon multiple AIs to do many deal of the functions of our lives in perhaps faster input times (using neural interfaces). Companies and products could be formed in seconds from simply thinking through the process and outsourcing it to smart software who functionally construct its various parts in second to minutes depending on how quickly you can direct and scale your digital minions to do your bidding.(Candidate important companies: most will go bust, up and downstream will likely do well.)
+
+**General AI (2075-2100):** Consolidation of Software/AI. It will be about the web linkages of human/AI integration. Whether this looks like some sort of neural net where we live in a web of information buffeted by our web of AI advisors.
+
+The average core technology cycle seems to be approximately 75 years, with 25 years of infrastructure platform competition and roll-out, 25 years of new venture creation most of which gets washed out, and 25 years of industry consolidation.
+
+The initial phase of the cycle is dominated by 1-3 players fighting it out in a standards war that then gets rolled out as the foundational infrastructure of the next 50 years:
+
+In the initial phase, the general theme is that the companies start off as enterprise and government facing. In the historical electronics and computer cycle, there has been two such periods, the roll out of electrical grid by GE/Westinghouse and the roll out of mainframe computers by IBM. In the case of the AC vs DC standard war between Edison and Tesla, both men through their respective backers, GE and Westinghouse, to invent and supply standardized power equipment and build power plant, the initial consumers were local government to replace previous gas lamp systems with electrical street lamps and to factories. The new technology was seen as cheaper and more efficient than previously gas operated lambs operated by cities and more importantly, electricity delivered by wire is seen as much more efficient than having onsite power for factory operators, allowing for the displacement of onsite steam engines and boilers. The birth of the mainframe computer was similar, although less competitive. Due to an earlier lead and first mover position, IBM was able to dominate the market over its competitors, making them irrelevant. The mainframe computer was sold to large corporations and government defense agencies for the calculation of complex formulas that had previously required the employment of hundreds of staff. The two initial cycles produce two monopolistic businesses that are still DOW components today, GE and IBM, which set the standard for a drop in the price of electricity and computing that would benefit the next phase of the cycle.
+
+The proliferation phase, the general theme is that there is a cheapening of the previous platform technology, electricity and computing power, which enables hobbyists to take advantage and start building new products in the electronics and PC space. This is characterized by period of high new firm creation, high levels of creativity and a move from enterprise focus to the consumer. We saw it in the 1900-1920s with the birth of the electronics industry, there were dozens of radio makers, appliance makers and various electronics manufacturing startups. During this time, there was heavy competition from the host of new hardware businesses, with most profits coming from IP licensing. A similar analogy could be made of the PC era of the 1980s-2000s, there was a lot of hardware makers, it was highly competitive, and the winners of the era were primarily focusing on software (ie Microsoft).
+
+The consolidation phase, In the case of the 1920s, the commoditization of hardware created an opportunity for content providers. History is littered with names of large scale manufacturer that are now defuct, names like Zenith, admiral and dozens of electronics makers which use to hover mid-western industrial hubs such as Chicago. The content providers in Radio and TV became more dominant. Through the current consolidation phase, starting in 2000, we see less new venture creation and generally a focus on the content/distribution platform side of consumer technology. Amazon, Netflix, Google, Apple are key examples of the shift.
+
+What it means today,
+
+I would argue that we are in the consolidation part of the cycle until 2020-2025, where it will continue to be about shrinking number of consumer technology players and the dominance of content over infrastructure. This explains the phenomenal increase of FANG stocks relative to the rest of the market. As a result, for the next 5-10 years, if one can pick good entry points for Amazon (I will discuss my dislike of Google in a future post), one will be successful, and the company will likely last for a long time. It remains to be seen if Apple can create a bigger ecosystem. Contrarian value plays probably revolve around Chinese ADRs which are out of favor with the US public.
+
+**From 2025 onward, the most exciting prospect is the idea of a repeat of the infrastructure buildout that happened at the onset of the electricity and computing age. I believe that the new phase will be targeting enterprise and government and will be a winner take all fight similar to the few cycles. The previous cycles revolved around scaled mechanical energy and scaled linear mental processing, I believe the next phase will revolve around advanced mental processing. I think that corporations and government while benefiting from scale, are beholden to inefficient decision making due to complicated management structuring.** The automation of complex management process that can analyze of complex large data and deploy resources more efficiently will become invaluable to large corporate/government clients. Companies that have potential in this space are big data players with big client channels like AWS and **Palantir** or emergent players which have yet to develop in the US or China. It is also possible that will come from a spinout team from one of current tech giants.
+
+It is a serious mistake to continue to look for consumer plays in the technology space. I believe that the sector is consolidating and played out. New entrants will find it nearly impossible to survive at the downturn of the next cycle and current incumbents will solidity their positioning. The next batch of potentially interesting companies will likely come from the enterprise space. While Wall Street analysts continues to be focused on AWS and the fight over IaaS and PaaS, the most interesting segment to watch is in advanced analytics and resource allocation tools, which is ripe for innovation. There are lots of fat in the middle management layer of corporations and governments. I strongly believe that this space is where the next once in a generation infrastructure player (like GE and IBM) can offer an impressive solution which will fill the niche. The early identification of this company/companies will generate significant out performance relative to any market benchmark.
+
+2020 Update:
+
+If we are in the infrastructure roll-out stage than first mover absolutely has an advantage as we could see with GE, IBM and microsoft to some extent during the previous eras. In the consolidation ages, the last mover had an advantage. Amazon and Apple were not the first e-commerce or hardware makers, but are likely the last because they benefit from  a slow down of technology and a focus on ease of use and scale.  This is why every contract and sticky ones PLTR has is so important, because these relationships will scale in a non-linear way once AI and machine learning starts making its way into  large institutions and first mover advantage is very very important here, just like how GE was working around the clock to sign on factories and local governments for lighting and electricity contracts, once they were in, that is forever and they could start selling other equipment and devices all of which were collecting licensing or patent fees.
+
+I have very high conviction on Palantir.  I believe the reason above is what drove Peter Thiel to invest into Palantir, because it is building the infrastructure layer for the age of AI and PLTR is primed to becoming the single most important company in technology for the next 2-3 decades and will be a 100-1,000x bagger.
+
+Position Update;Now have $220k in shares  (bought another \~$90k in shares yesterday, still about 30k (down from 50k) in calls. I fully expect to lose all my call value.  If it drops to 20, I'll add another 100k. These shares are long term holds and are the ones to pass down to your children.",-1
+24,"Stock Market News for Today | Fubo, GM, Tesla, Ford, Lemonade, Nikola, JP Morgan &amp;other news [12-29]",https://www.reddit.com/r/wallstreetbets/comments/kmdirq/stock_market_news_for_today_fubo_gm_tesla_ford/,2020-12-29 7:28:48,"**Why did FuboTv and Lemonade crash yesterday. JP Morgan goes all-in on travel and Nikola spikes after their report. Let’s talk about this and other stock market news**
+
+**\~Very Long Post\~**
+
+Hello everyone and Good Morning! So, let’s start with the recap of yesterday, as we saw the broad stock market [SP500](https://ibb.co/w73qSnv) leading the way, up .87%, with the [Nasdaq Composite](https://ibb.co/6y9ZnHT) also gaining more than .7% and the [Dow Jones](https://ibb.co/qnJN88J) rising by more than 200 points to finish the day, with all 3 big indexes finishing broadly higher, with all of them also closing at all-time highs, after the relief [BILL](https://ibb.co/LRcCDdL) lifted many stocks, as this bill does include direct payments and unemployment benefits while also including over $300B that will be direct to the small businesses relief funding programs alongside other good [programs](https://ibb.co/jbhM2b2), like rent assistance, child care, vaccine distribution and others. But despite this great movement in the stock market, we did see the [VIX](https://ibb.co/Hn8QrkZ) rising by almost 1%, with most factor groups trading lower [yesterday](https://ibb.co/F7dWsYS), with only large-cap growth companies gaining, while the biggest losers were in the small and mid-caps, especially the growth companies.
+
+[Yesterday](https://ibb.co/Cwnvhrv) there was almost a 50/50 split in advancing to declining stocks, with 177 new highs on decent volume, as more companies have started to trade below the 50-day SMA, which is a good thing as the trend was worrying with over 84% of companies above that moving average just recently.
+
+We also saw 9 of the 11 [sectors](https://ibb.co/Km2fdpd) gaining yesterday with communications, consumer discretionary and technology all gaining over 1% for the day while the 2 sectors that lost ground and lagged the market were Energy and Materials.
+
+Here is the [HEAT MAP](https://ibb.co/gr6GrMj) that confirms those charts, as we can see big gains made in the big tech names with Amazon, Facebook and Google all gaining more than 2% for the day with Netflix and Microsoft also posting a 1% gain. We can also see the biggest losers coming in the Software-Application and Biotech sectors, probably because of tons of profit taking after huge-runups this year, while funds want to show investors that they own the big names, not those very volatile high-flying stocks of 2020, maybe that is one of the reasons for this rotation.
+
+We also saw the total people through TSA [checkpoints](https://ibb.co/ByxKmYy) in the Christmas weekend rise to over 2.4M people, the busiest since March, but that is still down about 50% since last year. This are better news for the Airlines especially after Trump also finally signed the stimulus bill which does include funds for the Airlines.
+
+While TrueCar also released some December [estimates](https://ibb.co/KL4K7X9) for auto sales, in which we can see a 4,7% increase year over year and a 32% increase over last month, as the industry is still continuing the rebound since the March lows. This is a good outlook for the industry so expect big OEM to start rising again after a pause in companies like Ford or GM since the end of November. Regarding this subject maybe Tesla can start selling even more cars, this after an Indian minister [reported](https://ibb.co/k2W2LML) Tesla will start operations in early 2021 in the country.
+
+Alongside great sales numbers in the auto industry, we also received the Dallas FED manufacturing [Survey](https://ibb.co/Ssdf7Kd), which came in better than expected with production, new orders and capacity utilization all having big increases since the last report.
+
+[Today](https://ibb.co/vdHr1wT) we get some numbers from the Redbook store sales and the SP Home Price Index, while we also await to see what the Republican [Senate](https://ibb.co/261v76w) will do after the House passed the $2000 stimulus proposal, as the leader of the Senate hasn’t yet announced anything.
+
+In some other stock market news, we saw some highly volatile names make moves with [Nikola](https://ibb.co/M8xVsvm) popping after a JP Morgan analyst predicted a less drama filled 2021, I can’t imagine what he sees in the company, as they still don’t have any new breakthrough technology or really anything to show, just promises after promises. While we also saw [FuboTV](https://ibb.co/vkkLy38) dropping more than 11% for the 2nd straight day before regaining some of the losses after-hours, this happened after it was called a best short idea at Hedgeye on top of last week short reports, and meanwhile, we also saw [Lemonade](https://ibb.co/vVZnw9c) fall 14% after the lockup period expired after the IPO, adding more than 30M shares to the small public float available until now.
+
+We also saw JP Morgan [acquiring](https://ibb.co/WVq4jGp) a credit card rewards business; thus, betting travel will come back in the next years. The company will acquire the technology platforms, travel agency, gift card and points businesses from cxLoyalty Group, which is a privately held company. This will be a hit to Expedia, as JP Morgan had been using the credit card rewards program from them, but now will return the use the cxLoyalty platform like they did until 2018, as cxLoyalty has over 3.000 clients and market partners like Citigroup, Capital One and Mastercard and serve more than 70M consumers.
+
+Let’s hope for a good day in the market as both the [EU STOCKS](https://ibb.co/zFkGLYs) and the [US FUTURES](https://ibb.co/R2L0kRV) seem to be pointing at a good open, with all 3 big indexes in the green as the Nasdaq is leading the way, as growth companies are [outperforming](https://ibb.co/gMFNd50) the value plays in this final month of 2020. As we also saw yesterday Goldman’s chief economist lifting the [outlook](https://ibb.co/rv12bH5) for the Q1 US Gross domestic product by 2% and a full year growth increase of .50% to see a Gross domestic product growth of 5.8% in 2021, which should be another bullish sign for the stock market.
+
+Thank you everyone for reading! Hope you enjoyed the content! Be sure to leave a comment down below with your opinion on the stock market!
+
+Have a great day and see you next time!",0
+25,VIAC Bull Case,https://www.reddit.com/r/wallstreetbets/comments/kmb3ry/viac_bull_case/,2020-12-29 4:22:17,"**TLDR: Buy VIAC. Potential 10X returns. Large proprietary content library. Great subscription growth numbers. Paramount+ launching globally.**
+
+Long time lurker, first-time poster. Was introduced to WSB by a friend and bought GME a few weeks back. Best decision of my life. I've just gotten out of GME and am putting all of that cash into ViacomCBS (VIAC). Here's why I'm extremely bullish about VIAC:
+
+**Introduction**
+
+The global video streaming industry continues to grow at a staggering pace and **revenues are expected to double over the next 5 years to \~1 Tn**. Few pure-play media assets remain, with surviving firms beginning to explore alternative strategies in the face of disruption. There are **three main trends** currently in the industry:
+
+1. Merge / acquire downstream (typically with telecoms) (e.g. AT&amp;T / Comcast) and launch DTC offerings
+2. Launch DTC offerings (e.g. Disney, ViacomCBS) without downstream merger
+3. Stay the course, seek opportunities for sale (e.g. Lionsgate / Discovery)
+
+The **primary issue with type (1) companies**, in my opinion, is that the **high cost of an LBO / M&amp;A have increased debt levels of companies such as AT&amp;T**. Shareholder inertia coupled with high debt-servicing costs in the long term will translate into **lower content spend** and **higher bankruptcy risks moving forward**.
+
+Yes, interest rates are at an all-time low currently, with the fed pledging to keep them at 0% for the foreseeable future. However, I believe that it would be a mistake if we were to disregard financial frictions increasing debt servicing costs. Banks have already started to tighten loan originations, and consumers are beginning to cut back on retail expenditure. **Falling consumer confidence and consumption, increased asset price dislocations, and likely regulatory failure may precipitate a credit crunch, one not dissimilar to 2008's subprime crisis.**
+
+If I had to bet on which firm would survive the following few years (AT&amp;T / Comcast / ViacomCBS), I'd put my bet on ViacomCBS. **It is important to not simply examine gearing ratios to determine a firm's liquidity moving forward, but also their inherent cost structures.** All three firms are highly levered. However, unlike AT&amp;T and Comcast, **ViacomCBS is also actively reducing their debt**. Rather than acquiring traditional satellite tv providers (looking at you AT&amp;T), it decided to sell off legacy businesses (e.g. Simon &amp; Schuster). In addition, it is worth noting that the majority of ViacomCBS' debt comes from the acquisition of media IP.
+
+In summary, **ViacomCBS is navigating industry headwinds with relative ease compared to telecom-media companies**. It has an asset-light structure compared to AT&amp;T and Comcast, and is hence **better positioned to move into the digital streaming age**.
+
+**Comps**
+
+**At the moment, VIAC trades more like a traditional media play** (low PE ratio of 8.55). Comparables include Lionsgate (PE: 12.7) and Fox (PE: 10.7). Even when benchmarked against traditional media play comparables, VIAC is undervalued. There is substantial market demand right now for traditional media assets as the streaming wars continue to heat up. **At the very least we would be looking at a 20-30% jump in VIAC if we simply rely on comps analysis.**
+
+More importantly, ViacomCBS has been digitalizing and reorganizing themselves to become a streaming giant - more comparable to Netflix (PE: 82.9) and Disney (PE: 86.4). Even Comcast has a PE ratio of 17.7. **Paramount Plus has already launched in certain parts of Europe to great success**and will be **launching in the US and Australasia in 2021 (More on this later)**. Valuing VIAC as a **Content as a Service** play would mean a **potential 10X upside**.
+
+**Execution**
+
+Extremely robust growth in streaming of **72% YOY**, with **total US subscribers** to Pluto and CBS AA **totaling** **\~46M**. This is greater than 50% of ***Disney+'s global subscription base***, and a strong showing given that ViacomCBS has only started focusing on streaming a little over 2 years ago.
+
+ViacomCBS has named **Tom Ryan as their new head of streaming**. Ryan comes from ViacomCBS' acquisition of Pluto, is a **notable figure in the startup and venture capital community,** and has sat at the **convergence of retail and entertainment** over the past few decades. He was formerly affiliated with Trunk Club (retail disruptor acquired by Nordstrom) and Bessemer (one of the valley's leading VCs). It is **increasingly difficult for large corporates to acquire innovative talent**.
+
+Unlike AT&amp;T, **ViacomCBS understands branding**. Their decision to streamline their streaming services and rebrand them as Paramount+ (which is a relatively visible brand globally) is nothing short of a stroke of marketing genius. Compared to its competitors, it is **building on a brand that has been associated with quality films and TV programming globally**.
+
+What are its competitors doing? **I sure as hell have never heard of Peacock before 2020**. And while HBO is associated with quality programming globally, **AT&amp;T has had substantial brand confusion across its streaming products**. I mean, there is HBO Go, HBO Now, and HBO Max (in addition to a variety of AT&amp;T streaming brands). AT&amp;T's branding strategy is a complete clusterfuck.
+
+**Content**
+
+Content is king. More specifically, proprietary content is king. At **30,000+ hours of content**, ViacomCBS will have **one of the largest content libraries** when Paramount+ launches.
+
+In addition, it owns a **large library of top-tier proprietary content** including Star Trek, Gossip Girl, Survivor, and Billions. As licensing agreements with distributors and other streaming platforms expire, ViacomCBS will be home to one of the largest proprietary content libraries in the world. At the end of the day, differentiation is king; and **differentiated content attracts and retains customers**.
+
+More importantly, **proprietary content allows streaming providers to scale their offerings globally**, eliminate distribution fees, and reach consumers directly. Paramount+'s access to a large library of proprietary content (which can be scaled globally without licensing concerns once existing licensing agreements expire) means that Paramount+ has a shot at becoming one of the leading streaming services globally. It is also worth noting that **the number of media assets available for purchase has dwindled over the years** (Lionsgate is one of them). Most have been snapped up by Disney. Whatever scraps are available out there **will not make a big difference to the quality and quantity of proprietary content that existing streaming providers can offer**.
+
+&amp;#x200B;
+
+|Service|US Hours of Content (Proprietary &amp; Licensed)|Notable Content (Proprietary)|Proprietary Content Ranking|
+|:-|:-|:-|:-|
+|Netflix|40,000+ (Est)|House of Cards, The Crown, Stranger Things, Lost in Space, The Umbrella Academy, Grace and Frankie, Orange Is the New Black, Ozark, Bodyguard, My Next Guest Needs No Introduction with David Letterman|2|
+|ViacomCBS: Paramount+ (As of Q1 2021)|30,000 ([Source](https://techcrunch.com/2020/09/15/cbs-all-access-to-rebrand-to-paramount-expand-internationally-in-2021/))|Star Trek, CSI, Gossip Girl, Criminal Mind, Madame Secretary, Amazing Race, Survivor, Twilight Zone, Billions, Colbert Report, 60 Minutes, Dora the Explorer, iCarly, Two and a Half Men|2|
+|Disney: Disney+|20,000+ (Est)|All things Marvel, All things Disney, Star Wars, Scandal, Ugly Betty, The Good Doctor, Quantico, The Muppets, How to Get Away with Murder, Criminal Minds, Empire, Jimmy Kimmel Live, Nightline|1|
+|Amazon Prime Video|20,000+ (Est)|Jack Ryan, Man in the High Castle, Tales from the Loop, Homecoming, The Marvelous Mrs. Maisel, The New Yorker Presents, The Expanse, Bosch|4|
+|Comcast NBCUniversal: Peacock|20,000 ([Source](https://www.cnet.com/news/peacock-tv-free-premium-streaming-app/))|Friends, The Blacklist, This Is Us, Law &amp; Order, Late Night with Jimmy Fallon, Parks and Recreation|4|
+|AT&amp;T Time Warner: HBO Max / HBO Now / HBO Go / AT&amp;T TV / AT&amp;T Now / AT&amp;T WTF I can't differentiate between them all|10,000 ([Source](https://techcrunch.com/2020/04/21/hbo-max-debuts-on-may-27th-with-10000-hours-of-content-including-a-handful-of-originals/))|Game of Thrones, The Sopranos, The Wire, Sex and the City, Succession, Veep, Silicon Valley, Westworld, Industry, His Dark Materials, True Blood|3|
+|Apple TV+|\~300 (Est) (Sidenote, this is not a streaming service, it's grandma's small AF DVD catalog)|For All Mankind, The Morning Show, Central Park, Snoopy, Oprah's Book Club|No.|
+
+**Concluding Remarks**
+
+**This is not a winner takes all market.** These streaming providers are the cable providers of the 21st century - except they are able to scale and reach an audience that is 20X larger than the cable providers of the 20th century.
+
+In short, **ViacomCBS checks all the boxes - execution, branding, talent, content, and value.** **It is on track to become one of the top 3 players in the streaming wars and is an extremely good buy today**.
+
+&amp;#x200B;
+
+\-----------------
+
+Added on 17 Apr 2021
+
+***PS: Thanks for the support***
+
+*Thanks so much for supporting my posts! It's been a great learning experience posting my thoughts on Reddit, and building on my thesis with the community. I really appreciate all the Reddit Awards / comments / questions. But please spend your money someplace else. If you have made money based off my thoughts, donate some of it to your local food bank.*
+
+***PPS: Answers to common questions that I receive***
+
+1. *What options should I buy or sell? I don't advocate for the buying and especially (naked) selling of options. Unless you are Optiver, Jane Street, or Jump, the chances of you outsmarting the markets are slim to none.*
+2. *How can I support your work? I write on Reddit mainly for fun. I won't say no if you want to contribute to my retirement fund though. I am happy to receive Ether at 0xb5E765D04Ea46420D4649800dA7a455eCDb2E7F9 or Stellar Lumens at GAEOAO6XR43RWAD27NCFQI5OIB5OM74ZWSFN2NW4Z45OVJYRSUWUK6NY.*
+3. *Do you recommend buying alternative currencies? Yes, but not as an investment. More like insurance. I bought into Bit-coin, Ripple, and Stellar back in 2014.*
+4. *What do you do for a living? I used to work in investment banking. Now I work in venture capital.*",0
+26,AMZN Trading at a Discount - Target 3400-3450,https://www.reddit.com/r/wallstreetbets/comments/kmae9b/amzn_trading_at_a_discount_target_34003450/,2020-12-29 3:24:35,"Amazon has been trading at a discount to the S&amp;P and its ETF 'XLY' of which it makes up 27% ([https://www.ssga.com/us/en/institutional/etfs/funds/the-consumer-discretionary-select-sector-spdr-fund-xly](https://www.ssga.com/us/en/institutional/etfs/funds/the-consumer-discretionary-select-sector-spdr-fund-xly) ) 
+
+If the broader market remains bullish to neutral, you want to see it hold the price above 3250 it will make a move to 3400-3450 area which is where the institutions will take profits.
+
+Candles are trading below the S&amp;P (Orange Line) and the ETF (Blue line) therefore its at a discount to the boarder market and its peers. There has been a rejection of the 50% pullback (red arrow) and and fast move up through the resistance area of 3250. The short term target is now the green box for the institutions. 
+
+https://preview.redd.it/9ud7ulfg53861.png?width=1564&amp;format=png&amp;auto=webp&amp;s=b158b95d0c53f35febb6ec69c387214c5df21e62",0
+27,PSTH Bumble rumor,https://www.reddit.com/r/wallstreetbets/comments/km8kfj/psth_bumble_rumor/,2020-12-29 1:06:23,"This is my first post here, I have been a lurker jn and out over last 2 years, but have been following along closely this last month.  I am long GME, PLTR, and PSTH.  I have also been diagnosed with schizoaffective disorder, but am able to manage it effectively with marijuana and delta-8.  I am able to take my paychecks from my jobs at CVS and Amazon Fulfillment center and fund my weed and delta 8 medication (I live in a state where it is not medicinal or recreationally legal) by trading on RobinHood. However I made some bad trades recently and lost most of my money. 
+
+That said I am YOLO’ing my entire account on PSTH. And here’s why, I rely on my cousin to loan me money to keep my weed/delta 8 inventory supplied, and he is getting a MBA at a top school right now and is recruiting investment banking for Sponsors groups.  He told me that he was having a call with a person at one of those big banks that’s not Goldman Sachs, and that that group told him they had met with Bumble and Bill Ackman recently.  It just now occurred to me that that was a PSTH de-SPAC meeting and Ackman is assessing them as a target.  Stripe is off Bumble is on.  This would go right in line with Bill Ackman’s woke empowerment angle.  
+
+I don’t know if that makes sense as a long-term play, but it would definitely pop in the short term if it were announced.  Blackstone could be looking to monetize on its investment last year.  
+
+It is a SPAC, and probably the best most likely yo pop SPAC on the market. Worst case I get most of my money back, but this thing is going to the 🚀 🚀 🚀 🌝",0
+28,BLNK Blink charging is the biggest EV bubble of them all,https://www.reddit.com/r/wallstreetbets/comments/km6kn3/blnk_blink_charging_is_the_biggest_ev_bubble_of/,2020-12-28 22:59:41,"&amp;#x200B;
+
+[Full Disclosure, My position. 2k in 3-month exp puts.](https://preview.redd.it/2nyudb5ny1861.jpg?width=663&amp;format=pjpg&amp;auto=webp&amp;s=b6ff95a958a3d5e87a0ed0c69a8bbfe29e806782)
+
+&amp;#x200B;
+
+BLNK Is 100 times overvalued and is basically a Ponzi scheme at this point. BLNK is a sinking ship that is being propped up by the EV bubble.
+
+&amp;#x200B;
+
+**Company overview**
+
+&gt;We are a leading owner, operator, and supplier of proprietary electric vehicle (“EV”) charging equipment and networked EV charging services. We serve both residential and commercial EV charging settings, enabling EV drivers to easily recharge at various location types.  
+&gt;  
+&gt;Our principal line of products and services is our Blink EV charging network (the “Blink Network”) and EV charging equipment (also known as electric vehicle supply equipment) and EV related services. Our Blink Network consists of proprietary cloud-based software that operates, maintain, and tracks all of the Blink EV charging stations and the associated charging data. The Blink Network provides property owners, managers and parking companies, who we refer to as our “Property Partners,” with cloud-based services that enable the remote monitoring and management of EV charging stations payment processing and provide EV drivers with vital station information including station location, availability and applicable fees.
+
+&amp;#x200B;
+
+In short. They make third party EV chargers. A highly competitive space right now.
+
+&amp;#x200B;
+
+**Competition**
+
+Blink faces a lot of competition and are only a small player in the EV charging boom.
+
+Competitors:
+
+* EVgo
+* SemaConnect
+* Charge Point
+* Plug Share
+* Megear
+* Juicebox
+* Mustart
+* Ect....
+
+&amp;#x200B;
+
+Blink isn't on the front page of amazon for chargers, and if you look their not even at the top 50. Small fish in a big sea.
+
+[Top EV chargers, Amazon. ](https://preview.redd.it/lu4fxs1xt1861.png?width=1655&amp;format=png&amp;auto=webp&amp;s=1d3e31011fb16fd466fb8790088edadb637c6f87)
+
+Blink has to be searched on amazon the space is so competitive. Oh yea, and they are giving customers $100 just to buy their product because it's selling so poorly.
+
+[You have to search to find Blinks charger and they offer$100 back to buy it](https://preview.redd.it/gjfoyke9u1861.png?width=1179&amp;format=png&amp;auto=webp&amp;s=556694bf3b661b169d5d38b6b6cf9a7a7b26ba4a)
+
+&amp;#x200B;
+
+**Blink VS Charge point**
+
+The charge point is planning on becoming pubic and is one of the bigger competitors to blink. Below is a comparison between the two based on data I could find.
+
+||IPO Evaluation|Chargers on network|Total Network|Year Revenue|Mkt Cap|
+|:-|:-|:-|:-|:-|:-|
+|Blink|50-100m|7000|30,000|1.2m|1.5B|
+|Charge Point|1.4-3B|115,000|300,000|147m+|2.4B|
+
+&amp;#x200B;
+
+As you can see. Blink is a tiny player valued like a big player. Charge point is eating blink for breakfast and is only ONE of the competitors in the market.
+
+Compared to charge point, Blink is 100 times overvalued.
+
+&amp;#x200B;
+
+**Revenue and P/S ratio**
+
+Now let us looks at how terrible Blink Charging’s revenue in comparison to their stock price.
+
+PS/ is a company’s market cap/ annual sales. This tells us, roughly, how good a company is at generating cash inflows.
+
+**Below is Apple sitting at a cool 8.3 P/S. A company experiencing all-time highs, and our baseline.**
+
+&amp;#x200B;
+
+https://preview.redd.it/1hj6b62is1861.jpg?width=807&amp;format=pjpg&amp;auto=webp&amp;s=4a1bd56243c32833c4ba97859afc7f084c2bc387
+
+**Here is Tesla at a somewhat high P/S of 25.95. Tesla, the so-called “bubble” by bears, has a PS of 26. Keep this in mind.**
+
+https://preview.redd.it/c4qeklljs1861.jpg?width=790&amp;format=pjpg&amp;auto=webp&amp;s=8d9eebf6940df20d8f4d36348048455a0c4135bb
+
+**Now Blink. Blink has a P/S of 348.84. Yes. More than 15 times the PS of Tesla and 40 times Apple. Disgusting gentlemen.**
+
+https://preview.redd.it/vq82xumls1861.jpg?width=797&amp;format=pjpg&amp;auto=webp&amp;s=d103ed301e2b06dcdbe02a873df492925b0f50d5
+
+**Looking At their income statement it only gets worse.**
+
+Below is the income statement for BLNK. Last quarter BLNK reported 900k revenue in 2020. 760k in 2019. Only a 28% growth YOY for the last quarter. At the current stock price, to match Tesla’s P/S, BLNK needs to increase revenue by 1500% percent and about 4000% to match Apple.
+
+Compared to Apple or Tesla Blink is 150 to 400 times overvalued.
+
+[Statement of cash flow \(From 10q\)](https://preview.redd.it/g7ngx3gss1861.jpg?width=543&amp;format=pjpg&amp;auto=webp&amp;s=5c397f14d310927378987290069401ffbb013752)
+
+**Here’s where things go from bad to Nikola fellas.**
+
+Look at operating expenses. In ONE quarter, BLNK paid out 3.6m in salaries in 2020 and 2.2M in 2019. A 60% increase. BLNK is paying their executives so much go dam money, about 10m + per year and it’s increasing while sales stay flat. Because of their ridiculous salaries and bonuses, the company lost 4 million one quarter. Increasing from 2.6 in 2018
+
+&amp;#x200B;
+
+**Where are they getting this money and how are they losing so much?**
+
+Short answer: Dumb investors like us.
+
+Below is the cash flow statement for the last nine months. Highlighted are key parts. As I mentioned above they are losing about 10m per year, highlighted below. Ideally, losses result from investment into company infrastructure to, hopefully, generate more money and profit in the future. This, however, is no the case for BLNK as they are GETTING money from their investments. A sign of decreased spending on the future development of the company. This is a small of where they are getting money, about 2m.
+
+&amp;#x200B;
+
+[Income statement \(from 10q\)](https://preview.redd.it/tf8rwjszs1861.jpg?width=768&amp;format=pjpg&amp;auto=webp&amp;s=893d6537fe377c999c05b3a09220725ce46ed981)
+
+Okay, now onto where they are getting most of their money. Big surprise, from sales of stock. BLNK raised 18m in the sale of stock in 2020. About 17 times their revenue if we're keeping score. So, to make up for a loss of 10m. BLNK sold a fuck ton of shares and sold investments. Leaving them with 14m in cash in the bank to continue to increase the salary and bonuses of the executives.
+
+&amp;#x200B;
+
+**Endless stock sales**
+
+Why not? It is free money and they are making 17 times the amount of selling stock than selling chargers. This stock is a Ponzi scheme.
+
+Below are all the mentions stock sales. Notice how they are using their stock to pay everyone from their supplies to executives. Basically, free money, and the company is laughing to the bank right now.
+
+&amp;#x200B;
+
+**All mentions of stock reimbursements in 10q:**
+
+&gt;“Since April 17, 2020 and through November 11, 2020, the Company has sold 3,566,971 shares of common stock under the ATM program for aggregate gross proceeds of approximately $19.5 million” (p19 10q)  
+&gt;  
+&gt;“During the nine months ended September 30, 2020, a holder elected to convert 5,125 shares of Series D Convertible Preferred Stock into 1,642,628 shares of the Company’s common stock at a conversion price of $3.12 per share” (p19 10q)  
+&gt;  
+&gt;“During April 2020, the Company issued 47,542 shares of common stock with an aggregate issuance date fair value of $87,000 as compensation to certain officers of the Company.” (p19 10q)  
+&gt;  
+&gt;“During June 2020, the Company issued 10,000 shares of common stock with an aggregate issuance date fair value of $23,500 as compensation to a consultant.” (p19 10q)  
+&gt;  
+&gt;“During July 2020, the Company issued 6,847 shares of common stock with an aggregate issuance date fair value of $46,560 as compensation to a consultant” (p19 10q)  
+&gt;  
+&gt;“During April 2020, the Company granted five-year options to purchase an aggregate of 160,416 shares of common stock to executives with an exercise prices ranging from of $1.83-$2.01 per share”  (p20 10q)  
+&gt;  
+&gt;“During June 2020, the Company granted five-year options to purchase an aggregate of 150,000 shares of common stock to executives with an exercise price of $2.20 per share” (p20 10q)  
+&gt;  
+&gt;“During September 2020, the Company granted five-year options to purchase an aggregate of 603 shares of common stock to employees with an exercise price of $9.14 per share. The options vest on September 27, 202”  (p20 10q)  
+&gt;  
+&gt;Subsequent to September 30, 2020, the Company issued an aggregate of 480,360 shares of the Company’s common stock pursuant to the exercise of warrants at an exercise price of $4.25 per share for aggregate gross of $2,041,530 (p20 10q)
+
+&amp;#x200B;
+
+The stock sold by the company ranges between $1 to $9. Based on what the COMPANY thinks its stock is worth, BLNK is 5-40 times overvalued.
+
+&amp;#x200B;
+
+**Final thoughts**
+
+Guys. This is a shitty company caught up in the EV hype and is being swept up with the bubble. They were worth $1 a year ago and have gone up 2000% 56 for no reason. The company knows this and is making out like bandits selling stock. Don’t get fucked by this company and actually get into good and strong EV companies.
+
+&amp;#x200B;
+
+&amp;#x200B;
+
+&gt;**Works Cited**  
+&gt;  
+&gt;[https://roboticsandautomationnews.com/2019/05/01/top-20-electric-vehicle-charging-station-companies/22138/](https://roboticsandautomationnews.com/2019/05/01/top-20-electric-vehicle-charging-station-companies/22138/)  
+&gt;  
+&gt;[https://www.chargepoint.com/about/news/chargepoint-inc-become-public-company/](https://www.chargepoint.com/about/news/chargepoint-inc-become-public-company/)  
+&gt;  
+&gt;[https://www.businessinsider.com/electric-vehicle-charging-network-chargepoint-to-go-public-at-24-billion-valuation-2020-9](https://www.businessinsider.com/electric-vehicle-charging-network-chargepoint-to-go-public-at-24-billion-valuation-2020-9)  
+&gt;  
+&gt;[https://ir.blinkcharging.com/sec-filings/all-sec-filings/content/0001493152-20-021359/0001493152-20-021359.pdf](https://ir.blinkcharging.com/sec-filings/all-sec-filings/content/0001493152-20-021359/0001493152-20-021359.pdf)
+
+&amp;#x200B;
+
+&amp;#x200B;
+
+**Tl:DR**
+
+Blink charging revenue is small as fuck; stock price is large as fuck. The company is making 17 times more money selling stock than actual revenue so the company pays executives and staff insane salaries and stock options&gt; Basically is a Ponzi scheme. Buy puts, short it, or sell gentlemen.
+
+Edit: BLNK down 10% today so far. Hop on boys.
+Edit 2: down 15% I hope everyone bought puts.",0
+29,Why Palantir is a Solid Long (Software Engineer Perspective),https://www.reddit.com/r/wallstreetbets/comments/km624j/why_palantir_is_a_solid_long_software_engineer/,2020-12-28 22:29:11,"My friend is a software engineer at Google, and he believes Palantir is a solid long based off of the ability of their engineers. The hiring process at Palantir for software engineers is more competitive than Google, Facebook, etc. (or at least as competitive). He said he was rejected by Palantir but hired by Google.
+
+I think among the tech companies, the ones with the highest engineering bar are the smaller companies (often startups), like Netflix, Facebook, Airbnb, Palantir. Google ranks somewhere in the middle difficulty. Then the ""easiest"" to get in are Amazon and Microsoft. Don't get me wrong though, all tech companies are hard to get in. However, I know that there are a lot of ""coasters""/""slackers"" in large companies who do the bare minimum etc. Large tech companies try their best to set high bar for entry, but because of the large number of engineers they need, they inevitably lower standards in the long run.
+
+This is especially true of engineers in government... which is the ultimate ""monolith"" and magnet of mediocrity.
+
+Palantir's competition is other government contractors, and the work done by other government contractors has historically been extremely mediocre. Do you remember the Obama care website that the government paid an absurd $2 billion to make? How about during covid, the state of New York couldn't manage their unemployment website (due to high traffic) by themselves. They needed help from Google to help run the unemployment website from their platform.
+
+From my point of view, there is no way Palantir can lose if they are hiring the best engineers, and if their competition is government contractors.
+
+EDIT: Positions: 1k shares in Palantir",0
+30,Docebo Analysis (TSE: DCBO),https://www.reddit.com/r/wallstreetbets/comments/kltqcr/docebo_analysis_tse_dcbo/,2020-12-28 11:36:43,"**Industry Overview**
+
+Docebo competes in the learning management system (LMS) market. Sounds complicated but to make it simpler, a learning management system is a software application covering the administration, documentation, tracking, reporting, automation, and delivery of educational courses, training programs, or learning and development programs. Basically, if companies have employees, partners, or customers go through training courses of some kind, they go through the LMS software.
+
+The corporate learning management system (LMS) market is a subset of the global e-learning market. According to various sources and Docebo’s management team, the global e-learning market is expected to reach $29.9bn by 2025. If true, this will be rapid growth from where the market is today. Management believes that enterprises see a correlation to ongoing learning opportunities to improved productivity, higher retention rates, and overall employee engagement and work satisfaction. Learning while on the job will always be important.
+
+Management is comparing the LMS market to the early stages of the CRM market because just as the CRM market changed from non-essential to essential, the LMS market will make this transition. Initially, the LMS market was designed to host, deliver, track, and manage learning content. It's changing to new learning functionalities like social learning, learning on the job, and communities of practice/workgroups designed to drive organizational change. One of the potential tailwinds of the learning management system market is how remote work and the COVID-19 pandemic will impact this industry. As more employees work from home, a platform like this to help teach new employees may be critical to the success of a company or division.
+
+Docebo competes in the learning management system market. There are many other competitors that offer a similar product but may focus on different customers or strategies. For example, Docebo competes with [Instructure’s Canvas LMS](https://www.instructure.com/canvas/), [Blackboard’s LMS](https://www.blackboard.com/teaching-learning/learning-management), and a handful of other companies in the LMS market. Some of these competitors focus on different markets such as education.
+
+**Business Overview**
+
+Docebo’s goal is to ""redefine the way enterprises learn by applying new technologies to the traditional corporate learning management system market.” In simple words, Docebo provides a learning platform for customers to train employees, partners, and customers. Docebo allows companies to upload their own courses and material specific to their employees, partners, or customers. This platform also allows companies to segment the population by division, title, or other factors to allow access to specific groups within the company. Docebo also operates a content marketplace where companies can buy courses covering broad subjects like digital marketing, leadership, or sales. Although this marketplace is not a major part of their business, it is an interesting aspect that might become larger as time goes on.
+
+Within Docebo’s platform, there are a number of tools and modules to help companies utilize courses and training to improve. Don’t let these modules distract you from the main part of the business which is just providing companies with a platform to host courses and other material. The modules are listed below:
+
+* Docebo Learn
+* Docebo Discover, Coach &amp; Share
+* Docebo Extended Enterprise
+* Docebo Virtual Coach
+* Docebo Mobile Pages
+* Docebo Discover
+* Docebo Learning Impact
+
+Docebo focuses on mid-market and enterprise customers. Docebo has a list of solid customers: Thomson Reuters, Pearson, HP, Amazon Web Services, Newcross Healthcare Solutions, Experian, Randstad NV, lastminute.com, L’Oréal, Heineken NV, BRF, BMW AG, and Denny’s. Having Amazon Web Services as a client is a sign that Docebo is doing good things.
+
+**Total Addressable Market**
+
+Management and other sources believe that this market will be worth \~$29.9bn by 2025. In 2019, the learning management system market was estimated to be \~$9.5bn. If the market will be worth \~$29.9bn by 2025 this will be a market that is growing at a CAGR of \~21%.
+
+Many sources also believe there are additional market expansion opportunities such as analytics, automation, and content creation. This is an attractive feature that gives Docebo room for future upside. From my understanding, customers have to build and upload a course to their learning management system. In the future, learning management systems may help educators create course content and help edit content due to the feedback from the course’s analytics.
+
+**Competitive Advantages**
+
+From this shallow dive, it looks like Docebo may have a number of possible competitive advantages, yet I’m not sure how strong these are and how difficult it would be for competitors to replicate this.
+
+1. **Switching Costs**  
+Docebo sells to mid-market and enterprise customers. Typically these contracts are for multi-year periods and require negotiating and integration. These customers will become accustomed to their learning management system software. They will be familiar with the layout and where everything is located. Manual processes such as uploading courses and inputting employee information will be tedious to change if companies decide to switch platforms. Switching platforms, moving courses, and inputting employee, customer, and partner information will all be tedious work and the opportunity costs may outweigh any potential savings. Docebo’s customers that decide to switch may lose important data associated with course content. Switching to a more affordable or downright better competitor might be more attractive but the headache of these switching costs may deter many customers from switching.
+2. **Economies of Scale**  
+Like many leading companies, Docebo has the potential to be one of the leading companies in this growing industry. If so, it will know what additional offerings to provide for customers. Smaller companies may be priced out of this industry due to the cost of building up the LMS software needed to compete with more established companies like Docebo. Small startups can’t offer the same number of features or the reliability of Docebo. This competitive advantage can be seen by looking at other enterprise SaaS companies like Salesforce, Workday, ServiceNow, and others. Small companies that try to compete broadly with established enterprise SaaS companies often stand no chance. Larger companies can roll out new product features and crush smaller competitors or simply buy up future competitors.
+
+**Financials**
+
+Docebo has seen tremendous growth over the past few years. Revenue has grown due to an increasing customer base and increasing average contract value. Gross margins have also improved due to operating leverage. Docebo is currently in the phase where it’s investing through its income statement and likely will not show a profit for a number of years.
+
+**Through September 2020:**
+
+* Total revenue = \~$44mn
+* Gross margin = \~82%
+* Average contract value = \~$31,900
+
+**2019:**
+
+* Total revenue = \~$41mn
+* Gross margin = \~80%
+* Average contract value = \~$27,400
+
+**2018:**
+
+* Total revenue = \~$27mn
+* Gross margin = \~79%
+* Average contract value = \~$21,000
+
+**2017:**
+
+* Total revenue = \~$17mn
+* Gross margin = \~75%
+* Average contract value = \~$15,500
+
+**2016:**
+
+* Total revenue = \~$10mn
+* Gross margin = \~73%
+* Average contract value = \~$11,500
+
+These numbers all demonstrate impressive growth and are just the tip of the iceberg for Docebo’s financial profile. Like many other tech companies, Docebo is looking to broaden its market share and focused on capturing long term value instead of short term profits.
+
+**What’s Interesting**
+
+What initially attracted me to Docebo was that it was a recent IPO with little to no coverage or big headlines like Airbnb, Uber, DoorDash, and other well-funded VC companies. This company has experienced tremendous growth with revenue growing from $10mn to $41mn in revenue in just three years.
+
+Docebo is a small-cap company that is likely out of reach of larger institutional investors like mutual funds and hedge funds. The CEO is also the founder and likely has skin in the game and wants to make Docebo a success because it’s his prized possession.
+
+After doing more research, Docebo looks to be an attractive company but I would need to do more research to initiate a position. Selling to large companies is attractive for a number of reasons listed above in the competitive advantage section, but at the same time so is selling to smaller ones. The fact that Docebo has a company like Amazon Web Services as a client is also attractive and further piqued my interest.
+
+Docebo also stands to benefit from remote learning. As companies make the transition to remote offices, more courses and training will be done virtually and these companies will rely on an LMS platform like Docebo. Prior to this research, I had never heard of the learning management system industry but I believe it may be a crucial component of many companies in the future just like CRM was 15 years ago.
+
+Docebo also has the potential to be a ten-bagger. It has a small market cap with attractive growth and has a realistic shot of being a ten-bagger based solely on its current size and growth. More work is needed to flesh out a valid claim to be a ten-bagger, but this is just a shallow dive on interesting companies.
+
+**Future Questions**
+
+* **How big is the corporate learning market?**  
+An investment in Docebo comes down to your confidence in the size of the corporate learning market and the learning management system market. The corporate market for LMS software is small when compared to more established markets like customer relationship management (Salesforce), human capital management (Workday), and many others. If the corporate learning market grows to be as big as management says, then this will be an attractive industry. The attractiveness of this investment only grows if Docebo solidifies its position as the leading company in this industry.
+* **How crucial is learning management system software inside companies?**  
+Learning management system software sounds like fluff but it might be a crucial function for many companies. Employees often need to go through compliance training, onboarding, and other required courses to make sure that they are being held to industry regulation or other company-specific rules. This training runs through an LMS platform like Docebo. All employees need to be onboarded and often also go through annual courses. Other crucial content could be how to operate different company-specific software like a Salesforce training course or other tools.
+
+**Conclusion**
+
+Docebo is a good company from this initial review. I’m not sure if I’d initiate a position based solely on this qualitative information, but I’ll be doing more research into the size of the corporate learning market and the differences between Docebo and it’s competitors.
+
+If Docebo can be placed into the same “Enterprise SaaS” bucket due to LMS software being a necessity in many companies and if Docebo is the leading company in this growing industry, then it stands a chance to benefit greatly.
+
+Investor Presentation: [Link](https://s24.q4cdn.com/246292444/files/doc_presentation/2020/12/1201120-DCBO-Investor-Presentation-Website.pdf)
+
+**Fun Fact**
+
+Docebo = “I will teach” in Latin.",0
+31,Quick Stock Market News for Today | SP500 / NASDAQ / DOW JONES / ALIBABA [BABA] | [12-28],https://www.reddit.com/r/wallstreetbets/comments/klpjd4/quick_stock_market_news_for_today_sp500_nasdaq/,2020-12-28 7:18:17,"**Do you want to know what happened in the stock market on Thursday? Let’s talk quickly about that and what were the latest news over the weekend**
+
+**\~Long Post\~**
+
+Hello everyone and Good Morning! I’ll try to keep this as short as possible this time so that everyone can enjoy the holiday period as much as possible. So, let’s start with the recap of Thursday, as we saw all 3 big indexes closing in the green with the [SP500](https://ibb.co/25nr29H) leading the way up .35%, but still lost ground for the week, down .14%, the [Nasdaq Composite](https://ibb.co/zRsdNyJ) gaining .26% and finishing .38% up for the week and the [Dow Jones](https://ibb.co/dr0WyrS) rising by .23% to close the short week of trading with a small gain of .1%.
+
+We also saw the [VIX](https://ibb.co/pbKmzP9) dropping by more than 7% again to bring the volatility index down to the previous levels before the 30% [spike](https://ibb.co/hMjhQhH) we saw on Monday, as it has [dropped](https://ibb.co/kgPCkvn) almost 7 points after that spike.
+
+We had a pretty much even market with just over 100 new highs as most [companies](https://ibb.co/SJCrVzX) traded below average volume on the short day, with 10 of the 11 [sectors](https://ibb.co/YbSSMt3) of the SP closing in the green, with Real Estate, Utilities &amp; Technology leading the way while the Energy sector was the only one which lost ground Thursday, as Large-Cap growth companies were the [biggest](https://ibb.co/hYTsTLG) gainers, with small-caps finally underperforming after a great run in the past weeks.
+
+Here is the [HEAT MAP](https://ibb.co/8MKCB9h) from Thursday, with most big tech Names gaining slightly, except Alibaba which plunged after China started the probe into the monopolistic practices of the company, while for the [week](https://ibb.co/f2NzK9d) we can see a pretty mixed stock market with big gains being made in the tech sector mostly, while big healthcare names, utilities and most of the Energy companies lost ground this week.
+
+We also got a couple of economic numbers in the past few days, as holiday retail [sales](https://ibb.co/bB4XtGm) are estimated to be up 3% with online sales up almost 50% between the 11th of October and the 24th of December as e-commerce accounted for almost 20% of overall retail sales, up more than 6% since last year with big winners like Amazon, Wayfair an Etsy as well as big gains in the home improvement and home furniture sectors.
+
+The other big number we received is more worrying, as investors have made a new high in margin debt, with over $700B in [margin](https://ibb.co/qYxdPtw) through November, I personally don’t use margin even when buying leveraged products to avoid too much volatility in my portfolio.
+
+And one last report that we got from Reuters, is that they expect [China](https://ibb.co/LtKVg0T) to overtake the US and become the biggest economy by the end of the decade.
+
+We only have a fed survey coming in [today](https://ibb.co/170H4tD), and this [week](https://ibb.co/Gsjqvf8) will be most of the same, with only some sprinkled numbers in the middle of the week, and not anything interesting to be reported as earnings go, before a closed day on New Year’s Day.
+
+And in some other stock market news, we saw Alibaba increasing the stock [buyback](https://ibb.co/SXgfNW8) plan to $10B but this wasn’t enough to stop the bleeding for the company as this news came alongside the demands made by the regulators for [Ant](https://ibb.co/55zL5VK) Group to fix problems in some segments of their business before they can move on with the company going public.
+
+Let’s hope for a good day in the market as the [FUTURES US](https://ibb.co/1XWqjyW) / [FUTURES INTL](https://ibb.co/D5TJ4Cs) seem to be pointing at a good open, with all 3 big indexes in the green as the Nasdaq is leading the way, after President Trump finally signed the [stimulus](https://ibb.co/55v9p8L) deal last night, finally ending this long messy situation.
+
+Thank you everyone for reading! Hope you enjoyed the content! Be sure to leave a comment down below with your opinion on the stock market!
+
+Have a great day and see you next time!",1
+32,Digital Banking will be huge for $SE - comparing market opp for them,https://www.reddit.com/r/wallstreetbets/comments/klcl9c/digital_banking_will_be_huge_for_se_comparing/,2020-12-27 17:06:10,"&amp;#x200B;
+
+SE is has a 98B market cap.
+
+$SE just got the license to operate as a fully digital bank in Singapore. This is great for a number of reasons (strengthening shoppeepay) and to generating money as a bank. The data insights from one of the biggest online shopping platform giants partnered with banking can bring massive potential to the company.
+
+Amazon only offers a creditcard, that is small compared to operating a fully digital bank. There are so many more products $SE can offer clients (mortgages, LoC, heloc). Singapore is also just the start.
+
+ShopeePay is currently in Singapore, Indonesia, Malaysia, the Philippines. **It is only a matter of time before $SE is able to launch a digital bank in the other countries.** Looking at the careers pay there are hiring exec level positions for SeaMoney in the Philippines.
+
+https://preview.redd.it/00cu9ehuys761.png?width=1145&amp;format=png&amp;auto=webp&amp;s=c52e3297639b8ec8670bffdf743c765743e7fe06
+
+it also doesn't just stop there too. Where Shopee has a foothold in other countries such as Brazil. Sea is also working to building out the financial sector there too. Look at this posting for ""**Head of Payments - (São Paulo)**""
+
+&amp;#x200B;
+
+https://preview.redd.it/n919im9tys761.png?width=1159&amp;format=png&amp;auto=webp&amp;s=0658ea16ce8c9e6d76129a31c149ef033910720f
+
+&amp;#x200B;
+
+SE is valued under 100B compare that to Amazon at over a trillion. There is huge potential for $SE, especially in these growing economies. If anyone has read Ray Dalio rise and fall of empires, it is about rise and fall of countries. Cathie Wood also treats these major FAANGs like cash cause they grow so slow, and she invests in the next set of FAANGs. Look how much she has been adding to her portfolio
+
+https://preview.redd.it/3whbzfqrys761.png?width=1651&amp;format=png&amp;auto=webp&amp;s=4b34c5dd9dc1b2bb2ac5d6b0ac8f54e7ddada9ba
+
+TLDR: Invest in $SE (located in tiger economies, strong upside potential, lots of integration between online shopping and finance, cathie wood buys tons of it). Anything under $200/share is a steal for what this company will be worth
+
+&amp;#x200B;
+
+edit:   Online holiday sales up 50% over last year beating forecasts by 20 to 30% or about 50 billion dollars. Mastercard released a statement about it this weekend.",0
+33,"You fucking knuckleheads got my mom to reinvest her 401k into meme stocks indirectly through Asian ""financial experts"" on YouTube",https://www.reddit.com/r/wallstreetbets/comments/kl8wbp/you_fucking_knuckleheads_got_my_mom_to_reinvest/,2020-12-27 13:46:03,"I don't know how the fuck you guys became so powerful with 1.7m subscribers when you guys attest to your own retardation, but for some stupid reason you've caught the attention of a bunch of financial television personalities over in Asia. My mom has been watching them since she started investing in the stock market.
+
+From the beginning she was investing in blue chip stocks: Google, Amazon, Apple. But now she almost has 100 shares of Tesla, and wants to buy more instead of diversifying. She even bought Palantir and Nio. Luckily, she doesn't seem to know how to use options, but that could change any day and I have literally lost sleep over this because my mom is getting financial advice from a bunch of idiots from Reddit.
+
+My family is going through some immense personal and financial issues, and I can't believe she rolled over her 401k just to YOLO it all. She was supposed to use that money to pay the mortgage. She's way too old to play with all these risks. And now she won't listen to me because Tesla actually made her money. She doesn't realize she's playing within a bubble, and she has literally no investing strategy. I can't believe I'm the one who is more stressed out about this than she is.
+
+Yet as much as I hate you all, I can't help but be awed but how you guys have risen from the depths of 4chan to getting the attention of Bloomberg and Cramer, and now even a bunch of foreign broadcast financial personalities are eating your bullshit.
+
+Fuck y'all.
+
+**Edit**: Having almost 100 shares of TSLA doesn't make her wealthy when it's in a IRA that she can't access for almost a decade and she also has a $90k mortgage.",1
+34,ATM Debit Spreads--The Holy Grail during dovish times?,https://www.reddit.com/r/wallstreetbets/comments/kl5qn7/atm_debit_spreadsthe_holy_grail_during_dovish/,2020-12-27 10:47:24,"Does anyone do ATM debit spreads for something fairly consistent like SQ? 30-45 DTE spreads seem like a solid way to get somewhere between 50-100% returns pretty consistently as long as it goes up like 1% a month (which besides March of this year SQ almost always does). 
+
+&amp;#x200B;
+
+[Buy a 225C and sell a 230C for 1\/29 \(\~30DTE\)](https://preview.redd.it/9qbkhrr6wq761.png?width=340&amp;format=png&amp;auto=webp&amp;s=d9bde483d5936dbbae204f86f99db8143a3e9478)
+
+Vertical spreads negate the effect of theta decay (since you're selling an OTM call) and you don't have to do much besides close the spread the week of expiration. My plan is to close something that has lost 50% value and then just open another spread 6 weeks later.
+
+[The same for 2\/5 \(\~40DTE\)](https://preview.redd.it/ep3z6w7vxq761.png?width=376&amp;format=png&amp;auto=webp&amp;s=a73eeeae0e4b6e295acbdb6969c98f6a17a2fc6a)
+
+Obviously there are pitfalls, but has anyone been trading ATM spreads for a while? I've been doing OK the last couple months with Amazon spreads even though it's been basically flat (I've been getting 60-80% returns when I close them the week of expiration), but I'm going to switch to SQ and maybe something like Visa or MSFT.
+
+&amp;#x200B;
+
+[Month over month, this thing is up like 90&amp;#37; of the time.](https://preview.redd.it/q1fiig9myq761.png?width=452&amp;format=png&amp;auto=webp&amp;s=c7a046685e5ca1e5c5626fb6d07b0e758b5f457b)
+
+&amp;#x200B;
+
+[Another one](https://preview.redd.it/ecpmbcrn0r761.png?width=429&amp;format=png&amp;auto=webp&amp;s=b00fa007874c246fb6b6b78e63988d50fab3a45f)
+
+Yes, stonks might go down every once in a while, but if things are going to stay dovish (and the last decade shows the US likes to keep it that way), why wouldn't this be the best strategy? Does anyone have more experience with ATM debit spreads? Anyone have any other good tickers for this play?",1
+35,Let’s get serious about GME,https://www.reddit.com/r/wallstreetbets/comments/kk0eww/lets_get_serious_about_gme/,2020-12-25 10:08:08,"Let me preface this post by saying over half of my portfolio is in GME. I believe in the company, and think they could make a comeback within the next year. I understand the whole Xbox and PS5 fiasco will gain them plentiful profits, and they are a main source of games for a lot of people without access to online stores and the like around the globe, but I have some doubts. 
+
+Cohen was a great pump. He raised moral regarding the stock and reinstated a lot of people’s faith in the company. If he were to do a full on hostile takeover this could go really, really well. 
+
+However, there are many alternative situations we could find ourselves in. What if he’s just being an evil cuck and plans to pump and dump this rally? What if he just decides he isn’t into the idea anymore and bails? 
+
+Furthermore, sure GameStops obvious next move is gaming e-commerce, but with Origin, Epic, Steam and more, there are already too many online gaming platforms at this point in my opinion. Perhaps they’ll mean to move into primarily shipping physical copies? Even then, why wouldn’t I simply order a game off Amazon?
+
+Like I said, I’m all for GameStop as a stock, fuck a gay ass bear, and GME to the moon 🚀🚀🚀🚀🚀 but there may be more that needs to be discussed here. Also, there’s probably some main points I may be missing here regarding this newfound faith in GameStop, so please inform me if I am.",0
+36,The boomer pessimist long term potential of GME,https://www.reddit.com/r/wallstreetbets/comments/kjpzqq/the_boomer_pessimist_long_term_potential_of_gme/,2020-12-24 19:35:21,"I spent some time doing some more DD on GME and visionary thinking and I don’t believe fundamentally it has a way forward without making a hardcore right turn steam like video game console platform
+
+I was invested in GME and I sold off at about 20$ just to ride the train and I was considering dumping a few K in it but upon considering it a potential short term gain, I can't see the long term future for gamestop (and the stock market is future looking.... as you see with these insane EV plays).
+First some points to consider - I'm not going to explain them all because you are all intelligent enough:
+
+-PC Gaming (how did this evolve) 
+-DVD/Blu Ray Sales (growth trends) 
+-XBox Game Pass 
+-Stadia 
+-Mobile Gaming 
+-Current Trends in YoY Physical/Digital Video Game Trends
+ -Cheaper Storage on devices (SSD, external drives etc...) 
+-Better Internet Service (starlink, fibre installations etc...) 
+-Facebook Marketplace/Kijiji/Craigslist -The Giants (Amazon, Best Buy, Walmart etc....) 
+-Chewy selling undigitiseable goods 
+-Ryan Cohen is a one hit wonder? 
+-Blockbuster 
+-HMV
+
+The Short Squeeze Theory 
+If any catalyst was the short squeeze, its RC's increased position in GME. That generated 30% gains. If a 30% gain is not enough to trigger a short squeeze, then what is? This is the second 30% gain recently - I guess the Oct 8, Microsoft announcement was the first. 
+
+How does Gamestop have a rosy future, 
+where is its niche? 
+
+The only thing I can thing of that would be an epic play would be drone video game delivery. They have so many locations they can have a video game delivered by drone . A combination of super fast video game delivery and making a central video game console system à la steam is the only real way forward. Everything else is a distraction. Drones, Boardgames and video games hardware accessories might have a spot, however this would take a very motivated workforce.
+
+I'm not saying its not undervalued even today and could be even a win short term but all signs and historical examples point to decline.",0
+37,Alibaba,https://www.reddit.com/r/wallstreetbets/comments/kjm3jb/alibaba/,2020-12-24 15:21:09,"Listen up retards! Ok Alibaba went down on some bullshit news that the Pinko are investigating. Investigations of what? That they were about to moon because of Covid? Man you guys are hating! Anyways check this out.. BABA... that shit dropped back to all time average price ($220 something) (CIA don’t kill me ..hire me)... You have a progressive company with a 631.1B market cap worth 220 a share?? Lol boomers who are you fooling, this is our time. 
+
+I don’t have to dive too deep as to why WSB should be buying this stock at its price right now.. unless you don’t want your account looking like Sir Whats his face account. It’s Alibaba for fuck sakes. I made money selling hidden cams on Amazon buying bulk from these guys. Use your imagination on comments for the review section.. yeah fuck you too Jerry. 
+
+TL;DR: This shit was a paragraph long... Buy Alibaba.
+
+Edit: I just looked at the price.. it dropped to 211... and sparked 222... for you options boys do the math.. I’m only trying to make you rich here, retart!!!",0
+38,"Hello $BABA holders, please don't $ROPE",https://www.reddit.com/r/wallstreetbets/comments/kjikuv/hello_baba_holders_please_dont_rope/,2020-12-24 11:53:03,"I am Chinese, or used to be years ago at least by nationality. I am not going to post Chinese news article detailing the entire power struggle, just English. I mean, you monkeys can't read moon runes.
+
+You see, the power struggle has been happening since Alibaba and Jack Ma became the ecommerce god of China, like Jeff ""the bald Grinch"" Bezos did with Amazon in America. China are commies, worshipping anyone but the party is illegal. That is why despite the profits and everything else, they are still sitting at 300+ and not flying like AMZN. Chinese know the power struggles all to well, smart ones will avoid it like plague. Not even Chinese boomers are touching it.
+
+https://asia.nikkei.com/Politics/Mystery-video-suggests-power-struggle-in-China
+
+The previous power struggles resulted in Ma forced out of CEO position in 2018, cue lip service to western friends who don't give a fuck just to make sure BABA don't drop. 
+
+https://www.google.com/amp/s/www.cnbc.com/amp/2019/10/18/alibabas-jack-ma-spent-10-years-preparing-for-his-retirement.html
+
+But like anyone who had felt the power trip of being the richest and most powerful man before, Ma could not stay retired and out of the limelight for long.
+
+So he came out of retirement with the biggest fintech IPO in Asia, Ant Group. Now, that really pisses the Emperor off. Recognising his efforts in revolutionalizing ecommerse, Emperor Xi decided to let him spend the rest of his life in retirement... like a charity case. Yet he decides to step in limelight again, and overshadow the most ~~paranoid and insecure~~ powerful man in all of China?! Well Emperor is the party and party is the Emperor, now Emperor finally decides that you must be removed. Especially when they are showing the entire China the power and money capitalism brings. Cue CCP vs CEO power struggle round 2, except this time they are clashing in the open.
+
+https://asia.nikkei.com/Editor-s-Picks/China-up-close/Analysis-Xi-sees-Alibaba-and-Tencent-as-rising-threats-to-power
+
+""Wait so why western crowds don't know???""
+
+Uh you retards know you don't read right?
+
+So what happens?
+
+Buy the dip??
+
+Cut losses and run???
+
+Answer is simple:
+
+If you are holding stocks then just keep holding it. BABA isn't going anywhere, they are the ecommerce monopoly along with Tencent in almost the entire Asia. The dip will not stop until power struggle turmoil is over, it will get even uglier over the months as Politburo falsify more charges to threaten the CEOs to back down.
+
+Recover your call losses with puts, it really is that easy.
+
+I have no options in it because I hate commies and know how they work. So until there is a clear winner in the power struggle, I am not gonna be a bad retard. If you want to listen, cool. If you think it's the dip you were waiting for, good luck with welfare because I tried. Then again I YOLO 50k each on GME and PLTR so what do I know? 🚀",1
