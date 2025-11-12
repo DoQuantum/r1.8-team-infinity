@@ -23,8 +23,9 @@ import torch
 
 from sklearn.metrics import accuracy_score, precision_score
 
-target_stock = "Microsoft" # Manually change, for now
-target_csv = f'readingArticles_{target_stock}.csv'
+target_stocks = ["AAPL", "AMZN", "GOOG", "JPM", "MSFT"]
+target_index = 0 #AAPL
+target_csv = f'readingArticles_{target_stocks[target_index]}.csv'
 target_from = '2020-01-01'
 target_to = '2021-01-01'
 
@@ -199,11 +200,13 @@ def export_to_csv(articles, filename=target_csv):
     df.to_csv(filename, index=False, encoding="utf-8")
     print(f"Exported {len(df)} articles to {filename}")
 
-if __name__ == "__main__":
+def run_company(index):
+    global target_csv
     start_total = time.time()
     start_article_get = time.time()
-    topic = target_stock
-    print(f"Searching for '{topic}' articles from 2020–2024...")
+    topic = target_stocks[index]
+    target_csv = f'readingArticles_{target_stocks[index]}.csv'
+    print(f"Searching for '{topic}' articles from {target_from} to {target_to}...")
     results = scrape_google_news(topic)
     results_with_text = getArticleContent(results)
     getSentiments(results_with_text)
@@ -211,9 +214,15 @@ if __name__ == "__main__":
     end_article_get = time.time()
     #start_acc_eval = time.time()
     #evaluate_accuracy()
-
     print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
     #end_acc_eval = time.time()
     #print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
     end_total = time.time()
     print(f"\nTotal program runtime: {end_total - start_total:.2f} seconds")
+
+if __name__ == "__main__":
+    run_company(0)
+
+    # RUN ALL
+    # for i in range(5):
+    #     run_company(i)
