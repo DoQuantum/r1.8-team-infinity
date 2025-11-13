@@ -26,7 +26,7 @@ from sklearn.metrics import accuracy_score, precision_score
 target_stocks = ["AAPL", "AMZN", "GOOG", "JPM", "MSFT"]
 target_index = 0 # AAPL
 num_articles = 20
-run_all = False
+run_all = True
 target_csv = ''
 target_from = '2020-01-01'
 target_to = '2021-01-01'
@@ -197,7 +197,7 @@ def evaluate_accuracy():
     print(f"Accuracy: {acc:.3f}")
     print(f"Precision (macro): {prec:.3f}")
 
-def export_to_csv(articles, filename=target_csv):
+def export_to_csv(articles, filename):
     df = pd.DataFrame(articles)
     df.to_csv(filename, index=False, encoding="utf-8")
     print(f"Exported {len(df)} articles to {filename}")
@@ -212,7 +212,7 @@ def run_company(index):
     results = scrape_google_news(topic)
     results_with_text = getArticleContent(results)
     getSentiments(results_with_text)
-    export_to_csv(results_with_text)
+    export_to_csv(results_with_text, target_csv)
     end_article_get = time.time()
     #start_acc_eval = time.time()
     #evaluate_accuracy()
