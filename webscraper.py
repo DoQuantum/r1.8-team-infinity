@@ -23,13 +23,14 @@ import torch
 
 from sklearn.metrics import accuracy_score, precision_score
 
-target_stocks = ["AAPL", "AMZN", "GOOG", "JPM", "MSFT"]
+run_all = True
+target_stocks = list(pd.read_csv("targetStocks.csv")['stock'])
+print(target_stocks)
 target_index = 1
-num_articles = 20
-run_all = False
+num_articles = 10
 target_csv = ''
 target_from = '2020-01-01'
-target_to = '2021-01-01'
+target_to = '2025-01-01'
 
 def get_proxies():
     url = 'https://free-proxy-list.net/'
@@ -83,8 +84,6 @@ def resolve_google_news_url(google_news_url):
     except Exception as e:
         print(f"Error occurred: {e}")
         return google_news_url
-
-
 
 def scrape_google_news(keyword, start=target_from, end=target_to):
 
@@ -206,7 +205,7 @@ def run_company(index):
     start_total = time.time()
     start_article_get = time.time()
     topic = target_stocks[index]
-    target_csv = f'readingArticles_{target_stocks[index]}.csv'
+    target_csv = f'sentiment-data/articles_{target_stocks[index]}.csv'
     print(f"Searching for '{topic}' articles from {target_from} to {target_to}...")
     results = scrape_google_news(topic)
     results_with_text = getArticleContent(results)
@@ -223,7 +222,7 @@ def run_company(index):
 
 if __name__ == "__main__":
     if run_all:
-        for i in range(5):
+        for i in range(30):
             run_company(i)
     else:
         run_company(target_index)
