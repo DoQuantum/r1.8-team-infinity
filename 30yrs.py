@@ -22,6 +22,13 @@ START_DATE = "2020-01-01"
 END_DATE = "2023-12-31"
 MAX_POSTS_PER_TICKER = 800
 
+SUBREDDITS = [
+    "wallstreetbets",
+    "CorporateNews",
+    "Quantisnow",
+    "ValueInvesting",
+]
+
 # NEW constraints
 MIN_TICKER_POSTS = 20
 TICKER_QUERY_TIMEOUT_SEC = 120  # 2 minutes
@@ -262,6 +269,96 @@ def predict_sentiment(posts, batch_size=16, max_length=192):
             posts[post_i]["sentiment"] = reverse_map.get(lab, 0)
 
     return posts
+
+def fetch_posts_across_subreddits(
+    query: str,
+    ticker_label: str,
+    subreddits,
+    after_ts: int,
+    before_ts: int,
+    max_posts=None,
+    max_seconds=None,
+):
+    t0 = time.monotonic()
+    all_posts = []
+
+    for sr in subreddits:
+        if max_seconds is not None:
+            remaining_time = max_seconds - (time.monotonic() - t0)
+            if remaining_time <= 0:
+                break
+        else:
+            remaining_time = None
+
+        remaining_posts = None
+        if max_posts is not None:
+            remaining_posts = max_posts - len(all_posts)
+            if remaining_posts <= 0:
+                break
+
+        posts = fetch_posts_pullpush(
+            query=query,
+            ticker_label=ticker_label,
+            subreddit=sr,
+            after_ts=after_ts,
+            before_ts=before_ts,
+            max_posts=remaining_posts,
+            max_seconds=remaining_time,
+        )
+        all_posts.extend(posts)
+        all_posts = _dedupe_posts(all_posts)
+
+        if max_posts is not None and len(all_posts) >= max_posts:
+            break
+
+    return all_posts
+
+def fetch_with_constraints(ticker: str, company_name: str):
+    ticker = str(ticker).strip().upper()
+    company_name = str(company_name).strip()
+
+    t0 = time.monotonic()
+    posts_t = fetch_posts_across_subreddits(
+        ticker, ticker, SUBREDDITS, START_TS, END_TS,
+        max_posts=MAX_POSTS_PER_TICKER,
+        max_seconds=TICKER_QUERY_TIMEOUT_SEC
+    )
+    elapsed = time.monotonic() - t0
+
+    if elapsed >= TICKER_QUERY_TIMEOUT_SEC:
+        posts_name = fetch_posts_across_subreddits(
+            company_name, ticker, SUBREDDITS, START_TS, END_TS,
+            max_posts=MAX_POSTS_PER_TICKER
+        )
+        return _dedupe_posts(posts_name), "name_timeout"
+
+    remaining_time = max(1.0, TICKER_QUERY_TIMEOUT_SEC - elapsed)
+
+    t1 = time.monotonic()
+    posts_dollar = fetch_posts_across_subreddits(
+        f"${ticker}", ticker, SUBREDDITS, START_TS, END_TS,
+        max_posts=MAX_POSTS_PER_TICKER,
+        max_seconds=remaining_time
+    )
+    elapsed2 = time.monotonic() - t1
+
+    if (elapsed + elapsed2) >= TICKER_QUERY_TIMEOUT_SEC:
+        posts_name = fetch_posts_across_subreddits(
+            company_name, ticker, SUBREDDITS, START_TS, END_TS,
+            max_posts=MAX_POSTS_PER_TICKER
+        )
+        return _dedupe_posts(posts_name), "name_timeout"
+
+    combined = _dedupe_posts(posts_t + posts_dollar)
+
+    if len(combined) < MIN_TICKER_POSTS:
+        posts_name = fetch_posts_across_subreddits(
+            company_name, ticker, SUBREDDITS, START_TS, END_TS,
+            max_posts=MAX_POSTS_PER_TICKER
+        )
+        return _dedupe_posts(posts_name), "name_lowcount"
+
+    return combined, "ticker_ok"
 
 if __name__ == "__main__":
     ticker_company_pairs = load_ticker_company_pairs(SPREADSHEET_PATH)
