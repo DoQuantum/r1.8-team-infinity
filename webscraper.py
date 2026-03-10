@@ -215,7 +215,7 @@ def run_company(index):
                 # then create it.
                 os.makedirs(f"sentiment-data/articles_{target_stocks[index]}")
         target_csv = f'sentiment-data/articles_{target_stocks[index]}/{year}.csv'
-        for month in range (1,12+1):
+        for month in range (1,13):
             start = f"{year}-{month}-1"
             end = f"{year}-{month}-31"
             print(f"Searching for '{topic}' articles from {start} to {end}...")
