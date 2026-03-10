@@ -28,12 +28,10 @@ run_all = True
 target_stocks = list(pd.read_csv("targetStocks.csv")['stock'])
 print(target_stocks)
 target_index = 1
-num_articles = 1000
+num_articles = 10
 target_csv = ''
 target_from_year = 2020
 target_to_year = 2023
-target_from = '2020-01-01'
-target_to = '2023-12-31'
 
 def get_proxies():
     url = 'https://free-proxy-list.net/'
@@ -92,7 +90,7 @@ def scrape_google_news(keyword, start, end):
 
     """Fetch articles from Google News RSS within the date range."""
     query = f"{keyword} after:{start} before:{end}"
-    url = f"https://news.google.com/rss/search?q={query.replace(' ', '+')}"
+    url = f"https://news.google.com/rss/search?q={query.replace(' ', '+')}&tbs=qdr:d"
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(url, headers=headers, allow_redirects=True)
     soup = BeautifulSoup(response.content, "xml")
@@ -205,33 +203,44 @@ def export_to_csv(articles, filename):
 
 def run_company(index):
     global target_csv
-    start_total = time.time()
+    # start_total = time.time()
     start_article_get = time.time()
     topic = target_stocks[index]
-    
+    target_csv = f'sentiment-data/articles_{target_stocks[index]}.csv'
+    results = pd.DataFrame()
+    days = [31,28,31,30,31,30,31,31,30,31,30,31]
     for year in range (target_from_year,target_to_year+1):
-        if not os.path.exists(f"sentiment-data/articles_{target_stocks[index]}"):
-                # if the demo_folder directory is not present 
-                # then create it.
-                os.makedirs(f"sentiment-data/articles_{target_stocks[index]}")
-        target_csv = f'sentiment-data/articles_{target_stocks[index]}/{year}.csv'
         for month in range (1,13):
-            start = f"{year}-{month}-1"
-            end = f"{year}-{month}-31"
-            print(f"Searching for '{topic}' articles from {start} to {end}...")
-            results = scrape_google_news(topic,start,end)
-            # results_with_text = getArticleContent(results)
-            # getSentiments(results_with_text)
-            export_to_csv(results, target_csv)
-            end_article_get = time.time()
-            #start_acc_eval = time.time()
-            #evaluate_accuracy()
-            print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
-            #end_acc_eval = time.time()
-            #print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
-            end_total = time.time()
-            print(f"\nTotal program runtime: {end_total - start_total:.2f} seconds")
+            for day in range(1,days[month - 1]+1):
+                start = f"{year}-{month}-{day}"
+                # Edge cases for end date
+                if day == days[month - 1]:
+                    if month == 12:
+                        end = f"{year+1}-1-1"
+                    else:
+                        end = f"{year}-{month+1}-1"
+                else:
+                    end = f"{year}-{month}-{day}"
+                # Get URLs, content, and sentiments for each article
+                print(f"Searching for '{topic}' articles from {start} to {end}...")
+                results_day = scrape_google_news(topic,start,end)
+                results_day = getArticleContent(results_day)
+                getSentiments(results_day)
+                # TODO
+                # for each row, add to total and divide by # of rows
+                # add row (date,avg sentiment) to the results dataframe
+                avg_sentiment = 0
 
+
+                end_article_get = time.time()
+                print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
+                #start_acc_eval = time.time()
+                #evaluate_accuracy()
+                #end_acc_eval = time.time()
+                #print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
+                # end_total = time.time()
+                # print(f"\nTotal program runtime: {end_total - start_total:.2f} seconds")
+    export_to_csv(results, target_csv)
 if __name__ == "__main__":
     if run_all:
         for i in range(30):
