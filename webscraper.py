@@ -1,3 +1,4 @@
+# import modules
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -27,10 +28,12 @@ run_all = True
 target_stocks = list(pd.read_csv("targetStocks.csv")['stock'])
 print(target_stocks)
 target_index = 1
-num_articles = 10
+num_articles = 1000
 target_csv = ''
+target_from_year = 2020
+target_to_year = 2023
 target_from = '2020-01-01'
-target_to = '2025-01-01'
+target_to = '2023-12-31'
 
 def get_proxies():
     url = 'https://free-proxy-list.net/'
@@ -85,7 +88,7 @@ def resolve_google_news_url(google_news_url):
         print(f"Error occurred: {e}")
         return google_news_url
 
-def scrape_google_news(keyword, start=target_from, end=target_to):
+def scrape_google_news(keyword, start, end):
 
     """Fetch articles from Google News RSS within the date range."""
     query = f"{keyword} after:{start} before:{end}"
@@ -205,20 +208,29 @@ def run_company(index):
     start_total = time.time()
     start_article_get = time.time()
     topic = target_stocks[index]
-    target_csv = f'sentiment-data/articles_{target_stocks[index]}.csv'
-    print(f"Searching for '{topic}' articles from {target_from} to {target_to}...")
-    results = scrape_google_news(topic)
-    results_with_text = getArticleContent(results)
-    getSentiments(results_with_text)
-    export_to_csv(results_with_text, target_csv)
-    end_article_get = time.time()
-    #start_acc_eval = time.time()
-    #evaluate_accuracy()
-    print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
-    #end_acc_eval = time.time()
-    #print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
-    end_total = time.time()
-    print(f"\nTotal program runtime: {end_total - start_total:.2f} seconds")
+    
+    for year in range (target_from_year,target_to_year+1):
+        if not os.path.exists(f"sentiment-data/articles_{target_stocks[index]}"):
+                # if the demo_folder directory is not present 
+                # then create it.
+                os.makedirs(f"sentiment-data/articles_{target_stocks[index]}")
+        target_csv = f'sentiment-data/articles_{target_stocks[index]}/{year}.csv'
+        for month in range (1,12+1):
+            start = f"{year}-{month}-1"
+            end = f"{year}-{month}-31"
+            print(f"Searching for '{topic}' articles from {start} to {end}...")
+            results = scrape_google_news(topic,start,end)
+            # results_with_text = getArticleContent(results)
+            # getSentiments(results_with_text)
+            export_to_csv(results, target_csv)
+            end_article_get = time.time()
+            #start_acc_eval = time.time()
+            #evaluate_accuracy()
+            print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
+            #end_acc_eval = time.time()
+            #print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
+            end_total = time.time()
+            print(f"\nTotal program runtime: {end_total - start_total:.2f} seconds")
 
 if __name__ == "__main__":
     if run_all:
