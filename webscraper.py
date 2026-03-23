@@ -168,7 +168,7 @@ def getSentiments(df_articles):
         sentiment.append(sentiment_labels[idx])
         print(f"Article {i+1}: {sentiment_labels[idx]}  ->  {txt[i][:80]}...")
     df_articles['sentiment'] = sentiment
-    df_articles.to_csv(target_csv, index=False, quoting=csv.QUOTE_ALL)
+    return df_articles
 
 def evaluate_accuracy():
     print("\nEvaluating accuracy using sentences_allagree.csv")
@@ -212,6 +212,7 @@ def run_company(index):
     for year in range (target_from_year,target_to_year+1):
         for month in range (1,13):
             for day in range(1,days[month - 1]+1):
+                results_day = pd.DataFrame()
                 start = f"{year}-{month}-{day}"
                 # Edge cases for end date
                 if day == days[month - 1]:
@@ -224,25 +225,30 @@ def run_company(index):
                 # Get URLs, content, and sentiments for each article
                 print(f"Searching for '{topic}' articles from {start} to {end}...")
                 results_day = scrape_google_news(topic,start,end)
-                results_day = getArticleContent(results_day)
-                getSentiments(results_day)
-                # for each row, add to total and divide by # of rows
-                # add row (date,avg sentiment) to the results dataframe
-                avg_sentiment = 0.0
-                num_articles = 0
-                for sentiment in results_day['sentiment']:
-                    avg_sentiment = avg_sentiment + sentiment
-                    num_articles = num_articles + 1
-                avg_sentiment = avg_sentiment / num_articles
-                pd.concat([results,pd.DataFrame({'date':[start],'avg_sentiment':[avg_sentiment]})],ignore_index=True)
-                end_article_get = time.time()
-                print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
-                #start_acc_eval = time.time()
-                #evaluate_accuracy()
-                #end_acc_eval = time.time()
-                #print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
-                # end_total = time.time()
-                # print(f"\nTotal program runtime: {end_total - start_total:.2f} seconds")
+
+                if not results_day.empty:
+                    results_day = getArticleContent(results_day)
+                    results_day = getSentiments(results_day)
+                    # for each row, add to total and divide by # of rows
+                    # add row (date,avg sentiment) to the results dataframe
+                    avg_sentiment = 0.0
+                    num_articles = 0
+                    for sentiment in results_day['sentiment']:
+                        avg_sentiment = avg_sentiment + sentiment
+                        num_articles = num_articles + 1
+                    avg_sentiment = avg_sentiment / num_articles
+                    pd.concat([results,pd.DataFrame({'date':[start],'avg_sentiment':[avg_sentiment]})],ignore_index=True)
+                    end_article_get = time.time()
+                    print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
+                    print(f"avg sentiment for {start}: {avg_sentiment}")
+                    #start_acc_eval = time.time()
+                    #evaluate_accuracy()
+                    #end_acc_eval = time.time()
+                    #print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
+                    # end_total = time.time()
+                    # print(f"\nTotal program runtime: {end_total - start_total:.2f} seconds")
+                else:
+                    print("no articles found")
     export_to_csv(results, target_csv)
 if __name__ == "__main__":
     if run_all:
