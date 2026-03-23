@@ -220,18 +220,21 @@ def run_company(index):
                     else:
                         end = f"{year}-{month+1}-1"
                 else:
-                    end = f"{year}-{month}-{day}"
+                    end = f"{year}-{month}-{day+1}"
                 # Get URLs, content, and sentiments for each article
                 print(f"Searching for '{topic}' articles from {start} to {end}...")
                 results_day = scrape_google_news(topic,start,end)
                 results_day = getArticleContent(results_day)
                 getSentiments(results_day)
-                # TODO
                 # for each row, add to total and divide by # of rows
                 # add row (date,avg sentiment) to the results dataframe
-                avg_sentiment = 0
-
-
+                avg_sentiment = 0.0
+                num_articles = 0
+                for sentiment in results_day['sentiment']:
+                    avg_sentiment = avg_sentiment + sentiment
+                    num_articles = num_articles + 1
+                avg_sentiment = avg_sentiment / num_articles
+                pd.concat([results,pd.DataFrame({'date':[start],'avg_sentiment':[avg_sentiment]})],ignore_index=True)
                 end_article_get = time.time()
                 print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
                 #start_acc_eval = time.time()
