@@ -2,12 +2,6 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-import csv
-from newspaper import Article
-from datetime import datetime as time
-from dotenv import load_dotenv
-import os
-import requests
 from newspaper import Article
 from fake_useragent import UserAgent
 import time
@@ -15,7 +9,6 @@ import random
 from lxml.html import fromstring
 import urllib3
 from urllib.parse import quote
-import re
 from urllib.parse import unquote
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 from googlenewsdecoder import gnewsdecoder

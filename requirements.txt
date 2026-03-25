@@ -1,5 +1,11 @@
+requests==2.32.5
+bs4==0.0.2
 pandas==2.2.2
-dotenv==0.9.9
-lxml==6.0.0
 newspaper3k==0.2.8
+dotenv==0.9.9
 fake_useragent==2.2.0
+lxml==6.0.0
+urllib3==2.6.3
+googlenewsdecoder==0.1.7
+transformers==5.2.0
+torch==2.10.0
