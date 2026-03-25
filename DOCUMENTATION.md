@@ -1,10 +1,5 @@
 # Portfolio Optimization Research — Team Documentation
 
-**Author:** Manoj  
-**Last Updated:** March 2026  
-**Environment:** `port7` (conda), Python 3.9  
-**Data Source:** Bloomberg Terminal CSV + yfinance supplements
-
 ---
 
 ## What This Project Actually Does
