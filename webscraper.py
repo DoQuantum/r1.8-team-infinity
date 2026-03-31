@@ -2,25 +2,27 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-import csv
 from newspaper import Article
 from datetime import datetime as time
 from dotenv import load_dotenv
-import os
-import requests
-from newspaper import Article
 from fake_useragent import UserAgent
 import time
 import random
 from lxml.html import fromstring
 import urllib3
 from urllib.parse import quote
-import re
 from urllib.parse import unquote
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 from googlenewsdecoder import gnewsdecoder
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
+
+import asyncio
+import aiohttp
+import requests
+from lxml.html import fromstring
+
+TEST_URL = "https://httpbin.org/ip"
 
 from sklearn.metrics import accuracy_score, precision_score
 
@@ -33,43 +35,116 @@ target_csv = ''
 target_from_year = 2020
 target_to_year = 2023
 
-def get_proxies():
-    url = 'https://free-proxy-list.net/'
+def scrape_proxies():
+    url = "https://free-proxy-list.net/"
     response = requests.get(url)
     parser = fromstring(response.text)
+
     proxies = []
-    for i in parser.xpath('//tbody/tr')[:100]:
+    for i in parser.xpath("//tbody/tr")[:100]:
         if i.xpath('.//td[7][contains(text(),"yes")]'):
-            proxy = ":".join([i.xpath('.//td[1]/text()')[0],
-                              i.xpath('.//td[2]/text()')[0]])
+            proxy = ":".join([
+                i.xpath(".//td[1]/text()")[0],
+                i.xpath(".//td[2]/text()")[0]
+            ])
             proxies.append(proxy)
 
-    print(f"Scraped {len(proxies)} proxies, now testing them...")
-    alive_proxies = []
-    test_url = "https://httpbin.org/ip"
-    for proxy in proxies:
-        try:
-            r = requests.get(test_url,
-                             proxies={"http": f"http://{proxy}", "https": f"http://{proxy}"},
-                             timeout=5)
-            if r.status_code == 200:
-                alive_proxies.append(proxy)
-        except:
-            continue
-    print(f"Final working proxies: {len(alive_proxies)}")
-    return alive_proxies
+    return proxies
 
-def fetch_with_proxies(url, headers, proxies_list, max_retries=3):
-    for _ in range(max_retries):
-        proxy = random.choice(proxies_list) if proxies_list else None
-        PROXIES = {"http": f"http://{proxy}", "https": f"http://{proxy}"} if proxy else None
-        try:
-            resp = requests.get(url, headers=headers, proxies=PROXIES, timeout=15, verify=False)
-            if resp.status_code == 200:
-                return resp.text
-        except:
-            continue
+
+async def test_proxy(session, proxy):
+    try:
+        proxy_url = f"http://{proxy}"
+        async with session.get(TEST_URL, proxy=proxy_url, timeout=3) as resp:
+            if resp.status == 200:
+                return proxy
+    except:
+        return None
+
+
+async def check_proxies(proxies):
+    timeout = aiohttp.ClientTimeout(total=3)
+
+    connector = aiohttp.TCPConnector(limit=200)
+
+    async with aiohttp.ClientSession(timeout=timeout, connector=connector) as session:
+        tasks = [test_proxy(session, proxy) for proxy in proxies]
+        results = await asyncio.gather(*tasks)
+
+    return [p for p in results if p]
+
+
+def get_proxies():
+    proxies = scrape_proxies()
+    print(f"Scraped {len(proxies)} proxies, testing...")
+
+    alive = asyncio.run(check_proxies(proxies))
+
+    print(f"Working proxies: {len(alive)}")
+    return alive
+
+
+async def fetch_with_proxies(url, headers, proxies_list, max_retries=3):
+    timeout = aiohttp.ClientTimeout(total=15)
+
+    async with aiohttp.ClientSession(timeout=timeout) as session:
+        for _ in range(max_retries):
+            proxy = random.choice(proxies_list) if proxies_list else None
+            proxy_url = f"http://{proxy}" if proxy else None
+
+            try:
+                async with session.get(
+                    url,
+                    headers=headers,
+                    proxy=proxy_url,
+                    ssl=False
+                ) as resp:
+
+                    if resp.status == 200:
+                        return await resp.text()
+
+            except:
+                continue
+
     return None
+
+# def get_proxies():
+#     url = 'https://free-proxy-list.net/'
+#     response = requests.get(url)
+#     parser = fromstring(response.text)
+#     proxies = []
+#     for i in parser.xpath('//tbody/tr')[:100]:
+#         if i.xpath('.//td[7][contains(text(),"yes")]'):
+#             proxy = ":".join([i.xpath('.//td[1]/text()')[0],
+#                               i.xpath('.//td[2]/text()')[0]])
+#             proxies.append(proxy)
+
+#     print(f"Scraped {len(proxies)} proxies, now testing them...")
+#     alive_proxies = []
+#     test_url = "https://httpbin.org/ip"
+#     for proxy in proxies:
+#         try:
+#             r = requests.get(test_url,
+#                              proxies={"http": f"http://{proxy}", "https": f"http://{proxy}"},
+#                              timeout=2)
+#             if r.status_code == 200:
+#                 alive_proxies.append(proxy)
+#         except:
+#             continue
+#     print(f"Final working proxies: {len(alive_proxies)}")
+#     return alive_proxies
+
+# def fetch_with_proxies(url, headers, proxies_list, max_retries=3):
+#     for _ in range(max_retries):
+#         proxy = random.choice(proxies_list) if proxies_list else None
+#         PROXIES = {"http": f"http://{proxy}", "https": f"http://{proxy}"} if proxy else None
+#         try:
+#             resp = requests.get(url, headers=headers, proxies=PROXIES, timeout=2, verify=False)
+#             if resp.status_code == 200:
+#                 return resp.text
+#         except:
+#             continue
+#     return None
 
 def resolve_google_news_url(google_news_url):
     interval_time = 1  # interval is optional, default is None
@@ -153,9 +228,19 @@ def getSentiments(df_articles):
     tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
     model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
     txt = []
-    for index, row in df_articles.iterrows():
+    for index,row in df_articles.iterrows():
         txt.append(row['title'] + " " + row['content'])
-    inputs = tokenizer(txt, padding=True, truncation=True, return_tensors="pt")
+    txt = [t for t in txt if t.strip()]
+    if len(txt) == 0:
+        return []
+    try:
+        inputs = tokenizer(txt, padding=True, truncation=True, return_tensors="pt")
+    except:
+        print("tokenizer error; txt:")
+        for t in txt:
+            print(t)
+    
+        
     outputs = model(**inputs)
     probabilities = torch.softmax(outputs.logits, dim=1)
 
@@ -168,6 +253,7 @@ def getSentiments(df_articles):
         sentiment.append(sentiment_labels[idx])
         print(f"Article {i+1}: {sentiment_labels[idx]}  ->  {txt[i][:80]}...")
     df_articles['sentiment'] = sentiment
+    export_to_csv(df_articles, target_csv)
     return df_articles
 
 def evaluate_accuracy():
@@ -225,28 +311,16 @@ def run_company(index):
                 # Get URLs, content, and sentiments for each article
                 print(f"Searching for '{topic}' articles from {start} to {end}...")
                 results_day = scrape_google_news(topic,start,end)
+                results_day = getArticleContent(results_day)
+                results_day = getSentiments(results_day)
 
-                if not results_day.empty:
-                    results_day = getArticleContent(results_day)
-                    results_day = getSentiments(results_day)
-                    # for each row, add to total and divide by # of rows
-                    # add row (date,avg sentiment) to the results dataframe
-                    avg_sentiment = 0.0
-                    num_articles = 0
-                    for sentiment in results_day['sentiment']:
-                        avg_sentiment = avg_sentiment + sentiment
-                        num_articles = num_articles + 1
-                    avg_sentiment = avg_sentiment / num_articles
+                if results_day is not None and not results_day.empty and 'sentiment' in results_day.columns:
+                    avg_sentiment = results_day['sentiment'].mean()
                     pd.concat([results,pd.DataFrame({'date':[start],'avg_sentiment':[avg_sentiment]})],ignore_index=True)
+                    export_to_csv(results,target_csv)
                     end_article_get = time.time()
                     print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
                     print(f"avg sentiment for {start}: {avg_sentiment}")
-                    #start_acc_eval = time.time()
-                    #evaluate_accuracy()
-                    #end_acc_eval = time.time()
-                    #print(f"Accuracy evaluation took {end_acc_eval - start_acc_eval:.2f} seconds")
-                    # end_total = time.time()
-                    # print(f"\nTotal program runtime: {end_total - start_total:.2f} seconds")
                 else:
                     print("no articles found")
     export_to_csv(results, target_csv)
