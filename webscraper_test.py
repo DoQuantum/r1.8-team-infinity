@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 from newspaper import Article
-import time                                         # FIX 4: only import time, not datetime as time
+import time                                         
 import random
 from lxml.html import fromstring
 import urllib3
@@ -16,7 +16,8 @@ import torch
 import asyncio
 import aiohttp
 import calendar  
-from fake_useragent import UserAgent                                   # FIX 5: for correct days-in-month including leap years
+from fake_useragent import UserAgent          
+from pathlib import Path                       
 
 from sklearn.metrics import accuracy_score, precision_score
 
@@ -171,7 +172,7 @@ def getArticleContent(df_articles):
 
     df_articles['authors'] = authors
     df_articles['content'] = contents
-    df_articles = df_articles.iloc[to_keep].reset_index(drop=True)  # FIX 6: reset index after filtering
+    df_articles = df_articles.iloc[to_keep].reset_index(drop=True)  
     return df_articles
 
 
@@ -186,7 +187,7 @@ def getSentiments(df_articles):
     txt = [t for t in txt if t.strip()]
 
     if len(txt) == 0:
-        return None                                 # FIX 2: return None instead of [] so .empty check works
+        return None                              
 
     try:
         inputs = tokenizer(txt, padding=True, truncation=True, return_tensors="pt")
@@ -194,7 +195,7 @@ def getSentiments(df_articles):
         print(f"Tokenizer error: {e}")
         for t in txt:
             print(t)
-        return None                                 # FIX 2: return None on tokenizer failure too
+        return None                                 
 
     outputs = model(**inputs)
     probabilities = torch.softmax(outputs.logits, dim=1)
@@ -210,7 +211,6 @@ def getSentiments(df_articles):
         print(f"Article {i+1}: {sentiment_labels[idx]}  ->  {txt[i][:80]}...")
 
     df_articles['sentiment'] = sentiment
-    export_to_csv(df_articles, target_csv)
     return df_articles
 
 
@@ -242,7 +242,18 @@ def evaluate_accuracy():
 
 def export_to_csv(articles, filename):
     df = pd.DataFrame(articles)
-    df.to_csv(filename, index=False, encoding="utf-8")
+    file_path = Path(filename)
+    if file_path.is_file():
+        df.to_csv(
+        filename,
+        mode='a',      # Append mode
+        index=False,   # Do not write row index to CSV
+        header=False   # Do not write column headers (since they already exist)
+        )
+    else:
+        print(f"Error: The file {file_path} does not exist.")
+        # Handle the missing file (e.g., create an empty dataframe or exit)
+        df.to_csv(filename, index=False, encoding="utf-8")
     print(f"Exported {len(df)} articles to {filename}")
 
 
@@ -252,11 +263,19 @@ def run_company(index):
     topic = target_stocks[index]
     target_csv = f'sentiment-data/articles_{target_stocks[index]}.csv'
     results = pd.DataFrame()
-
-    for year in range(target_from_year, target_to_year + 1):
-        for month in range(1, 13):
-            days_in_month = calendar.monthrange(year, month)[1]  # FIX 5: correct days per month
-            for day in range(1, days_in_month + 1):
+    temp_year = 2020
+    if index == 0:
+        temp_year = 2020
+    for year in range(temp_year, target_to_year + 1):
+        temp_month = 1
+        if year == temp_year and index == 0:
+            temp_month = 12
+        for month in range(temp_month, 13):
+            temp_day = 1
+            if month == temp_month and index == 0:
+                temp_day = 7
+            days_in_month = calendar.monthrange(year, month)[1] 
+            for day in range(temp_day, days_in_month + 1):
                 start = f"{year}-{month}-{day}"
                 # Edge cases for end date
                 if day == days_in_month:
@@ -269,15 +288,17 @@ def run_company(index):
 
                 print(f"Searching for '{topic}' articles from {start} to {end}...")
                 results_day = scrape_google_news(topic, start, end)
-                results_day = getArticleContent(results_day)
-                results_day = getSentiments(results_day)
+                if results_day is not None and not results_day.empty:
+                    results_day = getArticleContent(results_day)
+                    results_day = getSentiments(results_day)
 
                 if results_day is not None and not results_day.empty and 'sentiment' in results_day.columns:
                     avg_sentiment = results_day['sentiment'].mean()
-                    results = pd.concat(                         # FIX 1: assign result of concat back
-                        [results, pd.DataFrame({'date': [start], 'avg_sentiment': [avg_sentiment]})],
-                        ignore_index=True
-                    )
+                    # results = pd.concat(                         # FIX 1: assign result of concat back
+                    #     [results, pd.DataFrame({'date': [start], 'avg_sentiment': [avg_sentiment]})],
+                    #     ignore_index=True
+                    # )
+                    results = pd.DataFrame({'date': [start], 'avg_sentiment': [avg_sentiment]})
                     export_to_csv(results, target_csv)
                     end_article_get = time.time()
                     print(f"Article collecting took {end_article_get - start_article_get:.2f} seconds")
