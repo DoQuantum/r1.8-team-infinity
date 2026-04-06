@@ -265,7 +265,7 @@ def export_to_csv(articles, filename):
     print(f"Exported {len(df)} articles to {filename}")
 
 
-def run_company(index,start_year,start_month):
+def run_company(index):
     global target_csv
     start_article_get = time.time()
     topic = target_stocks[index]
@@ -274,7 +274,7 @@ def run_company(index,start_year,start_month):
     temp_year = 2020
     print(index)
     if index == 0:
-        temp_year = 2023
+        temp_year = 2020
 
     for year in range(temp_year, target_to_year + 1):
         temp_month = 1
@@ -332,8 +332,7 @@ def run_company(index,start_year,start_month):
 
 if __name__ == "__main__":
     if run_all:
-        run_company(0,2023,10)
-        for i in range(1,30):
-            run_company(i,2020,1)
+        for i in range(0,30):
+            run_company(i)
     else:
         run_company(target_index)
