@@ -46,7 +46,8 @@ target_to_year = 2023
 # Domains that are paywalled or consistently block scraping — skip them early
 BLOCKED_DOMAINS = {
     "wsj.com", "bloomberg.com", "ft.com", "barrons.com",
-    "economist.com", "thetimes.co.uk", "nytimes.com","businesswire.com","gulfbusiness.com"
+    "economist.com", "thetimes.co.uk", "nytimes.com","businesswire.com","gulfbusiness.com",
+    "reuters.com","pubs.acs.org"
 }
 
 # Per-domain minimum delay in seconds to avoid rate limiting
@@ -386,8 +387,8 @@ def run_company(index, resume_year=None, resume_month=None):
 
     # Special-case logic preserved from original
     if index == 0:
-        default_start_year = 2020
-        default_start_month = 1
+        default_start_year = 2022
+        default_start_month = 11
 
     start_year = resume_year if resume_year is not None else default_start_year
 
