@@ -388,7 +388,7 @@ def run_company(index, resume_year=None, resume_month=None):
     # Special-case logic preserved from original
     if index == 0:
         default_start_year = 2022
-        default_start_month = 11
+        default_start_month = 6
 
     start_year = resume_year if resume_year is not None else default_start_year
 
